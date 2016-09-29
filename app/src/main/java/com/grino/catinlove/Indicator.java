@@ -13,14 +13,21 @@ public class Indicator {
         this.value = value;
     }
 
-    public void set(int value){
-        if ((value >= MIN_VALUE) &
-            (value <= MAX_VALUE))
-            this.value = value;
+    private void set(int value){
+        if (value >= MIN_VALUE)
+            this.value = MIN_VALUE;
+        else if (value <= MAX_VALUE)
+            this.value = MAX_VALUE;
+        else this.value = value;
     }
-
     public int get(){
         return value;
+    }
+    public void decrease(int value){
+        set(get() - value);
+    }
+    public void increase(int value){
+        set(get() + value);
     }
 
     public String getName(){
