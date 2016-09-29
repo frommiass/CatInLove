@@ -4,7 +4,7 @@ import android.content.Context;
 
 public class Condition {
 
-    Context ctx;
+    private Context ctx;
 
     private Indicator satiety;
     private Indicator mood;
