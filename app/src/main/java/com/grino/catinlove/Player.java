@@ -2,19 +2,20 @@ package com.grino.catinlove;
 
 import android.content.Context;
 
-public class Person implements Nameable{
+public class Player implements Nameable{
 
     private Context ctx;
 
     private String name;
     private Condition condition;
+    private Resources resources;
     private int level;
     private int experience;
 
-    public Person(Context ctx, String name) {
+    public Player(Context ctx, String name) {
         this.ctx = ctx;
         this.name = name;
-        condition = new Condition(ctx);
+        this.condition = new Condition(ctx);
         this.level = 0;
         this.experience = 0;
     }
