@@ -14,9 +14,9 @@ public class Condition {
 
         this.ctx = ctx;
 
-        satiety = new Indicator(ctx.getString(R.string.indicator_satiety), 100);
-        mood = new Indicator(ctx.getString(R.string.indicator_mood), 100);
-        energy = new Indicator(ctx.getString(R.string.indicator_energy), 100);
+        satiety = new Indicator(ctx.getString(R.string.indicator_satiety));
+        mood = new Indicator(ctx.getString(R.string.indicator_mood));
+        energy = new Indicator(ctx.getString(R.string.indicator_energy));
     }
 
     public void doTick(){
