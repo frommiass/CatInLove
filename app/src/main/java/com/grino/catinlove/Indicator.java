@@ -1,8 +1,7 @@
 package com.grino.catinlove;
 
 public class Indicator
-        extends Value
-        implements Nameable{
+        extends Value {
 
     private final static int MIN_INDICATOR_VALUE = 0;
     private final static int MAX_INDICATOR_VALUE = 100;
