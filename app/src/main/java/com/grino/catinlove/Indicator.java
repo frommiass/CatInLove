@@ -1,6 +1,6 @@
 package com.grino.catinlove;
 
-public class Indicator {
+public class Indicator implements Nameable{
 
     final int MIN_VALUE = 0;
     final int MAX_VALUE = 100;
@@ -30,6 +30,7 @@ public class Indicator {
         set(get() + value);
     }
 
+    @Override
     public String getName(){
         return name;
     }
