@@ -9,7 +9,6 @@ public class Resource
     public Resource(String name) {
         super(name, MIN_RESOURCE_VALUE, MAX_RESOURCE_VALUE);
 
-        setMin();
     }
 
 }

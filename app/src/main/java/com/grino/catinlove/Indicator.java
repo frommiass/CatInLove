@@ -9,7 +9,6 @@ public class Indicator
     public Indicator(String name) {
         super(name, MIN_INDICATOR_VALUE, MAX_INDICATOR_VALUE);
 
-        setMax();
     }
 
 }
