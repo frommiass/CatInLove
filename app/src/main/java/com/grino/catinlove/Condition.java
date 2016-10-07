@@ -25,4 +25,10 @@ public class Condition {
         energy.decrease(1);
     }
 
+    public void fillMax(){
+        satiety.setMax();
+        mood.setMax();
+        energy.setMax();
+    }
+
 }
