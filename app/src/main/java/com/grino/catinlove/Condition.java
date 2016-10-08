@@ -11,12 +11,19 @@ public class Condition {
     private Indicator energy;
 
     public Condition(Context ctx) {
-
         this.ctx = ctx;
-
         satiety = new Indicator(ctx.getString(R.string.indicator_satiety));
         mood = new Indicator(ctx.getString(R.string.indicator_mood));
         energy = new Indicator(ctx.getString(R.string.indicator_energy));
+
+        fillMax();
+    }
+
+    public Condition(Context ctx, int satiety, int mood, int energy) {
+        this.ctx = ctx;
+        this.satiety = new Indicator(ctx.getString(R.string.indicator_satiety), satiety);
+        this.mood = new Indicator(ctx.getString(R.string.indicator_mood), mood);
+        this.energy = new Indicator(ctx.getString(R.string.indicator_energy), energy);
     }
 
     public void doTick(){
@@ -31,4 +38,15 @@ public class Condition {
         energy.setMax();
     }
 
+    public void setSatiety(int satiety) {
+        this.satiety.set(satiety);
+    }
+
+    public void setMood(int mood) {
+        this.mood.set(mood);
+    }
+
+    public void setEnergy(int energy) {
+        this.energy.set(energy);
+    }
 }

@@ -15,7 +15,14 @@ public abstract class Value implements Nameable{
         this.value = MIN_VALUE;
     }
 
-    private void set(int value){
+    public Value(String name, int min, int max, int value) {
+        MIN_VALUE = min;
+        MAX_VALUE = max;
+        this.name = name;
+        this.value = value;
+    }
+
+    protected void set(int value){
         if (value < MIN_VALUE)
             setMin();
         else if (value > MAX_VALUE)

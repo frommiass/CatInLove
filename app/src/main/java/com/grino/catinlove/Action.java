@@ -8,8 +8,8 @@ public class Action implements Nameable{
     private String name;
 
     private int experience;
-    private Resources resources;
-    private Condition condition;
+    public Resources resources;
+    public Condition condition;
 
     public Action(Context ctx, String name, int experience, Resources resources, Condition condition) {
         this.ctx = ctx;
@@ -32,4 +32,15 @@ public class Action implements Nameable{
         return name;
     }
 
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public void setResources(Resources resources) {
+        this.resources = resources;
+    }
+
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
 }

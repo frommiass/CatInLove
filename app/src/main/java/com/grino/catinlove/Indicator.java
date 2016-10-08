@@ -8,7 +8,9 @@ public class Indicator
 
     public Indicator(String name) {
         super(name, MIN_INDICATOR_VALUE, MAX_INDICATOR_VALUE);
-
     }
 
+    public Indicator(String name, int value) {
+        super(name, MIN_INDICATOR_VALUE, MAX_INDICATOR_VALUE, value);
+    }
 }

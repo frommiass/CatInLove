@@ -8,7 +8,9 @@ public class Resource
 
     public Resource(String name) {
         super(name, MIN_RESOURCE_VALUE, MAX_RESOURCE_VALUE);
-
     }
 
+    public Resource(String name, int value) {
+        super(name, MIN_RESOURCE_VALUE, MAX_RESOURCE_VALUE, value);
+    }
 }
