@@ -8,30 +8,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.toolbar) Toolbar toolbar;
+
     private Player cat;
-    private FloatingActionButton fab;
     private Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+
         setSupportActionBar(toolbar);
 
         ctx = getApplicationContext();
         cat = new Player(ctx, "Влюбленный кот");
 
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {fabClick();
-            }
-        });
     }
 
+    @OnClick(R.id.fab)
     public void fabClick(){
         Action test = new Action(ctx, "Поспать на подушке");
         test.setExperience(1);
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         cat.doTick(test);
 
-        Snackbar.make(fab, "Replace with your own action", Snackbar.LENGTH_LONG)
+        Snackbar.make(toolbar, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 
