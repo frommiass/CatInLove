@@ -14,6 +14,12 @@
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -21,40 +27,92 @@
             app:layout_collapseMode="pin"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/indicator_energy"
-            android:textSize="18dp"
-            app:layout_scrollFlags="scroll|snap"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/indicator_mood"
-            android:textSize="18dp"
-            app:layout_scrollFlags="scroll|snap"/>
+            android:orientation="horizontal">
 
-        <TextView
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/indicator_energy"
+                android:textSize="14dp"
+                app:layout_scrollFlags="scroll|snap"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:progress="33"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/indicator_satiety"
-            android:textSize="18dp"
-            app:layout_scrollFlags="scroll|snap"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/indicator_mood"
+                android:textSize="14dp"
+                app:layout_scrollFlags="scroll|snap"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:progress="33"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/indicator_satiety"
+                android:textSize="14dp"
+                app:layout_scrollFlags="scroll|snap"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:progress="33"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/resource_food"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_scrollFlags="scroll|enterAlways"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/resource_real"
-            android:textSize="18dp"
+            android:textSize="14dp"
             app:layout_scrollFlags="scroll|enterAlways"/>
+
+        </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
 
