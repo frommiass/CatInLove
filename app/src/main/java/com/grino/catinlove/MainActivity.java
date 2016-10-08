@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
         Action test = new Action(ctx, "Поспать на подушке");
         test.setExperience(1);
         test.resources.setFood((int)(Math.random() * 5));
-        test.indicators.setEnergy(-1);
-        test.indicators.setSatiety(-2);
-        test.indicators.setMood(+2);
+        test.indicators.setEnergy(-3);
+        test.indicators.setSatiety(+2);
+        test.indicators.setMood(+1);
 
-        cat.doTick();
+        cat.doTick(test);
 
         Snackbar.make(fab, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();

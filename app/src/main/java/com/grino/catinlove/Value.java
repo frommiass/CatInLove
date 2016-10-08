@@ -35,10 +35,7 @@ public abstract class Value implements Nameable{
         return null;
     }
 
-    public void decrease(int value){
-        set(get() - value);
-    }
-    public void increase(int value){
+    public void add(int value){
         set(get() + value);
     }
 

@@ -29,4 +29,9 @@ public class Resources {
     public void setReal(int real) {
         this.real.set(real);
     }
+
+    public void add(Resources resources){
+        food.add(resources.food.get());
+        real.add(resources.real.get());
+    }
 }

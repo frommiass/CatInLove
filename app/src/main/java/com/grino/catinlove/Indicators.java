@@ -15,8 +15,6 @@ public class Indicators {
         satiety = new Indicator(ctx.getString(R.string.indicator_satiety));
         mood = new Indicator(ctx.getString(R.string.indicator_mood));
         energy = new Indicator(ctx.getString(R.string.indicator_energy));
-
-        fillMax();
     }
 
     public Indicators(Context ctx, int satiety, int mood, int energy) {
@@ -27,9 +25,7 @@ public class Indicators {
     }
 
     public void doTick(){
-        satiety.decrease(1);
-        mood.decrease(1);
-        energy.decrease(1);
+
     }
 
     public void fillMax(){
@@ -48,5 +44,11 @@ public class Indicators {
 
     public void setEnergy(int energy) {
         this.energy.set(energy);
+    }
+
+    public void add(Indicators indicators){
+        satiety.add(indicators.satiety.get());
+        mood.add(indicators.mood.get());
+        energy.add(indicators.energy.get());
     }
 }

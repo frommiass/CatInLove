@@ -2,7 +2,8 @@ package com.grino.catinlove;
 
 import android.content.Context;
 
-public class Action implements Nameable{
+public class Action
+        implements Nameable{
 
     private Context ctx;
     private String name;
@@ -42,5 +43,11 @@ public class Action implements Nameable{
 
     public void setIndicators(Indicators indicators) {
         this.indicators = indicators;
+    }
+
+    public void add(Action action){
+        experience = experience + action.experience;
+        resources.add(action.resources);
+        indicators.add(action.indicators);
     }
 }

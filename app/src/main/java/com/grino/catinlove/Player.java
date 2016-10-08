@@ -7,19 +7,18 @@ public class Player implements Nameable{
     private Context ctx;
 
     private String name;
-    private Indicators indicators;
-    private Resources resources;
     private int level;
-    private int experience;
+    private Action condition;
     private int day;
 
     public Player(Context ctx, String name) {
         this.ctx = ctx;
         this.name = name;
-        this.indicators = new Indicators(ctx);
-        this.level = 0;
-        this.experience = 0;
-        this.day = 1;
+        level = 0;
+        day = 1;
+        condition = new Action(ctx, "Текущие состояние");
+        condition.indicators.fillMax();
+        condition.resources.setFood(100); //начальное состояние еды
     }
 
     @Override
@@ -27,25 +26,26 @@ public class Player implements Nameable{
         return name;
     }
 
-    public void levelUp(){
+    private void levelUp(){
         level++;
     }
 
     public void doTick(Action action){
         doAction(action);
         doAction(getNextDayAction());
-
-        // выполнить ежедневное экшн
     }
 
-
-    public Action getNextDayAction(){
+    private Action getNextDayAction(){
         Action action = new Action(ctx, "day " + day);
         action.setExperience(1);
         action.indicators.setEnergy((int)(Math.random() * (-5)));
         action.indicators.setSatiety((int)(Math.random() * (-5)));
         action.indicators.setMood((int)(Math.random() * (-5)));
         return action;
+    }
+
+    public void doAction(Action action){
+        condition.add(action);
     }
 
 }
