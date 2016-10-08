@@ -51,4 +51,16 @@ public class Indicators {
         mood.add(indicators.mood.get());
         energy.add(indicators.energy.get());
     }
+
+    public Indicator getSatiety() {
+        return satiety;
+    }
+
+    public Indicator getMood() {
+        return mood;
+    }
+
+    public Indicator getEnergy() {
+        return energy;
+    }
 }

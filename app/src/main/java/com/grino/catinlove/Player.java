@@ -48,4 +48,7 @@ public class Player implements Nameable{
         condition.add(action);
     }
 
+    public Action getCondition() {
+        return condition;
+    }
 }
