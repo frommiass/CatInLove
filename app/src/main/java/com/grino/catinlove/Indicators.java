@@ -2,7 +2,7 @@ package com.grino.catinlove;
 
 import android.content.Context;
 
-public class Condition {
+public class Indicators {
 
     private Context ctx;
 
@@ -10,7 +10,7 @@ public class Condition {
     private Indicator mood;
     private Indicator energy;
 
-    public Condition(Context ctx) {
+    public Indicators(Context ctx) {
         this.ctx = ctx;
         satiety = new Indicator(ctx.getString(R.string.indicator_satiety));
         mood = new Indicator(ctx.getString(R.string.indicator_mood));
@@ -19,7 +19,7 @@ public class Condition {
         fillMax();
     }
 
-    public Condition(Context ctx, int satiety, int mood, int energy) {
+    public Indicators(Context ctx, int satiety, int mood, int energy) {
         this.ctx = ctx;
         this.satiety = new Indicator(ctx.getString(R.string.indicator_satiety), satiety);
         this.mood = new Indicator(ctx.getString(R.string.indicator_mood), mood);

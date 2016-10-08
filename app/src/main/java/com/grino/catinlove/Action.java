@@ -9,14 +9,14 @@ public class Action implements Nameable{
 
     private int experience;
     public Resources resources;
-    public Condition condition;
+    public Indicators indicators;
 
-    public Action(Context ctx, String name, int experience, Resources resources, Condition condition) {
+    public Action(Context ctx, String name, int experience, Resources resources, Indicators indicators) {
         this.ctx = ctx;
         this.name = name;
         this.experience = experience;
         this.resources = resources;
-        this.condition = condition;
+        this.indicators = indicators;
     }
 
     public Action(Context ctx, String name){
@@ -24,7 +24,7 @@ public class Action implements Nameable{
         this.name = name;
         this.experience = 0;
         this.resources = new Resources(ctx);
-        this.condition = new Condition(ctx);
+        this.indicators = new Indicators(ctx);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Action implements Nameable{
         this.resources = resources;
     }
 
-    public void setCondition(Condition condition) {
-        this.condition = condition;
+    public void setIndicators(Indicators indicators) {
+        this.indicators = indicators;
     }
 }

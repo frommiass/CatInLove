@@ -7,7 +7,7 @@ public class Player implements Nameable{
     private Context ctx;
 
     private String name;
-    private Condition condition;
+    private Indicators indicators;
     private Resources resources;
     private int level;
     private int experience;
@@ -15,7 +15,7 @@ public class Player implements Nameable{
     public Player(Context ctx, String name) {
         this.ctx = ctx;
         this.name = name;
-        this.condition = new Condition(ctx);
+        this.indicators = new Indicators(ctx);
         this.level = 0;
         this.experience = 0;
     }
