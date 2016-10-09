@@ -44,7 +44,7 @@ public abstract class Value implements Nameable{
     }
 
     public void setMin() {
-        value = MAX_VALUE;
+        value = MIN_VALUE;
     }
 
     public void setMax(){
