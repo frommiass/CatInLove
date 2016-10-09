@@ -34,4 +34,12 @@ public class Resources {
         food.add(resources.food.get());
         real.add(resources.real.get());
     }
+
+    public Resource getFood() {
+        return food;
+    }
+
+    public Resource getReal() {
+        return real;
+    }
 }

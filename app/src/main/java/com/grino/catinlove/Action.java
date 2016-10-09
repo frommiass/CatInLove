@@ -1,6 +1,7 @@
 package com.grino.catinlove;
 
 import android.content.Context;
+import android.util.Log;
 
 public class Action
         implements Nameable{
@@ -46,8 +47,23 @@ public class Action
     }
 
     public void add(Action action){
+        Log.d("Grino", this.toString());
+        Log.d("Grino", action.toString());
         experience = experience + action.experience;
         resources.add(action.resources);
         indicators.add(action.indicators);
+    }
+
+    @Override
+    public String toString() {
+        return "Action{" +
+                ", name='" + name + '\'' +
+                ", exp=" + experience +
+                ", res1=" + resources.getFood().get() +
+                ", res2=" + resources.getReal().get() +
+                ", ind1=" + indicators.getMood().get() +
+                ", ind2=" + indicators.getSatiety().get() +
+                ", ind3=" + indicators.getEnergy().get() +
+                '}';
     }
 }
