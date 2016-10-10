@@ -13,6 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Player cat;
     private Context ctx;
+    private List<Action> actions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
         recycler.setLayoutManager(new LinearLayoutManager(ctx));
+
+        actions = getActions();
+
+        recycler.setAdapter(new ActionRecyclerViewAdapter(actions));
 
         //При первом запуске запросить имя у пользователя
         cat = new Player(ctx, "Влюбленный кот");
@@ -83,5 +91,21 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+
+    public List<Action> getActions(){
+        actions = new ArrayList<Action>();
+
+        Action action;
+        String[] names = getResources().getStringArray(R.array.action_energy);
+        int[] values = getResources().getIntArray(R.array.action_asc);
+        for (int i=0; i<names.length; i++){
+            action = new Action(ctx, names[i], false);
+            action.set(Indicators.KEY_ENERGY, values[i]);
+            action.setExperience(1);
+            actions.add(action);
+        }
+
+        return actions;
+    }
 
 }
