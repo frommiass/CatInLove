@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.tab_layout) TabLayout tabs;
     @BindView(R.id.view_pager) ViewPager pager;
+    @BindView(R.id.recycler_view) RecyclerView recycler;
 
     @BindView(R.id.pb_1) ProgressBar pbSatiety;
     @BindView(R.id.pb_2) ProgressBar pbMoon;
@@ -34,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        ctx = getApplicationContext();
+
         setSupportActionBar(toolbar);
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
-
-        ctx = getApplicationContext();
+        recycler.setLayoutManager(new LinearLayoutManager(ctx));
 
         //При первом запуске запросить имя у пользователя
         cat = new Player(ctx, "Влюбленный кот");
