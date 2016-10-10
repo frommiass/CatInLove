@@ -15,7 +15,7 @@ public class Values {
         this.map = new HashMap<Integer, Value>();
     }
 
-    public void put(int key, Value value){
+    protected void put(int key, Value value){
         map.put(key, value);
     }
 
