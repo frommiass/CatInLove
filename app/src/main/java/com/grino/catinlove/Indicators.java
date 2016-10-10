@@ -9,16 +9,21 @@ public class Indicators
     public final static int KEY_MOOD = 1000 + 2;
     public final static int KEY_ENERGY = 1000 + 3;
 
-    public Indicators(Context ctx) {
-        super(ctx);
-        put(KEY_ENERGY, new Indicator(ctx.getString(R.string.indicator_energy)));
-        put(KEY_MOOD, new Indicator(ctx.getString(R.string.indicator_mood)));
-        put(KEY_SATIETY, new Indicator(ctx.getString(R.string.indicator_satiety)));
+    protected final static int MIN = 0;
+    protected final static int MAX = 100;
+
+    public Indicators(Context ctx, boolean physical) {
+        super();
+        int min = MIN;
+        if (!physical) min = (-1)*MAX;
+        put(KEY_ENERGY, new Value(ctx.getString(R.string.indicator_energy), min, MAX));
+        put(KEY_MOOD, new Value(ctx.getString(R.string.indicator_mood), min, MAX));
+        put(KEY_SATIETY, new Value(ctx.getString(R.string.indicator_satiety), min, MAX));
     }
 
     @Override
     public String toString() {
-        return "Indicators: " + super.toString();
+        return "IND:" + super.toString();
     }
 
     public static boolean isIndicatorsKey(int key){
