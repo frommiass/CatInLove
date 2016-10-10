@@ -23,6 +23,8 @@ public class ActionsFragment
     private Unbinder unbinder;
     private List<Action> actions;
 
+    private int actionsID;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,9 @@ public class ActionsFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.action_fragment, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        if(getArguments() != null)
+            actionsID = getArguments().getInt("actionsID");
 
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         actions = getActions();
@@ -52,7 +57,7 @@ public class ActionsFragment
         actions = new ArrayList<Action>();
 
         Action action;
-        String[] names = getResources().getStringArray(R.array.action_energy);
+        String[] names = getResources().getStringArray(actionsID);
         int[] values = getResources().getIntArray(R.array.action_asc);
         for (int i=0; i<names.length; i++){
             action = new Action(getContext(), names[i], false);

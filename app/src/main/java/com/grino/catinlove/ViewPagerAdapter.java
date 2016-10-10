@@ -1,5 +1,6 @@
 package com.grino.catinlove;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -31,7 +32,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return fragmentTitleList.get(position);
     }
 
-    public void addFragment(Fragment fragment, String title) {
+    public void addFragment(Fragment fragment, String title, int actionsID) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("actionsID", actionsID);
+        fragment.setArguments(bundle);
         fragmentList.add(fragment);
         fragmentTitleList.add(title);
     }

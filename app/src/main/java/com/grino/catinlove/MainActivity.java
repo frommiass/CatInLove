@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_energy));
-        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_satiety));
-        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_mood));
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_energy), R.array.action_energy);
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_satiety), R.array.action_satiety);
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_mood), R.array.action_mood);
         viewPager.setAdapter(adapter);
     }
 
