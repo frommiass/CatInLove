@@ -56,14 +56,11 @@ public class Action
 
     @Override
     public String toString() {
-        return "Action{" +
+        return "Action[" +
                 ", name='" + name + '\'' +
                 ", exp=" + experience +
-                ", res1=" + resources.getFood().get() +
-                ", res2=" + resources.getReal().get() +
-                ", ind1=" + indicators.getMood().get() +
-                ", ind2=" + indicators.getSatiety().get() +
-                ", ind3=" + indicators.getEnergy().get() +
-                '}';
+                resources.toString() +
+                indicators.toString() +
+                ']';
     }
 }

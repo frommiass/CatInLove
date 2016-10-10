@@ -20,5 +20,8 @@ public class Resources
         put(KEY_FOOD, new Resource(ctx.getString(R.string.resource_food), real));
     }
 
-
+    @Override
+    public String toString() {
+        return "Resources: " + super.toString();
+    }
 }

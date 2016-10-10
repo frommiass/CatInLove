@@ -16,4 +16,8 @@ public class Indicators
         put(KEY_SATIETY, new Indicator(ctx.getString(R.string.indicator_satiety)));
     }
 
+    @Override
+    public String toString() {
+        return "Indicators: " + super.toString();
+    }
 }
