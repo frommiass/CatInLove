@@ -1,66 +1,42 @@
 package com.grino.catinlove;
 
 import android.content.Context;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Indicators {
 
     private Context ctx;
 
-    private Indicator satiety;
-    private Indicator mood;
-    private Indicator energy;
+    private Map<Integer, Value> map = new HashMap<Integer, Value>();
+
+    private final int KEY_SATIETY = 1;
+    private final int KEY_MOOD = 2;
+    private final int KEY_ENERGY = 3;
 
     public Indicators(Context ctx) {
         this.ctx = ctx;
-        satiety = new Indicator(ctx.getString(R.string.indicator_satiety));
-        mood = new Indicator(ctx.getString(R.string.indicator_mood));
-        energy = new Indicator(ctx.getString(R.string.indicator_energy));
-    }
-
-    public Indicators(Context ctx, int satiety, int mood, int energy) {
-        this.ctx = ctx;
-        this.satiety = new Indicator(ctx.getString(R.string.indicator_satiety), satiety);
-        this.mood = new Indicator(ctx.getString(R.string.indicator_mood), mood);
-        this.energy = new Indicator(ctx.getString(R.string.indicator_energy), energy);
-    }
-
-    public void doTick(){
-
+        map.put(KEY_ENERGY, new Indicator(ctx.getString(R.string.indicator_energy)));
+        map.put(KEY_MOOD, new Indicator(ctx.getString(R.string.indicator_mood)));
+        map.put(KEY_SATIETY, new Indicator(ctx.getString(R.string.indicator_satiety)));
     }
 
     public void fillMax(){
-        satiety.setMax();
-        mood.setMax();
-        energy.setMax();
+        for (Map.Entry<Integer, Value> entry : map.entrySet())
+            entry.getValue().setMax();
     }
 
-    public void setSatiety(int satiety) {
-        this.satiety.set(satiety);
-    }
-
-    public void setMood(int mood) {
-        this.mood.set(mood);
-    }
-
-    public void setEnergy(int energy) {
-        this.energy.set(energy);
+    public void set(int key, int value){
+        map.get(key).set(value);
     }
 
     public void add(Indicators indicators){
-        satiety.add(indicators.satiety.get());
-        mood.add(indicators.mood.get());
-        energy.add(indicators.energy.get());
+        for (Map.Entry<Integer, Value> entry : map.entrySet())
+            entry.getValue().add(indicators.get(entry.getKey()).get());
     }
 
-    public Indicator getSatiety() {
-        return satiety;
+    public Value get(int key){
+        return map.get(key);
     }
 
-    public Indicator getMood() {
-        return mood;
-    }
-
-    public Indicator getEnergy() {
-        return energy;
-    }
 }
