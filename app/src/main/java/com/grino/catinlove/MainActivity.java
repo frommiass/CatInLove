@@ -7,14 +7,10 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.pb_1) ProgressBar pbSatiety;
     @BindView(R.id.pb_2) ProgressBar pbMoon;
     @BindView(R.id.pb_3) ProgressBar pbEnergy;
+
+    @BindView(R.id.food) TextView tvFood;
+    @BindView(R.id.real) TextView tvReal;
 
     @BindView(R.id.fab) FloatingActionButton fab;
 
@@ -73,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateIndicators(Player player){
         pbMoon.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
-        pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_SATIETY ));
+        pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_SATIETY));
         pbEnergy.setProgress(player.getCondition().get(Indicators.KEY_ENERGY));
-
-
+        tvFood.setText("" + player.getCondition().get(Resources.KEY_FOOD));
+        tvReal.setText("" + player.getCondition().get(Resources.KEY_REAL));
     }
 
 
