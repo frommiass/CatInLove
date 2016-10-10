@@ -1,17 +1,13 @@
 package com.grino.catinlove;
 
-import android.content.Context;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class Values {
-    private Context ctx;
 
     private Map<Integer, Value> map;
 
-    public Values(Context ctx) {
-        this.ctx = ctx;
+    public Values() {
         this.map = new HashMap<Integer, Value>();
     }
 
@@ -39,10 +35,10 @@ public class Values {
 
     @Override
     public String toString() {
-        String s = "Values{" ;
+        String s = "{" ;
         for (Map.Entry<Integer, Value> entry : map.entrySet())
             s = s + entry.getValue().getName() + "=" + entry.getValue().get() + ", ";
-        s.substring(0, s.length()-1);
+        s = s.substring(0, s.length()-2);
         return s + "}";
     }
 
