@@ -82,7 +82,7 @@ public class Action
         if (Indicators.isIndicatorsKey(key))
             return indicators.get(key).get();
         if (Resources.isResourcesKey(key))
-            return indicators.get(key).get();
+            return resources.get(key).get();
         return null;
     }
 
