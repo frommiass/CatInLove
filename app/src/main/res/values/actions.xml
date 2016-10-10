@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="action_asc">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>13</item>
+        <item>16</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>42</item>
+        <item>50</item>
+        <item>60</item>
+        <item>75</item>
+        <item>90</item>
+    </integer-array>
+
+    <string-array name="action_satiety">
+        <item>Попить из лужи</item>
+        <item>Облизать пустую миску</item>
+        <item>Найти старую косточку</item>
+        <item>Попить молока</item>
+        <item>Поесть сухой корм</item>
+        <item>Найти маленькую рыбку</item>
+        <item>Стащить колбасу из бутерброда</item>
+        <item>Поесть мокрый корм</item>
+        <item>Стащить у рыбаков карася</item>
+    </string-array>
+
+    <string-array name="action_mood">
+        <item>Потянуться</item>
+        <item>Посмотреть вдаль</item>
+        <item>Полизать коготки</item>
+        <item>Пройтись по комнате</item>
+        <item>Запрыгнуть на кровать</item>
+        <item>Подлизаться хвостик</item>
+        <item>Подрать обои</item>
+        <item>Стащить резинку для волос</item>
+        <item>Пробежаться по комнате</item>
+        <item>Подрать диван</item>
+        <item>Прогуляться по карнизу</item>
+    </string-array>
+
+    <string-array name="action_energy">
+        <item>Замереть на месте</item>
+        <item>Посидеть спокойно</item>
+        <item>Прилечь на секундочку</item>
+        <item>Свернуться в клубочек</item>
+        <item>Спрятаться в угол</item>
+        <item>Поспать на кровати</item>
+        <item>Растянуться во всю длину</item>
+        <item>Мурлыкать во сне</item>
+        <item>Поспать на подушке</item>
+    </string-array>
+</resources>
