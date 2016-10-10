@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.tab_layout) TabLayout tabs;
     @BindView(R.id.view_pager) ViewPager pager;
-    @BindView(R.id.recycler_view) RecyclerView recycler;
 
     @BindView(R.id.pb_1) ProgressBar pbSatiety;
     @BindView(R.id.pb_2) ProgressBar pbMoon;
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Player cat;
     private Context ctx;
-    private List<Action> actions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
-        recycler.setLayoutManager(new LinearLayoutManager(ctx));
-
-        actions = getActions();
-
-        recycler.setAdapter(new ActionRecyclerViewAdapter(actions));
 
         //При первом запуске запросить имя у пользователя
         cat = new Player(ctx, "Влюбленный кот");
@@ -90,21 +83,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public List<Action> getActions(){
-        actions = new ArrayList<Action>();
-
-        Action action;
-        String[] names = getResources().getStringArray(R.array.action_energy);
-        int[] values = getResources().getIntArray(R.array.action_asc);
-        for (int i=0; i<names.length; i++){
-            action = new Action(ctx, names[i], false);
-            action.set(Indicators.KEY_ENERGY, values[i]);
-            action.setExperience(1);
-            action.setIconID(R.mipmap.ic_launcher);
-            actions.add(action);
-        }
-
-        return actions;
-    }
 
 }
