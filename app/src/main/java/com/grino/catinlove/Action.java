@@ -63,4 +63,20 @@ public class Action
                 indicators.toString() +
                 ']';
     }
+
+    public void set(int key, int value){
+        if (Indicators.isIndicatorsKey(key))
+            indicators.set(key, value);
+        if (Resources.isResourcesKey(key))
+            resources.set(key, value);
+    }
+
+    public Integer get(int key){
+        if (Indicators.isIndicatorsKey(key))
+            return indicators.get(key).get();
+        if (Resources.isResourcesKey(key))
+            return indicators.get(key).get();
+        return null;
+    }
+
 }
