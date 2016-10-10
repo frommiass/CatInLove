@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
@@ -30,9 +31,9 @@ public class ActionRecyclerViewAdapter
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
-        holder.icon.setImageResource(actions.get(position).getIconID());
         holder.name.setText(actions.get(position).getName());
         holder.description.setText(actions.get(position).toString());
+        holder.icon.setImageResource(actions.get(position).getIconID());
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ActionRecyclerViewAdapter
 
         ActionViewHolder(View view) {
             super(view);
+            ButterKnife.bind(this, view);
         }
     }
 
