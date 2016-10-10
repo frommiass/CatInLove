@@ -5,8 +5,8 @@ import android.content.Context;
 public class Resources
         extends Values{
 
-    private final int KEY_FOOD = 2000 + 1;
-    private final int KEY_REAL = 2000 + 2;
+    public final static int KEY_FOOD = 2000 + 1;
+    public final static int KEY_REAL = 2000 + 2;
 
     public Resources(Context ctx) {
         super(ctx);
@@ -23,5 +23,9 @@ public class Resources
     @Override
     public String toString() {
         return "Resources: " + super.toString();
+    }
+
+    public static boolean isResourcesKey(int key){
+        return (key==KEY_FOOD)||(key==KEY_REAL);
     }
 }
