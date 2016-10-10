@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,6 +18,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.tab_layout) TabLayout tabs;
+    @BindView(R.id.view_pager) ViewPager pager;
 
     @BindView(R.id.pb_1) ProgressBar pbSatiety;
     @BindView(R.id.pb_2) ProgressBar pbMoon;
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        setupViewPager(pager);
+        tabs.setupWithViewPager(pager);
 
         ctx = getApplicationContext();
 
@@ -63,4 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    private void setupViewPager(ViewPager viewPager) {
+
+    }
+
+
 }
