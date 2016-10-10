@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
     public void fabClick(){
         Action test = new Action(ctx, "Поспать на подушке");
         test.setExperience(1);
-        test.resources.setFood((int)(Math.random() * 5));
-        test.indicators.setEnergy(-3);
-        test.indicators.setSatiety(+2);
-        test.indicators.setMood(+1);
+        test.set(Resources.KEY_FOOD, Utils.rand(5));
+        test.set(Indicators.KEY_ENERGY, -1);
+        test.set(Indicators.KEY_SATIETY, 2);
+        test.set(Indicators.KEY_MOOD, 3);
 
         cat.doTick(test);
         updateIndicators(cat);
@@ -57,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void updateIndicators(Player player){
-        pbMoon.setProgress(player.getCondition().indicators.getMood().get());
-        pbSatiety.setProgress(player.getCondition().indicators.getSatiety().get());
-        pbEnergy.setProgress(player.getCondition().indicators.getEnergy().get());
+        pbMoon.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
+        pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
+        pbEnergy.setProgress(player.getCondition().get(Indicators.KEY_ENERGY));
+
+
     }
 }
