@@ -8,6 +8,7 @@ public class Action
 
     private Context ctx;
     private String name;
+    private int iconID;
 
     private int experience;
     public Resources resources;
@@ -78,5 +79,10 @@ public class Action
             return indicators.get(key).get();
         return null;
     }
+
+    public int getIconID() {
+        return iconID;
+    }
+
 
 }
