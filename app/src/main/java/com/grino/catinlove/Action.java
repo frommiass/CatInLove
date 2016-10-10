@@ -21,12 +21,12 @@ public class Action
         this.indicators = indicators;
     }
 
-    public Action(Context ctx, String name){
+    public Action(Context ctx, String name, boolean physical){
         this.ctx = ctx;
         this.name = name;
         this.experience = 0;
         this.resources = new Resources(ctx);
-        this.indicators = new Indicators(ctx);
+        this.indicators = new Indicators(ctx, physical);
     }
 
     @Override
@@ -57,10 +57,10 @@ public class Action
     @Override
     public String toString() {
         return "Action[" +
-                ", name='" + name + '\'' +
-                ", exp=" + experience +
-                resources.toString() +
-                indicators.toString() +
+                "name='" + name + '\'' +
+                ", exp=" + experience + " - " +
+                resources.toString() + " - " +
+                indicators.toString() + " - " +
                 ']';
     }
 
