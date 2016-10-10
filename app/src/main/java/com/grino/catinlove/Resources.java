@@ -2,44 +2,23 @@ package com.grino.catinlove;
 
 import android.content.Context;
 
-public class Resources {
+public class Resources
+        extends Values{
 
-    private Context ctx;
-
-    private Resource food;
-    private Resource real;
+    private final int KEY_FOOD = 2000 + 1;
+    private final int KEY_REAL = 2000 + 2;
 
     public Resources(Context ctx) {
-        this.ctx = ctx;
-
-        food = new Resource(ctx.getString(R.string.resource_food));
-        real = new Resource(ctx.getString(R.string.resource_real));
+        super(ctx);
+        put(KEY_FOOD, new Indicator(ctx.getString(R.string.indicator_energy)));
+        put(KEY_REAL, new Indicator(ctx.getString(R.string.indicator_mood)));
     }
 
     public Resources(Context ctx, int food, int real) {
-        this.ctx = ctx;
-        this.food = new Resource(ctx.getString(R.string.resource_food), food);
-        this.food = new Resource(ctx.getString(R.string.resource_food), real);
+        super(ctx);
+        put(KEY_FOOD, new Resource(ctx.getString(R.string.resource_food), food));
+        put(KEY_FOOD, new Resource(ctx.getString(R.string.resource_food), real));
     }
 
-    public void setFood(int food) {
-        this.food.set(food);
-    }
 
-    public void setReal(int real) {
-        this.real.set(real);
-    }
-
-    public void add(Resources resources){
-        food.add(resources.food.get());
-        real.add(resources.real.get());
-    }
-
-    public Resource getFood() {
-        return food;
-    }
-
-    public Resource getReal() {
-        return real;
-    }
 }
