@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             action = new Action(ctx, names[i], false);
             action.set(Indicators.KEY_ENERGY, values[i]);
             action.setExperience(1);
+            action.setIconID(R.mipmap.ic_launcher);
             actions.add(action);
         }
 

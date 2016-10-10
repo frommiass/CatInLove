@@ -84,5 +84,7 @@ public class Action
         return iconID;
     }
 
-
+    public void setIconID(int iconID) {
+        this.iconID = iconID;
+    }
 }
