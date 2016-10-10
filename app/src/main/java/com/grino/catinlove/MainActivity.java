@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.fab)
     public void fabClick(){
-        Action test = new Action(ctx, "Поспать на подушке");
+        Action test = new Action(ctx, "Поспать на подушке", false);
         test.setExperience(1);
         test.set(Resources.KEY_FOOD, Utils.rand(5));
         test.set(Indicators.KEY_ENERGY, -1);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateIndicators(Player player){
         pbMoon.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
-        pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
+        pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_SATIETY ));
         pbEnergy.setProgress(player.getCondition().get(Indicators.KEY_ENERGY));
 
 
