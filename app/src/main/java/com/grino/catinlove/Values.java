@@ -52,8 +52,9 @@ public class Values {
                 s = s + value + " " + entry.getValue().getName() + ", ";
             }
         }
-        if (s.length() > 2)
+        if (s.length() > 1)
             s = s.substring(0, s.length()-2);
+        else s = "";
         return s;
     }
 

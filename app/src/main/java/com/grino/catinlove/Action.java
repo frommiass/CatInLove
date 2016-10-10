@@ -66,7 +66,7 @@ public class Action
     }
 
     public String getDescription() {
-        return "Опыт=" + experience + ", " +
+        return "+" + experience + " Опыт, " +
                 resources.getDescription() + ", " +
                 indicators.getDescription();
     }

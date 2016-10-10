@@ -16,9 +16,9 @@ public class Indicators
         super();
         int min = MIN;
         if (!physical) min = (-1)*MAX;
-        put(KEY_ENERGY, new Value(ctx.getString(R.string.indicator_energy), min, MAX));
-        put(KEY_MOOD, new Value(ctx.getString(R.string.indicator_mood), min, MAX));
-        put(KEY_SATIETY, new Value(ctx.getString(R.string.indicator_satiety), min, MAX));
+        put(KEY_ENERGY, new Value(ctx.getString(R.string.indicator_energy), min, MAX, 0));
+        put(KEY_MOOD, new Value(ctx.getString(R.string.indicator_mood), min, MAX, 0));
+        put(KEY_SATIETY, new Value(ctx.getString(R.string.indicator_satiety), min, MAX, 0));
     }
 
     @Override
