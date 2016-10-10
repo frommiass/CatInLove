@@ -72,7 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setupViewPager(ViewPager viewPager) {
-
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_energy));
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_satiety));
+        adapter.addFragment(new ActionsFragment(), getString(R.string.indicator_mood));
+        viewPager.setAdapter(adapter);
     }
 
 
