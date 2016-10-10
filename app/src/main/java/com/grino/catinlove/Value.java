@@ -1,6 +1,7 @@
 package com.grino.catinlove;
 
-public abstract class Value implements Nameable{
+public class Value
+        implements Nameable{
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
@@ -32,7 +33,7 @@ public abstract class Value implements Nameable{
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     public void add(int value){
