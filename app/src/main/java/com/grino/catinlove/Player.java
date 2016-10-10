@@ -18,7 +18,7 @@ public class Player implements Nameable{
         day = 1;
         condition = new Action(ctx, "Текущие состояние");
         condition.indicators.fillMax();
-        condition.resources.setFood(100); //начальное состояние еды
+        condition.set(Resources.KEY_FOOD, 100);  //начальное состояние еды
     }
 
     @Override
@@ -38,9 +38,9 @@ public class Player implements Nameable{
     private Action getNextDayAction(){
         Action action = new Action(ctx, "day " + day);
         action.setExperience(1);
-        action.indicators.setEnergy((int)(Math.random() * (-5)));
-        action.indicators.setSatiety((int)(Math.random() * (-5)));
-        action.indicators.setMood((int)(Math.random() * (-5)));
+        action.set(Indicators.KEY_ENERGY, Utils.rand(-5));
+        action.set(Indicators.KEY_MOOD, Utils.rand(-5));
+        action.set(Indicators.KEY_SATIETY, Utils.rand(-5));
         return action;
     }
 
