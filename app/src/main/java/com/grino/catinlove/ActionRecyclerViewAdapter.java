@@ -32,7 +32,7 @@ public class ActionRecyclerViewAdapter
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         holder.name.setText(actions.get(position).getName());
-        holder.description.setText(actions.get(position).toString());
+        holder.description.setText(actions.get(position).getDescription());
         holder.icon.setImageResource(actions.get(position).getIconID());
     }
 

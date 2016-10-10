@@ -65,6 +65,12 @@ public class Action
                 ']';
     }
 
+    public String getDescription() {
+        return "Опыт=" + experience + ", " +
+                resources.getDescription() + ", " +
+                indicators.getDescription();
+    }
+
     public void set(int key, int value){
         if (Indicators.isIndicatorsKey(key))
             indicators.set(key, value);

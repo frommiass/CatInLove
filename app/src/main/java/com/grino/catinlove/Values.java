@@ -42,4 +42,19 @@ public class Values {
         return s + "}";
     }
 
+    public String getDescription() {
+        String s = "";
+        int value;
+        for (Map.Entry<Integer, Value> entry : map.entrySet()) {
+            value = entry.getValue().get();
+            if (value != 0) {
+                if (value > 0) s = s + "+";
+                s = s + value + " " + entry.getValue().getName() + ", ";
+            }
+        }
+        if (s.length() > 2)
+            s = s.substring(0, s.length()-2);
+        return s;
+    }
+
 }
