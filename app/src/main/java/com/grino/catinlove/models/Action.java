@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.models;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.grino.catinlove.R;
+import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
+import com.grino.catinlove.models.Action;
+import com.grino.catinlove.models.Indicators;
 
 import java.util.ArrayList;
 import java.util.List;

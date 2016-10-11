@@ -12,6 +12,14 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.grino.catinlove.adapters.ViewPagerAdapter;
+import com.grino.catinlove.fragments.ActionsFragment;
+import com.grino.catinlove.models.Action;
+import com.grino.catinlove.models.Indicators;
+import com.grino.catinlove.models.Player;
+import com.grino.catinlove.models.Resources;
+import com.grino.catinlove.tools.Utils;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

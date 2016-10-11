@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.adapters;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.grino.catinlove.models.Action;
+import com.grino.catinlove.R;
 
 import java.util.List;
 

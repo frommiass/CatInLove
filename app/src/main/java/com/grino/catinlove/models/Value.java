@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.models;
 
 public class Value
         implements Nameable{

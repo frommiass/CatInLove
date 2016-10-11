@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.adapters;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

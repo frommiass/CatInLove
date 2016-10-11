@@ -1,4 +1,4 @@
-package com.grino.catinlove;
+package com.grino.catinlove.models;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,8 @@
-package com.grino.catinlove;
+package com.grino.catinlove.models;
 
 import android.content.Context;
+
+import com.grino.catinlove.tools.Utils;
 
 public class Player implements Nameable{
 
