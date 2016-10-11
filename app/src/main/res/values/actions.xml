@@ -57,4 +57,25 @@
         <item>Мурлыкать во сне</item>
         <item>Поспать на подушке</item>
     </string-array>
+
+    <string-array name="action_hunting">
+        <item>Поймать муху</item>
+        <item>Поймать кузнечика</item>
+        <item>Поймать таракана</item>
+        <item>Поймать мышку</item>
+        <item>Украсть обед у соседей</item>
+        <item>Поймать крысу</item>
+        <item>Стыщить цыпленка</item>
+        <item>Поймать голубя</item>
+        <item>Завалить кролика</item>
+        <item>Стащить курицу</item>
+    </string-array>
+
+    <string-array name="action_cattle">
+        <item>Завести цыплят</item>
+        <item>Завести кроликов</item>
+        <item>Выменять у соседа корову</item>
+        <item>Завести гусей</item>
+        <item>Завести свиней</item>
+    </string-array>
 </resources>
