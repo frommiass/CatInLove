@@ -20,4 +20,9 @@ public class RxBus {
     public boolean hasObservers() {
         return _bus.hasObservers();
     }
+
+    public void sendObservers(Object o) {
+        if (hasObservers()) send(o);
+    }
+
 }
