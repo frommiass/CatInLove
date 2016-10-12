@@ -18,6 +18,7 @@ import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.Indicators;
 import com.grino.catinlove.models.Player;
 import com.grino.catinlove.models.Resources;
+import com.grino.catinlove.rx.RxBus;
 import com.grino.catinlove.tools.Utils;
 
 import butterknife.BindView;
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Player cat;
     private Context ctx;
+
+    private RxBus bus = null;
+
+    public RxBus getBus() {
+        if (bus == null) bus = new RxBus();
+        return bus;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
