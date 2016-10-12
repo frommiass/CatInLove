@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.food) TextView tvFood;
     @BindView(R.id.real) TextView tvReal;
 
-    @BindView(R.id.fab) FloatingActionButton fab;
-
     private Player cat;
     private Context ctx;
 
@@ -66,10 +64,8 @@ public class MainActivity extends AppCompatActivity {
         cat = new Player(ctx, "Влюбленный кот");
         updateIndicators(cat);
 
-        fab.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick(R.id.fab)
     public void fabClick(){
         Action test = new Action(ctx, "Поспать на подушке", false);
         test.setExperience(1);
