@@ -23,7 +23,7 @@ public class MainActivity
 
     private Player cat;
     public Player getCat() {
-        if (cat == null) cat = new Player(this, "");
+        if (cat == null) cat = new Player(this);
         return cat;
     }
 
