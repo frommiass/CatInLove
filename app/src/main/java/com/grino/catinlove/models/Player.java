@@ -13,9 +13,9 @@ public class Player implements Nameable{
     private Action condition;
     private int day;
 
-    public Player(Context ctx, String name) {
+    public Player(Context ctx) {
         this.ctx = ctx;
-        this.name = name;
+        this.name = "";
         level = 0;
         day = 1;
         condition = new Action(ctx, "Текущие состояние", true);
@@ -26,6 +26,9 @@ public class Player implements Nameable{
     @Override
     public String getName() {
         return name;
+    }
+    public void setName(String name) {
+         this.name = name;
     }
 
     private void levelUp(){
