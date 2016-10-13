@@ -34,7 +34,7 @@ public class ActionsFragment
         if(getArguments() != null)
             actionsID = getArguments().getInt("actionsID");
 
-        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        recycler.setLayoutManager(new LinearLayoutManager(ctx));
         actions = getActions();
         recycler.setAdapter(new ActionRecyclerViewAdapter(actions));
 
@@ -44,12 +44,12 @@ public class ActionsFragment
     @Override
     public void onStart() {
         super.onStart();
-
+/*
         subscriptions.add(
                 bus.asObservable().subscribe
                         (event -> {if (event instanceof Integer)
                                         {actionsID = (int)event;}
-                        }));
+                        }));*/
     }
 
 
