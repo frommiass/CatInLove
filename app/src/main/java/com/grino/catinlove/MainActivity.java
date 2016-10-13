@@ -19,6 +19,7 @@ import com.grino.catinlove.rx.RxBus;
 import com.grino.catinlove.tools.Utils;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class MainActivity
@@ -45,12 +46,10 @@ public class MainActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-
-        //При первом запуске запросить имя у пользователя
-        getCat().setName("Влюбленный кот");
-
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
 
@@ -58,6 +57,9 @@ public class MainActivity
                 .beginTransaction()
                 .replace(R.id.fragment_indicators, new IndicatorsFragment())
                 .commit();
+
+        //При первом запуске запросить имя у пользователя
+        getCat().setName("Влюбленный кот");
     }
 
 

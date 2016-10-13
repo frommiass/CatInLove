@@ -38,6 +38,7 @@ public class BaseFragment
 
     @Override
     public void onStart() {
+        subscriptions = new CompositeSubscription();
         super.onStart();
     }
 
