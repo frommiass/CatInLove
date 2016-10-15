@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.models.Indicators;
+import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Player;
-import com.grino.catinlove.models.Resources;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +36,7 @@ public class IndicatorsFragment
     }
 
     public void updateIndicators(Player player){
-        pbMoon.setProgress(player.getCondition().get(Indicators.KEY_MOOD));
+        pbMoon.setProgress(player.getCondition().get(KEY.MOOD));
         pbSatiety.setProgress(player.getCondition().get(Indicators.KEY_SATIETY));
         pbEnergy.setProgress(player.getCondition().get(Indicators.KEY_ENERGY));
         tvFood.setText("" + player.getCondition().get(Resources.KEY_FOOD));

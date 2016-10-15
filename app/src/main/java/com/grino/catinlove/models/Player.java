@@ -18,7 +18,7 @@ public class Player implements Nameable{
         this.name = "";
         level = 0;
         day = 1;
-        condition = new Action(ctx, "Текущие состояние", true);
+        condition = new Action("Текущие состояние", true);
         condition.indicators.fillMax();
         condition.set(Resources.KEY_FOOD, 100);  //начальное состояние еды
     }

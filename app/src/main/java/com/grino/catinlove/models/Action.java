@@ -1,96 +1,57 @@
 package com.grino.catinlove.models;
 
-import android.content.Context;
-import android.util.Log;
+import com.grino.catinlove.enums.KEY;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Action
         implements Nameable{
 
-    private Context ctx;
+    private Map<KEY, Integer> map = new HashMap<KEY, Integer>();
+
     private String name;
     private int iconID;
 
-    private int experience;
-    public Resources resources;
-    public Indicators indicators;
-
-    public Action(Context ctx, String name, int experience, Resources resources, Indicators indicators) {
-        this.ctx = ctx;
+    public Action(String name) {
         this.name = name;
-        this.experience = experience;
-        this.resources = resources;
-        this.indicators = indicators;
+    }
+    public Action(String name, Map<KEY, Integer> map) {
+        this.name = name;
+        this.map = map;
     }
 
-    public Action(Context ctx, String name, boolean physical){
-        this.ctx = ctx;
-        this.name = name;
-        this.experience = 0;
-        this.resources = new Resources(ctx);
-        this.indicators = new Indicators(ctx, physical);
-    }
 
     @Override
     public String getName() {
         return name;
     }
 
-    public void setExperience(int experience) {
-        this.experience = experience;
+    public int getIconID() {
+        return iconID;
+    }
+    public Action setIconID(int iconID) {
+        this.iconID = iconID;
+        return this;
     }
 
-    public void setResources(Resources resources) {
-        this.resources = resources;
+    public void set(KEY key, int i){
+        map.put(key, i);
     }
-
-    public void setIndicators(Indicators indicators) {
-        this.indicators = indicators;
-    }
-
-    public void add(Action action){
-        Log.d("Grino", this.toString());
-        Log.d("Grino", action.toString());
-        experience = experience + action.experience;
-        resources.add(action.resources);
-        indicators.add(action.indicators);
+    public int get(KEY key){
+        return map.get(key);
     }
 
     @Override
     public String toString() {
         return "Action[" +
                 "name='" + name + '\'' +
-                ", exp=" + experience + " - " +
-                resources.toString() + " - " +
-                indicators.toString() + " - " +
+                super.toString() +
                 ']';
     }
 
     public String getDescription() {
-        return "+" + experience + " Опыт, " +
-                resources.getDescription() + ", " +
-                indicators.getDescription();
+        return toString();
     }
 
-    public void set(int key, int value){
-        if (Indicators.isIndicatorsKey(key))
-            indicators.set(key, value);
-        if (Resources.isResourcesKey(key))
-            resources.set(key, value);
-    }
-
-    public Integer get(int key){
-        if (Indicators.isIndicatorsKey(key))
-            return indicators.get(key).get();
-        if (Resources.isResourcesKey(key))
-            return resources.get(key).get();
-        return null;
-    }
-
-    public int getIconID() {
-        return iconID;
-    }
-
-    public void setIconID(int iconID) {
-        this.iconID = iconID;
-    }
 }
