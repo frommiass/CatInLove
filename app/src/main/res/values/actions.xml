@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="do_play">ИГРАТЬ</string>
+    <string name="do_eat">КУШАТЬ</string>
+    <string name="do_relax">ОТДЫХ</string>
+    <string name="do_hunt">ОХОТА</string>
+    <string name="do_create">СКОТ</string>
+
     <integer-array name="action_asc">
         <item>1</item>
         <item>2</item>
@@ -20,7 +27,7 @@
         <item>90</item>
     </integer-array>
 
-    <string-array name="action_satiety">
+    <string-array name="do_eat">
         <item>Попить из лужи</item>
         <item>Облизать пустую миску</item>
         <item>Найти старую косточку</item>
@@ -32,7 +39,7 @@
         <item>Стащить у рыбаков карася</item>
     </string-array>
 
-    <string-array name="action_mood">
+    <string-array name="do_play">
         <item>Потянуться</item>
         <item>Посмотреть вдаль</item>
         <item>Полизать коготки</item>
@@ -46,7 +53,7 @@
         <item>Прогуляться по карнизу</item>
     </string-array>
 
-    <string-array name="action_energy">
+    <string-array name="do_relax">
         <item>Замереть на месте</item>
         <item>Посидеть спокойно</item>
         <item>Прилечь на секундочку</item>
@@ -58,7 +65,7 @@
         <item>Поспать на подушке</item>
     </string-array>
 
-    <string-array name="action_hunting">
+    <string-array name="do_hunt">
         <item>Поймать муху</item>
         <item>Поймать кузнечика</item>
         <item>Поймать таракана</item>
@@ -71,7 +78,7 @@
         <item>Стащить курицу</item>
     </string-array>
 
-    <string-array name="action_cattle">
+    <string-array name="do_create">
         <item>Завести цыплят</item>
         <item>Завести кроликов</item>
         <item>Выменять у соседа корову</item>
