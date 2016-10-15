@@ -11,7 +11,6 @@ public class Action
     private String name;
     private int iconID;
 
-
     public Action(EnumMap<KEY, ? extends Integer> m, String name, int iconID) {
         super(m);
         this.name = name;
@@ -37,7 +36,6 @@ public class Action
                 super.toString() +
                 ']';
     }
-
     public String getDescription() {
         return toString();
     }
@@ -45,5 +43,10 @@ public class Action
     @Override
     public String getName() {
         return null;
+    }
+
+    @Override
+    public int get(KEY key) {
+        return get(key);
     }
 }
