@@ -5,8 +5,7 @@ import com.grino.catinlove.enums.SEQUENCE_TYPE;
 public class Sequence{
 
     private SEQUENCE_TYPE type;
-
-    int a, b;
+    private int a, b;
 
     public Sequence(SEQUENCE_TYPE type) {
         this.type = type;

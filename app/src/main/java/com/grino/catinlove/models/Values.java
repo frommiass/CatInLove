@@ -2,12 +2,16 @@ package com.grino.catinlove.models;
 
 import com.grino.catinlove.enums.KEY;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Values
-        extends HashMap<KEY, Value>
+        extends EnumMap<KEY, Value>
         implements Keyable{
+
+    public Values(Class<KEY> keyType) {
+        super(keyType);
+    }
 
     public Keyable combineByKey(Keyable map) {
         for (Map.Entry<KEY, Value> e : entrySet())
