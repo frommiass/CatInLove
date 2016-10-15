@@ -20,6 +20,8 @@ public class SequenceActions {
         return actions.get(n);
     }
 
-
+    public int size(){
+        return actions.size();
+    }
 }
 

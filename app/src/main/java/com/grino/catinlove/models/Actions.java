@@ -23,13 +23,16 @@ public class Actions {
 
     public Actions fillActions(Resources res){
         MapSequences sequences = (new MapSequences()).allNumbers();
-        map.put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.action_mood), sequences));
-        map.put(DO.EAT, new SequenceActions(res.getStringArray(R.array.action_satiety), sequences));
-        map.put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.action_energy), sequences));
-        map.put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.action_hunting), sequences));
-        map.put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.action_cattle), sequences));
+        map.put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.do_play), sequences));
+        map.put(DO.EAT, new SequenceActions(res.getStringArray(R.array.do_eat), sequences));
+        map.put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.do_relax), sequences));
+        map.put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.do_hunt), sequences));
+        map.put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.do_create), sequences));
         return this;
     }
 
+    public SequenceActions get(DO key){
+        return map.get(key);
+    }
 
 }

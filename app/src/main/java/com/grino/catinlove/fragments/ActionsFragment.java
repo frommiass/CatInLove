@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
+import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.Indicators;
+import com.grino.catinlove.models.SequenceActions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,8 @@ public class ActionsFragment
 
     @BindView(R.id.recycler_view) RecyclerView recycler;
 
-    private List<Action> actions;
-    private int actionsID;
+    private SequenceActions list;
+    private DO key;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,11 +34,12 @@ public class ActionsFragment
         unbinder = ButterKnife.bind(this, view);
 
         if(getArguments() != null)
-            actionsID = getArguments().getInt("actionsID");
+            key = DO.getDO(getArguments().getInt("do_key"));
+
+        list = getMainActivity().getActions().get(key);
 
         recycler.setLayoutManager(new LinearLayoutManager(ctx));
-        actions = getActions();
-        recycler.setAdapter(new ActionRecyclerViewAdapter(actions));
+        recycler.setAdapter(new ActionRecyclerViewAdapter(list));
 
         return view;
     }

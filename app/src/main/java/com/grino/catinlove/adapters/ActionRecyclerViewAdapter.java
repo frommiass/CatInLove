@@ -9,10 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.grino.catinlove.models.Action;
 import com.grino.catinlove.R;
-
-import java.util.List;
+import com.grino.catinlove.models.Action;
+import com.grino.catinlove.models.SequenceActions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,10 +19,10 @@ import butterknife.ButterKnife;
 public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
 
-    private List<Action> actions;
+    private SequenceActions list;
 
-    public ActionRecyclerViewAdapter(List<Action> actions) {
-        this.actions = actions;
+    public ActionRecyclerViewAdapter(SequenceActions list) {
+        this.list = list;
     }
 
     @Override
@@ -34,14 +33,15 @@ public class ActionRecyclerViewAdapter
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
-        holder.name.setText(actions.get(position).getName());
-        holder.description.setText(actions.get(position).getDescription());
-        holder.icon.setImageResource(actions.get(position).getIconID());
+        Action action = list.get(position);
+        holder.name.setText(action.getName());
+        holder.description.setText(action.getDescription());
+        holder.icon.setImageResource(action.getIconID());
     }
 
     @Override
     public int getItemCount() {
-        return actions.size();
+        return list.size();
     }
 
     public static class ActionViewHolder extends RecyclerView.ViewHolder {
