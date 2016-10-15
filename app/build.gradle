@@ -36,14 +36,12 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:8.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
 
-
-
+    compile "org.projectlombok:lombok:1.16.10"
 }
 
 retrolambda {
