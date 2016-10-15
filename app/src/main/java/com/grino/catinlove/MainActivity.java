@@ -38,7 +38,10 @@ public class MainActivity
 
     private Actions actions;
     public Actions getActions() {
-        if (actions == null) actions = new Actions(this.getResources());
+        if (actions == null) {
+            actions = new Actions(DO.class);
+            actions.fillActions(this.getResources());
+        }
         return actions;
     }
 
