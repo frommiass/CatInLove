@@ -1,12 +1,17 @@
 package com.grino.catinlove.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Value
         implements Nameable{
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
 
+    @Getter @Setter
     private String name;
+
     private int value;
 
     public Value(String name, int min, int max) {
@@ -29,11 +34,6 @@ public class Value
         else if (value > MAX_VALUE)
             setMax();
         else this.value = value;
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     public void add(int value){
