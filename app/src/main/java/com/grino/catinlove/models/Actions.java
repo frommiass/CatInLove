@@ -23,11 +23,12 @@ public class Actions {
 
     public Actions fillActions(Resources res){
         MapSequences sequences = (new MapSequences()).allNumbers();
-        map.put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.do_play), sequences));
-        map.put(DO.EAT, new SequenceActions(res.getStringArray(R.array.do_eat), sequences));
-        map.put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.do_relax), sequences));
-        map.put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.do_hunt), sequences));
-        map.put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.do_create), sequences));
+        int[] iconIDs = {R.mipmap.ic_launcher};
+        map.put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.do_play), iconIDs, sequences));
+        map.put(DO.EAT, new SequenceActions(res.getStringArray(R.array.do_eat), iconIDs, sequences));
+        map.put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.do_relax), iconIDs, sequences));
+        map.put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.do_hunt), iconIDs, sequences));
+        map.put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.do_create), iconIDs, sequences));
         return this;
     }
 
