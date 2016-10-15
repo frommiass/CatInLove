@@ -36,6 +36,12 @@ public class MainActivity
         return cat;
     }
 
+    private Actions actions;
+    public Actions getActions() {
+        if (actions == null) actions = new Actions(this.getResources());
+        return actions;
+    }
+
 
     @BindView(R.id.tab_layout)  TabLayout tabs;
     @BindView(R.id.view_pager)  ViewPager pager;
