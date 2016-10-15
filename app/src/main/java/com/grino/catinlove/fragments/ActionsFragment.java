@@ -54,22 +54,4 @@ public class ActionsFragment
                                         {actionsID = (int)event;}
                         }));*/
     }
-
-
-    public List<Action> getActions(){
-        actions = new ArrayList<Action>();
-
-        Action action;
-        String[] names = getResources().getStringArray(actionsID);
-        int[] values = getResources().getIntArray(R.array.action_asc);
-        for (int i=0; i<names.length; i++){
-            action = new Action(getContext(), names[i], false);
-            action.set(Indicators.KEY_ENERGY, values[i]);
-            action.setExperience(1);
-            action.setIconID(R.mipmap.ic_launcher);
-            actions.add(action);
-        }
-
-        return actions;
-    }
 }
