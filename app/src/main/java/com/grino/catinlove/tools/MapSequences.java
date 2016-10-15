@@ -24,10 +24,9 @@ public class MapSequences
     }
 
     public MapSequences allNumbers(){
-        KEY[] keys = KEY.values();
         Sequence sequence = new Sequence(SEQUENCE_TYPE.NUMBERS);
-        for (int i=0; i<keys.length; i++)
-            put(keys[i], sequence);
+        for (KEY key: KEY.values())
+            put(key, sequence);
         return this;
     }
 
