@@ -8,8 +8,10 @@ public enum DO {
     EAT    (R.string.do_eat, 2000 + 2, R.array.do_eat),
     RELAX  (R.string.do_relax, 2000 + 3, R.array.do_relax),
 
-    HUNT   (R.string.do_hunt, 2000 + 1, R.array.do_hunt),
-    CREATE (R.string.do_create, 2000 + 2, R.array.do_create);
+    HUNT   (R.string.do_hunt, 2000 + 4, R.array.do_hunt),
+    CREATE (R.string.do_create, 2000 + 5, R.array.do_create),
+
+    ERROR(R.string.do_error, 2000 + 0, R.array.do_error);
 
     private final int titleID;
     private final int key;
@@ -24,4 +26,17 @@ public enum DO {
     public int getTitleID() { return titleID; }
     public int getKey() { return key; }
     public int getStringsID() { return stringsID; }
+
+    public static DO getDO(int key){
+        DO result = DO.ERROR;
+        for (DO one: DO.values()) {
+            if (one.getKey() == key){
+                result = one;
+                break;
+            }
+        }
+        return result;
+    }
+
+
 }
