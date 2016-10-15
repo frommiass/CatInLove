@@ -2,25 +2,23 @@ package com.grino.catinlove.models;
 
 import android.content.Context;
 
+import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.tools.Utils;
 
 public class Player implements Nameable{
-
-    private Context ctx;
 
     private String name;
     private int level;
     private Action condition;
     private int day;
 
-    public Player(Context ctx) {
-        this.ctx = ctx;
+    public Player() {
         this.name = "";
         level = 0;
         day = 1;
-        condition = new Action(ctx, "Текущие состояние", true);
+        condition = new Action("Текущие состояние", true);
         condition.indicators.fillMax();
-        condition.set(Resources.KEY_FOOD, 100);  //начальное состояние еды
+        condition.set(KEY.FOOD, 100);  //начальное состояние еды
     }
 
     @Override
@@ -41,11 +39,11 @@ public class Player implements Nameable{
     }
 
     private Action getNextDayAction(){
-        Action action = new Action(ctx, "day " + day, false);
-        action.setExperience(1);
-        action.set(Indicators.KEY_ENERGY, Utils.rand(-10));
-        action.set(Indicators.KEY_MOOD, Utils.rand(-10));
-        action.set(Indicators.KEY_SATIETY, Utils.rand(-10));
+        Action action = new Action("day " + day, false);
+        action.set(KEY.EXP, 1);
+        action.set(KEY.ENERGY, Utils.rand(-10));
+        action.set(KEY.MOOD, Utils.rand(-10));
+        action.set(KEY.SATIETY, Utils.rand(-10));
         return action;
     }
 
