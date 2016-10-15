@@ -4,7 +4,9 @@ package com.grino.catinlove.enums;
  * Created by Grino on 13.10.2016.
  */
 public enum SEQUENCE_TYPE {
-    NUMBERS   (100 + 1);
+    CONSTANT  (100 + 0),
+    NUMBERS   (100 + 1),
+    LINEAR_DEPENDENCE (100 + 2);
 
     private final int type;
 
