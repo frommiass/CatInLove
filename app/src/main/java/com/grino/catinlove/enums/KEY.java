@@ -1,7 +1,9 @@
 package com.grino.catinlove.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 public enum KEY {
 
         EXP   (100 + 1),
@@ -15,8 +17,4 @@ public enum KEY {
 
         @Getter
         private final int key;
-
-        KEY(int key) {
-            this.key = key;
-        }
 }

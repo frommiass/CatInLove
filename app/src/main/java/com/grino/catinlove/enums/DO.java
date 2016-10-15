@@ -3,8 +3,10 @@ package com.grino.catinlove.enums;
 
 import com.grino.catinlove.R;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor
 public enum DO {
     PLAY   (R.string.do_play, 2000 + 1, R.array.do_play),
     EAT    (R.string.do_eat, 2000 + 2, R.array.do_eat),
@@ -18,12 +20,6 @@ public enum DO {
     @Getter      private final int titleID;
     @Getter      private final int key;
     @Getter      private final int stringsID;
-
-    DO(int titleID, int key, int stringsID) {
-        this.titleID = titleID;
-        this.key = key;
-        this.stringsID = stringsID;
-    }
 
     public static DO getDO(int key){
         DO result = DO.ERROR;
