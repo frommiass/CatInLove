@@ -32,7 +32,6 @@ public class Values
         s = s.substring(0, s.length()-2);
         return s + "}";
     }
-
     public String getDescription() {
         String s = "";
         int value;
@@ -53,7 +52,6 @@ public class Values
     public int get(KEY key) {
         return get(key);
     }
-
     @Override
     public Integer put(KEY key, Integer value) {
         return put(key, get(key));

@@ -11,7 +11,6 @@ public class Value
 
     @Getter @Setter
     private String name;
-
     private int value;
 
     public Value(String name, int min, int max) {
@@ -20,7 +19,6 @@ public class Value
         this.name = name;
         this.value = MIN_VALUE;
     }
-
     public Value(String name, int min, int max, int value) {
         MIN_VALUE = min;
         MAX_VALUE = max;
@@ -28,6 +26,9 @@ public class Value
         this.value = value;
     }
 
+    public int get(){
+        return value;
+    }
     protected void set(int value){
         if (value < MIN_VALUE)
             setMin();
@@ -40,14 +41,9 @@ public class Value
         set(get() + value);
     }
 
-    public int get(){
-        return value;
-    }
-
     public void setMin() {
         value = MIN_VALUE;
     }
-
     public void setMax(){
         value = MAX_VALUE;
     }

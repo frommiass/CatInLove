@@ -26,8 +26,6 @@ public class BaseFragment
 
     protected Context ctx;
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

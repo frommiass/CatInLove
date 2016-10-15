@@ -1,6 +1,5 @@
 package com.grino.catinlove.enums;
 
-
 import com.grino.catinlove.R;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ public enum DO {
     HUNT   (R.string.do_hunt, 2000 + 4, R.array.do_hunt),
     CREATE (R.string.do_create, 2000 + 5, R.array.do_create),
 
-    ERROR(R.string.do_error, 2000 + 0, R.array.do_error);
+    ERROR  (R.string.do_error, 2000 + 0, R.array.do_error);
 
     @Getter      private final int titleID;
     @Getter      private final int key;
@@ -31,6 +30,5 @@ public enum DO {
         }
         return result;
     }
-
 
 }
