@@ -4,36 +4,27 @@ import android.content.res.Resources;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.DO;
+import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.tools.MapSequences;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.EnumMap;
 
-public class Actions {
+public class Actions
+        extends EnumMap<DO, SequenceActions> {
 
-    private Map<DO, SequenceActions> map = new HashMap<DO, SequenceActions>();
-
-    public Actions(Resources res) {
-        fillActions(res);
-    }
-
-    public Action get(DO key, int n){
-        return map.get(key).get(n);
+    public Actions(Class<DO> keyType) {
+        super(keyType);
     }
 
     public Actions fillActions(Resources res){
-        MapSequences sequences = (new MapSequences()).allNumbers();
+        MapSequences sequences = (new MapSequences(KEY.class)).allNumbers();
         int[] iconIDs = {R.mipmap.ic_launcher};
-        map.put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.do_play), iconIDs, sequences));
-        map.put(DO.EAT, new SequenceActions(res.getStringArray(R.array.do_eat), iconIDs, sequences));
-        map.put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.do_relax), iconIDs, sequences));
-        map.put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.do_hunt), iconIDs, sequences));
-        map.put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.do_create), iconIDs, sequences));
+        put(DO.PLAY, new SequenceActions(res.getStringArray(R.array.do_play), iconIDs, sequences));
+        put(DO.EAT, new SequenceActions(res.getStringArray(R.array.do_eat), iconIDs, sequences));
+        put(DO.RELAX, new SequenceActions(res.getStringArray(R.array.do_relax), iconIDs, sequences));
+        put(DO.HUNT, new SequenceActions(res.getStringArray(R.array.do_hunt), iconIDs, sequences));
+        put(DO.CREATE, new SequenceActions(res.getStringArray(R.array.do_create), iconIDs, sequences));
         return this;
-    }
-
-    public SequenceActions get(DO key){
-        return map.get(key);
     }
 
 }
