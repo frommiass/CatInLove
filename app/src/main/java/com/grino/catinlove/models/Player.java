@@ -11,6 +11,7 @@ public class Player implements Nameable{
     @Getter @Setter
     private String name;
 
+    @Getter
     private Container level, day;
     private ContainerMap my;
 

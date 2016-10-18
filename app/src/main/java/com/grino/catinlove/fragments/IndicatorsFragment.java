@@ -22,7 +22,9 @@ public class IndicatorsFragment
     @BindView(R.id.pb_satiety) ProgressBar pbSatiety;
     @BindView(R.id.pb_mood) ProgressBar pbMoon;
     @BindView(R.id.pb_energy) ProgressBar pbEnergy;
+    @BindView(R.id.pb_exp) ProgressBar pbExp;
 
+    @BindView(R.id.level) TextView tvLevel;
     @BindView(R.id.food) TextView tvFood;
     @BindView(R.id.real) TextView tvReal;
 
@@ -40,6 +42,8 @@ public class IndicatorsFragment
         pbMoon.setProgress(player.getContent(KEY.MOOD));
         pbSatiety.setProgress(player.getContent(KEY.SATIETY));
         pbEnergy.setProgress(player.getContent(KEY.ENERGY));
+        pbExp.setProgress(player.getContent(KEY.EXP));
+        tvLevel.setText("" + player.getLevel().get());
         tvFood.setText("" + player.getContent(KEY.FOOD));
         tvReal.setText("" + player.getContent(KEY.REAL));
     }
