@@ -9,6 +9,9 @@ public class Values
         extends EnumMap<KEY, Value>
         implements Keyable{
 
+    private final static int MAX_IND = 100;
+    private final static int MAX_RES = 2000000000;
+
     public Values(Class<KEY> keyType) {
         super(keyType);
     }
@@ -54,12 +57,12 @@ public class Values
     }
 
     public Values putRes(KEY key, int value){
-        put(key, new Value(key.name(), 0, 200000000, value));
+        put(key, new Value(key.name(), 0, MAX_RES, value));
         return this;
     }
 
     public Values putInd(KEY key, int value){
-        put(key, new Value(key.name(), 0, 100, value));
+        put(key, new Value(key.name(), 0, MAX_IND, value));
         return this;
     }
 }
