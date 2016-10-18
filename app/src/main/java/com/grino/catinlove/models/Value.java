@@ -47,4 +47,8 @@ public class Value
     public void setMax(){
         value = MAX_VALUE;
     }
+
+    public void increase(){
+        value++;
+    }
 }
