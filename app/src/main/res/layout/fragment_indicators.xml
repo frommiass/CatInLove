@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:progress="33"
+            android:max="1000"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
             android:layout_gravity="center" />
 
@@ -87,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:progress="33"
+            android:max="1000"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
             android:layout_gravity="center" />
 
@@ -111,6 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:progress="33"
+            android:max="1000"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
             android:layout_gravity="center" />
 

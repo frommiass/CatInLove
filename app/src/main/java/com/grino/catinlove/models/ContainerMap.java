@@ -9,7 +9,7 @@ public class ContainerMap
         extends EnumMap<KEY, Container>
         implements Keyable{
 
-    private final static int MAX_IND = 100;
+    private final static int MAX_IND = 1000;
     private final static int MAX_RES = 2000000000;
 
     public ContainerMap(Class<KEY> keyType) {
@@ -44,5 +44,21 @@ public class ContainerMap
     public ContainerMap putInd(KEY key, int value){
         put(key, new Container(0, MAX_IND, value));
         return this;
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (EnumMap.Entry<KEY, Container> e : entrySet()) {
+            int i = e.getValue().get();
+            if (i != 0) {
+                if (i > 0) s = s + "+";
+                s = s + i + " " + e.getKey().getName() + ",  ";
+            }
+        }
+        if (s.length() > 1)
+            s = s.substring(0, s.length()-3);
+        else s = "";
+        return s;
     }
 }

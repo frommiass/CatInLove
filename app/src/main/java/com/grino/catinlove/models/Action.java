@@ -31,7 +31,6 @@ public class Action
             int i = e.getValue();
             if (i != 0) {
                 if (i > 0) s = s + "+";
-                else s = s + "-";
                 s = s + i + " " + e.getKey().getName() + ",  ";
             }
         }

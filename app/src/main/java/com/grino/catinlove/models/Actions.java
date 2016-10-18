@@ -21,24 +21,17 @@ public class Actions
 
     public Actions fillActions(){
 
+        Sequence seq1 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, 10, 4);
+
         for (DO d: DO.values()){
             MapSequences s = new MapSequences(KEY.class);
             s.put(KEY.EXP, new Sequence(SEQUENCE_TYPE.CONSTANT, 1));
 
-            if (d == DO.PLAY)
-                s.put(KEY.MOOD, new Sequence(SEQUENCE_TYPE.NUMBERS));
-
-            else if (d == DO.EAT)
-                s.put(KEY.SATIETY, new Sequence(SEQUENCE_TYPE.NUMBERS));
-
-            else if (d == DO.RELAX)
-                s.put(KEY.ENERGY, new Sequence(SEQUENCE_TYPE.NUMBERS));
-
-            else if (d == DO.HUNT)
-                s.put(KEY.FOOD, new Sequence(SEQUENCE_TYPE.NUMBERS));
-
-            else if (d == DO.CREATE)
-                s.put(KEY.FOOD, new Sequence(SEQUENCE_TYPE.NUMBERS));
+                 if (d == DO.PLAY)   s.put(KEY.MOOD,    seq1);
+            else if (d == DO.EAT)    s.put(KEY.SATIETY, seq1);
+            else if (d == DO.RELAX)  s.put(KEY.ENERGY,  seq1);
+            else if (d == DO.HUNT)   s.put(KEY.FOOD,    seq1);
+            else if (d == DO.CREATE) s.put(KEY.FOOD,    seq1);
 
             int[] icons = {R.mipmap.ic_launcher};
             put(d, icons, s);
