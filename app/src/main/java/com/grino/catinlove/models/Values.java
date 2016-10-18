@@ -33,12 +33,12 @@ public class Values
     }
 
     public Values putRes(KEY key, int value){
-        put(key, new Value(key.getName(), 0, MAX_RES, value));
+        put(key, new Value(0, MAX_RES, value));
         return this;
     }
 
     public Values putInd(KEY key, int value){
-        put(key, new Value(key.getName(), 0, MAX_IND, value));
+        put(key, new Value(0, MAX_IND, value));
         return this;
     }
 }

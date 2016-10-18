@@ -1,28 +1,20 @@
 package com.grino.catinlove.models;
 
-import lombok.Getter;
-import lombok.Setter;
-
-public class Value
-        implements Nameable{
+public class Value{
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
 
-    @Getter @Setter
-    private String name;
     private int value;
 
-    public Value(String name, int min, int max) {
+    public Value(int min, int max) {
         MIN_VALUE = min;
         MAX_VALUE = max;
-        this.name = name;
         this.value = MIN_VALUE;
     }
-    public Value(String name, int min, int max, int value) {
+    public Value(int min, int max, int value) {
         MIN_VALUE = min;
         MAX_VALUE = max;
-        this.name = name;
         this.value = value;
     }
 

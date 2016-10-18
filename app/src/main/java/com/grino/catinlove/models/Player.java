@@ -8,14 +8,16 @@ import lombok.Setter;
 
 public class Player implements Nameable{
 
-    @Getter @Setter     private String name;
+    @Getter @Setter
+    private String name;
+
     private Value level, day;
     private Values condition;
 
     public Player() {
         this.name = "";
-        level = new Value("Уровень", 1, 20000000, 1);
-        day = new Value("День", 1, 20000000, 1);
+        level = new Value(1, 20000000, 1);
+        day = new Value(1, 20000000, 1);
         condition = new Values(KEY.class)
             .putRes(KEY.EXP, 0)
             .putInd(KEY.ENERGY, 100)
