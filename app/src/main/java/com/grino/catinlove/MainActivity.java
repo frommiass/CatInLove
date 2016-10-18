@@ -23,12 +23,6 @@ import butterknife.ButterKnife;
 public class MainActivity
         extends AppCompatActivity {
 
-    private RxBus bus = null;
-    public RxBus getBus() {
-        if (bus == null) bus = new RxBus();
-        return bus;
-    }
-
     private Player cat = null;
     public Player getCat() {
         if (cat == null) cat = new Player();
