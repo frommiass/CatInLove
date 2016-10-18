@@ -10,10 +10,7 @@ import android.view.ViewGroup;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.SequenceActions;
-import com.grino.catinlove.rx.BusActionPosition;
-import com.grino.catinlove.rx.BusActionClick;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,22 +37,6 @@ public class ActionsFragment
         recycler.setAdapter(new ActionRecyclerViewAdapter(list));
 
         return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        subscriptions.add(
-                bus.asObservable()
-                        .subscribe(event -> {
-                                    if (event instanceof BusActionPosition) {
-                                        int position = ((BusActionPosition) event).getPosition();
-                                        Action action = list.get(position);
-                                        bus.sendObservers(new BusActionClick(action));
-                                    }
-                                }
-                        )
-        );
     }
 
 }
