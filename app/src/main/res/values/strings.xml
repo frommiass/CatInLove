@@ -5,6 +5,8 @@
     <string name="indicator_mood">Настроение</string>
     <string name="indicator_energy">Бодрость</string>
 
+    <string name="indicator_exp">Опыт</string>
+
     <string name="resource_food">Еда</string>
     <string name="resource_real">Реал</string>
 
