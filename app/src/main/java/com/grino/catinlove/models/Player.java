@@ -39,9 +39,9 @@ public class Player implements Nameable{
     private Action getNextDayAction(){
         Action action = new Action(KEY.class);
         action.put(KEY.EXP, 1);
-        action.put(KEY.ENERGY, Utils.rand(-10));
-        action.put(KEY.MOOD, Utils.rand(-10));
-        action.put(KEY.SATIETY, Utils.rand(-10));
+        action.put(KEY.ENERGY, Utils.rand(-50));
+        action.put(KEY.MOOD, Utils.rand(-50));
+        action.put(KEY.SATIETY, Utils.rand(-50));
         return action;
     }
 

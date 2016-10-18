@@ -29,7 +29,7 @@ public class Action
         String s = "";
         for (EnumMap.Entry<KEY, Integer> e : entrySet()) {
             int i = e.getValue();
-            if (i != 0) {
+            if ((i != 0)&(i != 1)) {
                 if (i > 0) s = s + "+";
                 s = s + i + " " + e.getKey().getName() + ",  ";
             }
