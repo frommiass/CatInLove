@@ -25,8 +25,6 @@ public enum KEY {
         private final int nameID;
 
         public String getName(){
-                return MyApp
-                        .getContextForResources()
-                        .getString(getNameID());
+                return MyApp.getContextForResources().getString(getNameID());
         }
 }
