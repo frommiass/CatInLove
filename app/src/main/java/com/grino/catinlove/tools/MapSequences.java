@@ -15,6 +15,10 @@ public class MapSequences
         super(keyType);
     }
 
+    public MapSequences(EnumMap<KEY, ? extends Sequence> m) {
+        super(m);
+    }
+
     public Action getAction(int n) {
         Action action = new Action(KEY.class);
         for (EnumMap.Entry<KEY, Sequence> e : entrySet()) {
