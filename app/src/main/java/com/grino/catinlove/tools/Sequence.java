@@ -29,7 +29,7 @@ public class Sequence{
         if (SEQUENCE_TYPE.CONSTANT.equals(type))
             return a;
         else if (SEQUENCE_TYPE.NUMBERS.equals(type))
-            return n;
+            return n + 1;
         else if (SEQUENCE_TYPE.LINEAR_DEPENDENCE.equals(type))
             return (a + b*n);
         return 0;
