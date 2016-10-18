@@ -10,12 +10,7 @@ import android.view.ViewGroup;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.models.Action;
-import com.grino.catinlove.models.Indicators;
 import com.grino.catinlove.models.SequenceActions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
