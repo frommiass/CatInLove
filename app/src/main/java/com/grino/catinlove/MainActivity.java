@@ -29,13 +29,13 @@ public class MainActivity
         return bus;
     }
 
-    private Player cat;
+    private Player cat = null;
     public Player getCat() {
         if (cat == null) cat = new Player();
         return cat;
     }
 
-    private Actions actions;
+    private Actions actions = null;
     public Actions getActions() {
         if (actions == null) {
             actions = new Actions(DO.class);
