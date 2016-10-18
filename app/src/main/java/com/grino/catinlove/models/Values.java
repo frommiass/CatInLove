@@ -28,41 +28,17 @@ public class Values
     }
 
     @Override
-    public String toString() {
-        String s = "{" ;
-        for (Map.Entry<KEY, Value> entry : entrySet())
-            s = s + entry.getValue().getName() + "=" + entry.getValue().get() + ", ";
-        s = s.substring(0, s.length()-2);
-        return s + "}";
-    }
-    public String getDescription() {
-        String s = "";
-        int value;
-        for (Map.Entry<KEY, Value> entry : entrySet()) {
-            value = entry.getValue().get();
-            if (value != 0) {
-                if (value > 0) s = s + "+";
-                s = s + value + " " + entry.getValue().getName() + ", ";
-            }
-        }
-        if (s.length() > 1)
-            s = s.substring(0, s.length()-2);
-        else s = "";
-        return s;
-    }
-
-    @Override
     public int get(KEY key) {
         return super.get(key).get();
     }
 
     public Values putRes(KEY key, int value){
-        put(key, new Value(key.name(), 0, MAX_RES, value));
+        put(key, new Value(key.getName(), 0, MAX_RES, value));
         return this;
     }
 
     public Values putInd(KEY key, int value){
-        put(key, new Value(key.name(), 0, MAX_IND, value));
+        put(key, new Value(key.getName(), 0, MAX_IND, value));
         return this;
     }
 }
