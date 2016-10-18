@@ -1,18 +1,18 @@
 package com.grino.catinlove.models;
 
-public class Value{
+public class Container {
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
 
     private int value;
 
-    public Value(int min, int max) {
+    public Container(int min, int max) {
         MIN_VALUE = min;
         MAX_VALUE = max;
         this.value = MIN_VALUE;
     }
-    public Value(int min, int max, int value) {
+    public Container(int min, int max, int value) {
         MIN_VALUE = min;
         MAX_VALUE = max;
         this.value = value;

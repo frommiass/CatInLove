@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.R;
 import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.SequenceActions;
+import com.grino.catinlove.rx.RxBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
@@ -53,7 +56,14 @@ public class ActionRecyclerViewAdapter
         ActionViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+
         }
+
+        @OnClick
+        public void onClickCard(){
+
+        }
+
     }
 
 }
