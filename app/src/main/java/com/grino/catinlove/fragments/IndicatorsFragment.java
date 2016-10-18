@@ -19,9 +19,9 @@ import butterknife.ButterKnife;
 public class IndicatorsFragment
         extends BaseFragment {
 
-    @BindView(R.id.pb_1) ProgressBar pbSatiety;
-    @BindView(R.id.pb_2) ProgressBar pbMoon;
-    @BindView(R.id.pb_3) ProgressBar pbEnergy;
+    @BindView(R.id.pb_satiety) ProgressBar pbSatiety;
+    @BindView(R.id.pb_mood) ProgressBar pbMoon;
+    @BindView(R.id.pb_energy) ProgressBar pbEnergy;
 
     @BindView(R.id.food) TextView tvFood;
     @BindView(R.id.real) TextView tvReal;

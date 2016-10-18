@@ -58,7 +58,7 @@
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
-            android:id="@+id/pb_1"
+            android:id="@+id/pb_energy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -83,7 +83,7 @@
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
-            android:id="@+id/pb_2"
+            android:id="@+id/pb_mood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -108,7 +108,7 @@
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
-            android:id="@+id/pb_3"
+            android:id="@+id/pb_satiety"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
