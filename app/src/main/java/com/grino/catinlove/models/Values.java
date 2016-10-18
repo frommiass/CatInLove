@@ -50,10 +50,6 @@ public class Values
 
     @Override
     public int get(KEY key) {
-        return get(key);
-    }
-    @Override
-    public Integer put(KEY key, Integer value) {
-        return put(key, get(key));
+        return super.get(key).get();
     }
 }
