@@ -12,13 +12,13 @@ public class Player implements Nameable{
     private String name;
 
     private Container level, day;
-    private ContainerMap condition;
+    private ContainerMap my;
 
     public Player() {
         this.name = "";
         level = new Container(1, 20000000, 1);
         day = new Container(1, 20000000, 1);
-        condition = new ContainerMap(KEY.class)
+        my = new ContainerMap(KEY.class)
             .putRes(KEY.EXP, 0)
             .putInd(KEY.ENERGY, 100)
             .putInd(KEY.SATIETY, 100)
@@ -46,10 +46,10 @@ public class Player implements Nameable{
     }
 
     public void doAction(Action action){
-        condition.combineByKey(action);
+        my.combineByKey(action);
     }
 
-    public ContainerMap getCondition() {
-        return condition;
+    public int getContent(KEY key) {
+        return my.get(key);
     }
 }

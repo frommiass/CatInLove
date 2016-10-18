@@ -35,11 +35,11 @@ public class IndicatorsFragment
     }
 
     public void updateIndicators(Player player){
-        pbMoon.setProgress(player.getCondition().get(KEY.MOOD));
-        pbSatiety.setProgress(player.getCondition().get(KEY.SATIETY));
-        pbEnergy.setProgress(player.getCondition().get(KEY.ENERGY));
-        tvFood.setText("" + player.getCondition().get(KEY.FOOD));
-        tvReal.setText("" + player.getCondition().get(KEY.REAL));
+        pbMoon.setProgress(player.getContent(KEY.MOOD));
+        pbSatiety.setProgress(player.getContent(KEY.SATIETY));
+        pbEnergy.setProgress(player.getContent(KEY.ENERGY));
+        tvFood.setText("" + player.getContent(KEY.FOOD));
+        tvReal.setText("" + player.getContent(KEY.REAL));
     }
 
 }
