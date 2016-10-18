@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.grino.catinlove.MainActivity;
+import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.SequenceActions;
-import com.grino.catinlove.rx.RxBus;
+import com.grino.catinlove.rx.BusActionPosition;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +40,7 @@ public class ActionRecyclerViewAdapter
         holder.name.setText(action.getName());
         holder.description.setText(action.toString());
         holder.icon.setImageResource(action.getIconID());
+        holder.bind(position);
     }
 
     @Override
@@ -53,15 +54,21 @@ public class ActionRecyclerViewAdapter
         @BindView(R.id.action_name)         TextView name;
         @BindView(R.id.action_description)  TextView description;
 
+        int position;
+
         ActionViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
 
         }
 
+        public void bind(int position){
+            this.position = position;
+        }
+
         @OnClick
         public void onClickCard(){
-
+            MyApp.getBus().sendObservers(new BusActionPosition(position));
         }
 
     }
