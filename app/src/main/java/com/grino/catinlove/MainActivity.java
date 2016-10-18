@@ -39,7 +39,7 @@ public class MainActivity
     public Actions getActions() {
         if (actions == null) {
             actions = new Actions(DO.class);
-            actions.fillActions(this.getResources());
+            actions.fillActions();
         }
         return actions;
     }
