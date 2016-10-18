@@ -43,6 +43,9 @@ public class Action
 
     @Override
     public int get(KEY key) {
-        return get(key);
+        Integer i = super.get(key);
+            if (i == null)
+                i = 0;
+        return i;
     }
 }

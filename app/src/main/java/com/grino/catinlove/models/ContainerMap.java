@@ -17,8 +17,12 @@ public class ContainerMap
     }
 
     public Keyable combineByKey(Keyable map) {
-        for (Map.Entry<KEY, Container> e : entrySet())
-            e.getValue().add(map.get(e.getKey()));
+        for (Map.Entry<KEY, Container> e : entrySet()) {
+            KEY key = e.getKey();
+            int b = map.get(key);
+            Container a = e.getValue();
+            a.add(b);
+        }
         return this;
     }
 
