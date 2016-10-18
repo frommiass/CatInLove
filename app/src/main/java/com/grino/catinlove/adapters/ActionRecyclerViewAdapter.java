@@ -35,7 +35,7 @@ public class ActionRecyclerViewAdapter
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         Action action = list.get(position);
         holder.name.setText(action.getName());
-        holder.description.setText(action.getDescription());
+        holder.description.setText(action.toString());
         holder.icon.setImageResource(action.getIconID());
     }
 
