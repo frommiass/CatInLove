@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.grino.catinlove.MainActivity;
+import com.grino.catinlove.MyApp;
 import com.grino.catinlove.models.Player;
 import com.grino.catinlove.rx.RxBus;
 
@@ -30,7 +31,7 @@ public class BaseFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx = getContext();
-        bus = getMainActivity().getBus();
+        bus = MyApp.getBus();
         cat = getMainActivity().getCat();
     }
 

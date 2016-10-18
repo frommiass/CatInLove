@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.Player;
+import com.grino.catinlove.rx.BusActionClick;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,4 +44,19 @@ public class IndicatorsFragment
         tvReal.setText("" + player.getContent(KEY.REAL));
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        subscriptions.add(
+                bus.asObservable()
+                        .subscribe(event -> {
+                                     if (event instanceof BusActionClick) {
+                                        Action action = ((BusActionClick) event).getAction();
+                                        cat.doTick(action);
+                                        updateIndicators(cat);
+                                     }
+                                 }
+                        )
+        );
+    }
 }
