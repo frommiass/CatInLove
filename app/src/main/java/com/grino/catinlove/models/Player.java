@@ -29,20 +29,30 @@ public class Player implements Nameable{
     }
 
     private void levelUp(){
-        level.increase();
+        if (my.get(KEY.EXP) > getMaxExp()) {
+            level.increase();
+            my.putRes(KEY.EXP, 0);
+            my.putInd(KEY.ENERGY, 1000);
+            my.putInd(KEY.SATIETY, 1000);
+            my.putInd(KEY.MOOD, 1000);
+        }
+    }
+    public int getMaxExp(){
+        return (50 + level.get()*10);
     }
 
     public void doTick(Action action){
         doAction(action);
         doAction(getNextDayAction());
+        levelUp();
     }
 
     private Action getNextDayAction(){
         Action action = new Action(KEY.class);
         action.put(KEY.EXP, 1);
-        action.put(KEY.ENERGY, Utils.rand(-50));
-        action.put(KEY.MOOD, Utils.rand(-50));
-        action.put(KEY.SATIETY, Utils.rand(-50));
+        action.put(KEY.ENERGY, Utils.rand(-70));
+        action.put(KEY.MOOD, Utils.rand(-70));
+        action.put(KEY.SATIETY, Utils.rand(-70));
         return action;
     }
 

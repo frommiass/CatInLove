@@ -43,6 +43,7 @@ public class IndicatorsFragment
         pbSatiety.setProgress(player.getContent(KEY.SATIETY));
         pbEnergy.setProgress(player.getContent(KEY.ENERGY));
         pbExp.setProgress(player.getContent(KEY.EXP));
+        pbExp.setMax(player.getMaxExp());
         tvLevel.setText("" + player.getLevel().get());
         tvFood.setText("" + player.getContent(KEY.FOOD));
         tvReal.setText("" + player.getContent(KEY.REAL));
