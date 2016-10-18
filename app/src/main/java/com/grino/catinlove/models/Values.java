@@ -52,4 +52,14 @@ public class Values
     public int get(KEY key) {
         return super.get(key).get();
     }
+
+    public Values putRes(KEY key, int value){
+        put(key, new Value(key.name(), 0, 200000000, value));
+        return this;
+    }
+
+    public Values putInd(KEY key, int value){
+        put(key, new Value(key.name(), 0, 100, value));
+        return this;
+    }
 }
