@@ -42,6 +42,8 @@ dependencies {
     compile 'com.jakewharton.rxrelay:rxrelay:1.2.0'
 
     compile "org.projectlombok:lombok:1.16.10"
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
 retrolambda {
