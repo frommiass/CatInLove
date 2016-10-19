@@ -41,12 +41,13 @@ public class ActionRecyclerViewAdapter
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         Action action = list.get(position);
         holder.name.setText(action.getName());
-        holder.description.setText(action.toString());
-        holder.icon.setImageResource(action.getIconID());
+        //holder.description.setText(action.toString());
+        holder.description.setText("");
         Picasso.with(ctx)
                 .load(action.getIconID())
-               // .placeholder(R.mipmap.ic_launcher)
+                .placeholder(R.drawable.placeholder)
                 .into(holder.icon);
+
         holder.bind(action);
     }
 

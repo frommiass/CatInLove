@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="0dp">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/action_card">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="236dp"
-                android:layout_height="236dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/action_icon"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:src="@drawable/relax_01"
+                android:adjustViewBounds="true" />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
                 android:id="@+id/action_name"
                 android:textSize="16sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:text="Прилечь на минуточку"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +38,8 @@
                 android:layout_alignParentBottom="true"
                 android:id="@+id/action_description"
                 android:textSize="12sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:text="+101 Бодрость"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
