@@ -3,6 +3,7 @@ package com.grino.catinlove.fragments;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,8 @@ public class ActionsFragment
 
         list = getMainActivity().getActions().get(key);
 
-        recycler.setLayoutManager(new LinearLayoutManager(ctx));
-        recycler.setAdapter(new ActionRecyclerViewAdapter(list));
+        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, list));
 
         return view;
     }
