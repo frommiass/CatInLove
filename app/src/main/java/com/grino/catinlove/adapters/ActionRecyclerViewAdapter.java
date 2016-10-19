@@ -1,5 +1,6 @@
 package com.grino.catinlove.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.grino.catinlove.R;
 import com.grino.catinlove.models.Action;
 import com.grino.catinlove.models.SequenceActions;
 import com.grino.catinlove.rx.BusActionClick;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +24,10 @@ public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
 
     private SequenceActions list;
+    private Context ctx;
 
-    public ActionRecyclerViewAdapter(SequenceActions list) {
+    public ActionRecyclerViewAdapter(Context ctx, SequenceActions list) {
+        this.ctx = ctx;
         this.list = list;
     }
 
@@ -39,6 +43,10 @@ public class ActionRecyclerViewAdapter
         holder.name.setText(action.getName());
         holder.description.setText(action.toString());
         holder.icon.setImageResource(action.getIconID());
+        Picasso.with(ctx)
+                .load(action.getIconID())
+               // .placeholder(R.mipmap.ic_launcher)
+                .into(holder.icon);
         holder.bind(action);
     }
 
