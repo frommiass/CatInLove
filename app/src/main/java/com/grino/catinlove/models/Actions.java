@@ -35,7 +35,44 @@ public class Actions
             else if (d == DO.HUNT)   s.put(KEY.FOOD,    seq1);
             else if (d == DO.CREATE) s.put(KEY.FOOD,    seq1);
 
-            int[] icons = {R.mipmap.ic_launcher};
+            int[] icons = {
+                    R.drawable.relax_01,
+                    R.drawable.relax_02,
+                    R.drawable.relax_03,
+                    R.drawable.relax_04,
+                    R.drawable.relax_05,
+                    R.drawable.relax_06,
+                    R.drawable.relax_07,
+                    R.drawable.relax_08,
+                    R.drawable.relax_09,
+                    R.drawable.relax_10,
+                    R.drawable.relax_11,
+                    R.drawable.relax_12,
+                    R.drawable.relax_13,
+                    R.drawable.relax_14,
+                    R.drawable.relax_15,
+                    R.drawable.relax_16,
+                    R.drawable.relax_17,
+                    R.drawable.relax_18,
+                    R.drawable.relax_19,
+                    R.drawable.relax_20,
+                    R.drawable.relax_21,
+                    R.drawable.relax_22,
+                    R.drawable.relax_23,
+                    R.drawable.relax_24,
+                    R.drawable.relax_25,
+                    R.drawable.relax_26,
+                    R.drawable.relax_27,
+                    R.drawable.relax_28,
+                    R.drawable.relax_29,
+                    R.drawable.relax_30,
+                    R.drawable.relax_31,
+                    R.drawable.relax_32,
+                    R.drawable.relax_33,
+                    R.drawable.relax_34,
+                    R.drawable.relax_35,
+            };
+
             put(d, icons, s);
         }
 
