@@ -34,7 +34,7 @@ public class ActionsFragment
 
         list = getMainActivity().getActions().get(key);
 
-        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recycler.setLayoutManager(new LinearLayoutManager(ctx));
         recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, list));
 
         return view;
