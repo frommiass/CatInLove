@@ -32,7 +32,7 @@ public class BaseFragment
         super.onCreate(savedInstanceState);
         ctx = getContext();
         bus = MyApp.getBus();
-        cat = getMainActivity().getCat();
+        cat = MyApp.getCat();
     }
 
     @Override

@@ -23,12 +23,6 @@ import butterknife.ButterKnife;
 public class MainActivity
         extends AppCompatActivity {
 
-    private Player cat = null;
-    public Player getCat() {
-        if (cat == null) cat = new Player();
-        return cat;
-    }
-
     private Actions actions = null;
     public Actions getActions() {
         if (actions == null) {
@@ -58,7 +52,7 @@ public class MainActivity
                 .commit();
 
         //При первом запуске запросить имя у пользователя
-        getCat().setName("Влюбленный кот");
+        MyApp.getCat().setName("Влюбленный кот");
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -71,5 +65,4 @@ public class MainActivity
         adapter.addFragment(new ActionsFragment(), res, DO.CREATE);
         viewPager.setAdapter(adapter);
     }
-
 }
