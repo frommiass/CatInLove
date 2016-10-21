@@ -64,4 +64,8 @@ public class Player implements Nameable{
     public int getContent(KEY key) {
         return my.get(key);
     }
+
+    public boolean satisfies(int requirements){
+        return true;//(level.get() >= requirements);
+    }
 }

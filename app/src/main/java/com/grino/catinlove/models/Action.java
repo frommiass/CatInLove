@@ -13,11 +13,13 @@ public class Action
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;
+    @Getter @Setter     private int requirements;
 
-    public Action(EnumMap<KEY, ? extends Integer> m, String name, int iconID) {
+    public Action(EnumMap<KEY, ? extends Integer> m, String name, int iconID, int requirements) {
         super(m);
         this.name = name;
         this.iconID = iconID;
+        this.requirements = requirements;
     }
 
     public Action(Class<KEY> keyType) {

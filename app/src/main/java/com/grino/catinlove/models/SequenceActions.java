@@ -10,7 +10,7 @@ public class SequenceActions
     public SequenceActions(String[] names, int[] iconIDs, MapSequences map) {
         Action action;
         for (int i=0; i< names.length; i++) {
-            action = new Action(map.getAction(i), names[i], iconIDs[i]);
+            action = new Action(map.getAction(i), names[i], iconIDs[i], i+1);
             add(action);
         }
     }
