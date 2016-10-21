@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp">
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,6 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/resource_food"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|enterAlways"/>
         <TextView
             android:id="@+id/food"
@@ -26,6 +28,7 @@
             android:text="999999"
             android:textSize="16sp"
             android:paddingLeft="8dp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|enterAlways"/>
         <TextView
             android:layout_width="wrap_content"
@@ -33,6 +36,7 @@
             android:text="@string/resource_real"
             android:textSize="16sp"
             android:paddingLeft="32dp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|enterAlways"/>
         <TextView
             android:id="@+id/real"
@@ -41,6 +45,7 @@
             android:text="100"
             android:textSize="16sp"
             android:paddingLeft="8dp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|enterAlways"/>
     </LinearLayout>
 
@@ -55,6 +60,7 @@
             android:layout_weight="1"
             android:text="@string/indicator_energy"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
@@ -64,7 +70,7 @@
             android:layout_weight="2.4"
             android:progress="33"
             android:max="1000"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            style="@style/CustomProgressBar"
             android:layout_gravity="center" />
 
     </LinearLayout>
@@ -80,6 +86,7 @@
             android:layout_weight="1"
             android:text="@string/indicator_mood"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
@@ -89,7 +96,7 @@
             android:layout_weight="2.4"
             android:progress="33"
             android:max="1000"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            style="@style/CustomProgressBar"
             android:layout_gravity="center" />
 
     </LinearLayout>
@@ -105,6 +112,7 @@
             android:layout_weight="1"
             android:text="@string/indicator_satiety"
             android:textSize="16sp"
+            android:textColor="#000000"
             app:layout_scrollFlags="scroll|snap"/>
 
         <ProgressBar
@@ -114,7 +122,7 @@
             android:layout_weight="2.4"
             android:progress="33"
             android:max="1000"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            style="@style/CustomProgressBar"
             android:layout_gravity="center" />
 
     </LinearLayout>
@@ -129,10 +137,13 @@
             android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="1"
-            android:textSize="32sp"
+            android:text="12"
+            android:textSize="48sp"
+            android:textColor="#000000"
             android:layout_gravity="center"
-            app:layout_scrollFlags="scroll|snap"/>
+            app:layout_scrollFlags="scroll|snap"
+            android:textStyle="bold"
+            android:fontFamily="@android:string/emptyPhoneNumber" />
 
         <ProgressBar
             android:id="@+id/pb_exp"
@@ -141,7 +152,7 @@
             android:layout_weight="8"
             android:progress="33"
             android:max="80"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            style="@style/CustomProgressBar"
             android:layout_gravity="center" />
 
     </LinearLayout>
