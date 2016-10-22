@@ -1,5 +1,8 @@
 package com.grino.catinlove.models;
 
+import android.content.res.Resources;
+
+import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.tools.MapSequences;
 import com.grino.catinlove.tools.Sequence;
@@ -15,7 +18,7 @@ public class SequenceActions
     @Setter     Sequence requirement;
     @Setter     Sequence probability;
 
-    private int[] icons;
+    private ArrayList<Integer> icons = new ArrayList<>();
     private int placeholder;
     private final String[] names;
     private final int count;
@@ -49,15 +52,27 @@ public class SequenceActions
         values.put(k, s);
     }
 
-    public void setIcons(int[] icons, int placeholder){
-        this.icons = icons;
-        this.placeholder = placeholder;
+    public void setIcons(Resources res, DO d){
+        this.placeholder = DO.ERROR.getDrawableName();
+        for (int i=1; i<=count; i++) {
+            String name = res.getString(d.getDrawableName()) + getPrefix(i);
+            int id = res.getIdentifier(name, "drawable", res.getResourcePackageName(placeholder));
+            if (id == 0)
+                id = placeholder;
+            icons.add(id);
+        }
     }
 
     private int getIcon(int i){
-        if (i < icons.length)
-            return icons[i];
+        if (i < icons.size())
+            return icons.get(i);
         else return placeholder;
+    }
+
+    private String getPrefix(int i){
+        String prefix = "_";
+        if(i < 10) prefix = prefix + "0";
+        return prefix + i;
     }
 }
 
