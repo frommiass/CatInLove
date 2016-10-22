@@ -13,13 +13,19 @@ public class Action
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;
-    @Getter @Setter     private int requirements;
+    @Getter @Setter     private Requirement requirement;
+    @Getter @Setter     private double probability;
 
-    public Action(EnumMap<KEY, ? extends Integer> m, String name, int iconID, int requirements) {
+    public Action(EnumMap<KEY, ? extends Integer> m,
+                  String name,
+                  int iconID,
+                  Requirement requirement,
+                  double probability) {
         super(m);
         this.name = name;
         this.iconID = iconID;
-        this.requirements = requirements;
+        this.requirement = requirement;
+        this.probability = probability;
     }
 
     public Action(Class<KEY> keyType) {
@@ -36,9 +42,10 @@ public class Action
                 s = s + i + " " + e.getKey().getName() + ",  ";
             }
         }
-        if (s.length() > 1)
-            s = s.substring(0, s.length()-3);
-        else s = "";
+        s = s + "Вероятность = " + probability + ",  " + requirement;
+       // if (s.length() > 1)
+        //    s = s.substring(0, s.length()-3);
+        //else s = "";
         return s;
     }
 
