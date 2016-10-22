@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="do_play">ИГРАТЬ</string>
-    <string name="do_eat">КУШАТЬ</string>
-    <string name="do_relax">ОТДЫХ</string>
-    <string name="do_hunt">ОХОТА</string>
-    <string name="do_create">СКОТ</string>
-    <string name="do_error">ОШИБКА</string>
+    <string name="do_play">play</string>
+    <string name="do_eat">eat</string>
+    <string name="do_relax">relax</string>
+    <string name="do_hunt">hunt</string>
+    <string name="do_create">create</string>
+    <string name="do_error">placeholder</string>
+
+    <string name="do_play_ru">ИГРАТЬ</string>
+    <string name="do_eat_ru">КУШАТЬ</string>
+    <string name="do_relax_ru">ОТДЫХ</string>
+    <string name="do_hunt_ru">ОХОТА</string>
+    <string name="do_create_ru">СКОТ</string>
+    <string name="do_error_ru">ОШИБКА</string>
 
     <integer-array name="do_error"/>
 
@@ -107,14 +114,44 @@
         <item>Гнаться за белкой, как пантера</item>
         <item>Подкрасться к голубю сзади</item>
         <item>Показать белке карате</item>
+        <item>Перерызть голубу шею</item>
     </string-array>
 
     <string-array name="do_create">
-        <item>Завести цыплят</item>
+        <item>Липкая лента</item>
+        <item>Ловушка для тараканов</item>
+        <item>Простая ловушка для мышек</item>
+        <item>Самодельная ловушка для рыбок</item>
+        <item>Самодельная кормушка для птичек</item>
+        <item>Самодельная ловушка для мышек</item>
+        <item>Маленький аквариум</item>
+        <item>Завести желтого цыпленка</item>
+        <item>Завести серую мышку</item>
+        <item>Самодельная ловушка для белки</item>
+        <item>Ловушка для крысок</item>
+        <item>Аквариум</item>
+        <item>Завести черную мышку</item>
+        <item>Завести белого цыпленка</item>
+        <item>Скворечник для птичек</item>
+        <item>Мышеловка</item>
+        <item>Завести милого хомячка</item>
+        <item>Большая кормушка для белочек</item>
+        <item>Завести утят</item>
+        <item>Ловушка для пыбок</item>
+        <item>Завести плодовитого хомячка</item>
+        <item>Хитрая ловушка для белок</item>
+        <item>Витаминная кормушка для птичек</item>
+        <item>Завести розового поросеночка</item>
+        <item>Завести морскую свинку</item>
+        <item>Завести курочку несушку</item>
+        <item>Завести плодовитого поросеночка</item>
+        <item>Металлическая кормушка для белочек</item>
         <item>Завести кроликов</item>
-        <item>Выменять у соседа корову</item>
-        <item>Завести гусей</item>
-        <item>Завести свиней</item>
+        <item>Завести молочную козу</item>
+        <item>Завести мясного хряка</item>
+        <item>Завести худенькую коровушку</item>
+        <item>Завести породистого кабана</item>
+        <item>Завести молочную корову</item>
     </string-array>
 
 </resources>

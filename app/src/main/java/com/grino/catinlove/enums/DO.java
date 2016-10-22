@@ -7,18 +7,19 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public enum DO {
-    PLAY   (R.string.do_play, 2000 + 1, R.array.do_play),
-    EAT    (R.string.do_eat, 2000 + 2, R.array.do_eat),
-    RELAX  (R.string.do_relax, 2000 + 3, R.array.do_relax),
+    PLAY   (R.string.do_play, 2000 + 1, R.array.do_play, R.string.do_play_ru),
+    EAT    (R.string.do_eat, 2000 + 2, R.array.do_eat, R.string.do_eat_ru),
+    RELAX  (R.string.do_relax, 2000 + 3, R.array.do_relax, R.string.do_relax_ru),
 
-    HUNT   (R.string.do_hunt, 2000 + 4, R.array.do_hunt),
-    CREATE (R.string.do_create, 2000 + 5, R.array.do_create),
+    HUNT   (R.string.do_hunt, 2000 + 4, R.array.do_hunt, R.string.do_hunt_ru),
+    CREATE (R.string.do_create, 2000 + 5, R.array.do_create, R.string.do_create_ru),
 
-    ERROR  (R.string.do_error, 2000 + 0, R.array.do_error);
+    ERROR  (R.string.do_error, 2000 + 0, R.array.do_error, R.string.do_error_ru);
 
-    @Getter      private final int titleID;
+    @Getter      private final int drawableName;
     @Getter      private final int key;
     @Getter      private final int stringsID;
+    @Getter      private final int titleID;
 
     public static DO getDO(int key){
         DO result = DO.ERROR;
