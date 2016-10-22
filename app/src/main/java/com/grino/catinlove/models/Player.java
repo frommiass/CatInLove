@@ -66,6 +66,6 @@ public class Player implements Nameable{
     }
 
     public boolean satisfies(int requirements){
-        return true;//(level.get() >= requirements);
+        return (level.get() >= requirements);
     }
 }

@@ -40,15 +40,18 @@ public class ActionRecyclerViewAdapter
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         Action action = list.get(position);
-        holder.name.setText(action.getName());
-        //holder.description.setText(action.toString());
-        holder.description.setText("");
-        Picasso.with(ctx)
-                .load(action.getIconID())
-                .placeholder(R.drawable.placeholder)
-                .into(holder.icon);
-
-        holder.bind(action);
+        if (MyApp.getCat().satisfies(action.getRequirement().getLevel())){
+            holder.name.setText(action.getName());
+            holder.description.setText(action.toString());
+            Picasso.with(ctx)
+                    .load(action.getIconID())
+                    .placeholder(R.drawable.placeholder)
+                    .into(holder.icon);
+            holder.bind(action);
+        }
+        else{
+            holder.name.setText(action.getRequirement().toString());
+        }
     }
 
     @Override
@@ -63,20 +66,25 @@ public class ActionRecyclerViewAdapter
         @BindView(R.id.action_description)  TextView description;
 
         Action action;
+        boolean enabled;
 
         ActionViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
 
+            enabled = false;
+
         }
 
         public void bind(Action action){
             this.action = action;
+            this.enabled = true;
         }
 
         @OnClick
         public void onClickCard(){
-            MyApp.getBus().sendObservers(new BusActionClick(action));
+            if (enabled)
+                MyApp.getBus().sendObservers(new BusActionClick(action));
         }
 
     }

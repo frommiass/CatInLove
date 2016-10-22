@@ -3,7 +3,6 @@ package com.grino.catinlove.models;
 import android.content.res.Resources;
 
 import com.grino.catinlove.MyApp;
-import com.grino.catinlove.R;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
@@ -33,11 +32,11 @@ public class Actions
             actions.setIcons(res, d);
             actions.setSequence(KEY.EXP, seq0);
 
-                 if (d == DO.PLAY)   actions.set(KEY.MOOD,    seq2, seq0, seq0);
-            else if (d == DO.EAT)    actions.set(KEY.SATIETY, seq2, seq0, seq0);
-            else if (d == DO.RELAX)  actions.set(KEY.ENERGY,  seq2, seq02, seq0);
-            else if (d == DO.HUNT)   actions.set(KEY.FOOD,    seq1, seq02, seq0);
-            else if (d == DO.CREATE) actions.set(KEY.FOOD,    seq1, seq02, seq0);
+                 if (d == DO.PLAY)   actions.set(KEY.MOOD,    seq2, seq1, seq0);
+            else if (d == DO.EAT)    actions.set(KEY.SATIETY, seq2, seq1, seq0);
+            else if (d == DO.RELAX)  actions.set(KEY.ENERGY,  seq2, seq1, seq0);
+            else if (d == DO.HUNT)   actions.set(KEY.FOOD,    seq1, seq1, seq0);
+            else if (d == DO.CREATE) actions.set(KEY.FOOD,    seq1, seq1, seq0);
 
             actions.fill();
             put(d, actions);
