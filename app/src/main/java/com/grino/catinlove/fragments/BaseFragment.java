@@ -11,11 +11,11 @@ import com.grino.catinlove.models.Player;
 import com.grino.catinlove.rx.RxBus;
 
 import butterknife.Unbinder;
+import rx.Observable;
+import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
-/**
- * Created by Grino on 12.10.2016.
- */
+
 public class BaseFragment
         extends Fragment {
 
@@ -39,6 +39,7 @@ public class BaseFragment
     public void onStart() {
         subscriptions = new CompositeSubscription();
         super.onStart();
+        subscribeBus();
     }
 
     @Override
@@ -58,4 +59,12 @@ public class BaseFragment
         return ((MainActivity)getActivity());
     }
 
+    protected void subscribeBus(){
+        Observable<Object> obs = bus.asObservable();
+        Subscription sub = obs.subscribe(event -> processEvent(event));
+        subscriptions.add(sub);
+    }
+
+    public void processEvent(Object event){
+    }
 }

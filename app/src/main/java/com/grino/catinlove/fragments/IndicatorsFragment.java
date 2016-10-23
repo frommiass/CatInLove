@@ -50,18 +50,11 @@ public class IndicatorsFragment
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        subscriptions.add(
-                bus.asObservable()
-                        .subscribe(event -> {
-                                     if (event instanceof BusActionClick) {
-                                        Action action = ((BusActionClick) event).getAction();
-                                        cat.doTick(action);
-                                        updateIndicators(cat);
-                                     }
-                                 }
-                        )
-        );
+    public void processEvent(Object event) {
+        if (event instanceof BusActionClick) {
+            Action action = ((BusActionClick) event).getAction();
+            cat.doTick(action);
+            updateIndicators(cat);
+        }
     }
 }
