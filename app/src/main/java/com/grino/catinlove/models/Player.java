@@ -30,18 +30,21 @@ public class Player implements Nameable{
     public Player() {
         this.name = "";
         this.ctx = MyApp.getContextForResources();
+        restart();
+    }
+
+    private void restart(){
         level = new Container(1, 20000000, 1);
         day = new Container(1, 20000000, 1);
         my = new ContainerMap(KEY.class)
-            .putRes(KEY.EXP, 0)
-            .putInd(KEY.ENERGY, 1000)
-            .putInd(KEY.SATIETY, 1000)
-            .putInd(KEY.MOOD, 1000)
-            .putRes(KEY.FOOD, 50)
-            .putRes(KEY.REAL, 10);
+                .putRes(KEY.EXP, 0)
+                .putInd(KEY.ENERGY, 1000)
+                .putInd(KEY.SATIETY, 1000)
+                .putInd(KEY.MOOD, 1000)
+                .putRes(KEY.FOOD, 50)
+                .putRes(KEY.REAL, 10);
         deadlyCountdown = -1;
     }
-
     private void levelUp(){
         if (my.get(KEY.EXP) > getMaxExp()) {
             level.increase();
@@ -49,25 +52,32 @@ public class Player implements Nameable{
             my.putInd(KEY.ENERGY, 1000);
             my.putInd(KEY.SATIETY, 1000);
             my.putInd(KEY.MOOD, 1000);
+            deadlyCountdown = -1;
             MyApp.getBus().sendObservers(new BusUpdatePlayer());
         }
     }
-    private void deadlyConrol(){
+    private void deadlyControl(){
         String msg = "";
         RxBus bus = MyApp.getBus();
         if (deadlyCountdown > 0) {
-            if (atDeathIsDoor()) {
-                deadlyCountdown --;
+            if (!atDeathIsDoor()) {
                 msg = ctx.getString(R.string.msg_deadly_warning) + deadlyCountdown;
+                deadlyCountdown --;
             } else {
                 deadlyCountdown = -1;
-                msg = ctx.getString(R.string.msg_death_passed) + deadlyCountdown;
+                msg = ctx.getString(R.string.msg_death_passed);
             }
-            bus.send(new BusMessage(msg));
-        } else {
+        } else if(deadlyCountdown == 0){
             deadlyCountdown = -2;
-            bus.send(new BusGameOver());
+            restart();
+            msg = ctx.getString(R.string.msg_game_over);
         }
+        else if(deadlyCountdown == -1){
+            if (!atDeathIsDoor()) deadlyCountdown = 3;
+        }
+        if (!msg.equals(""))
+            bus.send(new BusMessage(msg));
+
     }
     private boolean atDeathIsDoor(){
         return my.arePositive(KEY.getRes());
@@ -80,7 +90,7 @@ public class Player implements Nameable{
         doAction(action);
         doAction(getNextDayAction());
         levelUp();
-        deadlyConrol();
+        deadlyControl();
     }
 
     private Action getNextDayAction(){
