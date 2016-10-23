@@ -1,14 +1,22 @@
 package com.grino.catinlove.models;
 
+import android.content.Context;
+
 import com.grino.catinlove.MyApp;
+import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.rx.BusGameOver;
+import com.grino.catinlove.rx.BusMessage;
 import com.grino.catinlove.rx.BusUpdatePlayer;
+import com.grino.catinlove.rx.RxBus;
 import com.grino.catinlove.tools.Utils;
 
 import lombok.Getter;
 import lombok.Setter;
 
 public class Player implements Nameable{
+
+    Context ctx;
 
     @Getter @Setter
     private String name;
@@ -17,8 +25,11 @@ public class Player implements Nameable{
     private Container level, day;
     private ContainerMap my;
 
+    private int deadlyCountdown;
+
     public Player() {
         this.name = "";
+        this.ctx = MyApp.getContextForResources();
         level = new Container(1, 20000000, 1);
         day = new Container(1, 20000000, 1);
         my = new ContainerMap(KEY.class)
@@ -28,6 +39,7 @@ public class Player implements Nameable{
             .putInd(KEY.MOOD, 1000)
             .putRes(KEY.FOOD, 50)
             .putRes(KEY.REAL, 10);
+        deadlyCountdown = -1;
     }
 
     private void levelUp(){
@@ -40,6 +52,26 @@ public class Player implements Nameable{
             MyApp.getBus().sendObservers(new BusUpdatePlayer());
         }
     }
+    private void deadlyConrol(){
+        String msg = "";
+        RxBus bus = MyApp.getBus();
+        if (deadlyCountdown > 0) {
+            if (atDeathIsDoor()) {
+                deadlyCountdown --;
+                msg = ctx.getString(R.string.msg_deadly_warning) + deadlyCountdown;
+            } else {
+                deadlyCountdown = -1;
+                msg = ctx.getString(R.string.msg_death_passed) + deadlyCountdown;
+            }
+            bus.send(new BusMessage(msg));
+        } else {
+            deadlyCountdown = -2;
+            bus.send(new BusGameOver());
+        }
+    }
+    private boolean atDeathIsDoor(){
+        return my.arePositive(KEY.getRes());
+    }
     public int getMaxExp(){
         return (50 + level.get()*10);
     }
@@ -48,6 +80,7 @@ public class Player implements Nameable{
         doAction(action);
         doAction(getNextDayAction());
         levelUp();
+        deadlyConrol();
     }
 
     private Action getNextDayAction(){

@@ -2,6 +2,7 @@ package com.grino.catinlove.models;
 
 import com.grino.catinlove.enums.KEY;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -60,5 +61,14 @@ public class ContainerMap
             s = s.substring(0, s.length()-3);
         else s = "";
         return s;
+    }
+
+    public boolean arePositive(ArrayList<KEY> keys){
+        boolean result = true;
+        for (EnumMap.Entry<KEY, Container> e : entrySet()) {
+            if ( keys.contains(e.getKey()) & (!e.getValue().isPositive()))
+                result = false;
+        }
+        return result;
     }
 }

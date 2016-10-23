@@ -3,6 +3,8 @@ package com.grino.catinlove.enums;
 import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 
+import java.util.ArrayList;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -26,5 +28,13 @@ public enum KEY {
 
         public String getName(){
                 return MyApp.getContextForResources().getString(getNameID());
+        }
+
+        public static ArrayList<KEY> getRes(){
+                ArrayList<KEY> res = new ArrayList<KEY>();
+                res.add(KEY.MOOD);
+                res.add(KEY.SATIETY);
+                res.add(KEY.ENERGY);
+                return res;
         }
 }

@@ -43,4 +43,8 @@ public class Container {
     public void increase(){
         value++;
     }
+
+    public boolean isPositive(){
+        return (value > 0);
+    }
 }
