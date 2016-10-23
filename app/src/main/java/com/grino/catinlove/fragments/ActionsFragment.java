@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
@@ -32,7 +33,7 @@ public class ActionsFragment
         if(getArguments() != null)
             key = DO.getDO(getArguments().getInt("do_key"));
 
-        list = getMainActivity().getActions().get(key);
+        list = MyApp.getActions().get(key);
 
         recycler.setLayoutManager(new LinearLayoutManager(ctx));
         recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, list));

@@ -2,6 +2,8 @@ package com.grino.catinlove;
 
 import android.content.Context;
 
+import com.grino.catinlove.enums.DO;
+import com.grino.catinlove.models.Actions;
 import com.grino.catinlove.models.Player;
 import com.grino.catinlove.rx.RxBus;
 
@@ -29,5 +31,13 @@ public class MyApp extends android.app.Application {
         return cat;
     }
 
+    private static Actions actions = null;
+    public static Actions getActions() {
+        if (actions == null) {
+            actions = new Actions(DO.class);
+            actions.fillActions();
+        }
+        return actions;
+    }
 
 }
