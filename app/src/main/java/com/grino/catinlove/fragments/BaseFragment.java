@@ -33,12 +33,14 @@ public class BaseFragment
         ctx = getContext();
         bus = MyApp.getBus();
         cat = MyApp.getCat();
+        Log.d("Grino", "onCreate Base");
     }
 
     @Override
     public void onStart() {
         subscriptions = new CompositeSubscription();
         super.onStart();
+        Log.d("Grino", "onStart Base");
         subscribeBus();
     }
 
@@ -46,7 +48,7 @@ public class BaseFragment
     public void onStop() {
         super.onStop();
         subscriptions.clear();
-        Log.d("grino", "отписка");
+        Log.d("grino", "отписка onStop");
     }
 
     @Override

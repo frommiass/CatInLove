@@ -1,11 +1,11 @@
 package com.grino.catinlove.models;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
-import com.grino.catinlove.rx.BusGameOver;
 import com.grino.catinlove.rx.BusMessage;
 import com.grino.catinlove.rx.BusUpdatePlayer;
 import com.grino.catinlove.rx.RxBus;
@@ -44,6 +44,8 @@ public class Player implements Nameable{
                 .putRes(KEY.FOOD, 50)
                 .putRes(KEY.REAL, 10);
         deadlyCountdown = -1;
+        Log.d("Grino", "restart Player");
+        MyApp.getBus().sendObservers(new BusUpdatePlayer());
     }
     private void levelUp(){
         if (my.get(KEY.EXP) > getMaxExp()) {
@@ -58,29 +60,28 @@ public class Player implements Nameable{
     }
     private void deadlyControl(){
         String msg = "";
-        RxBus bus = MyApp.getBus();
-        if (deadlyCountdown > 0) {
-            if (!atDeathIsDoor()) {
+
+        if (atDeathIsDoor()){
+            if (deadlyCountdown == 0) {
+                deadlyCountdown = -2;
+                restart();
+                msg = ctx.getString(R.string.msg_game_over);
+            }else{
+                if (deadlyCountdown == -1)  deadlyCountdown = 3;
                 msg = ctx.getString(R.string.msg_deadly_warning) + deadlyCountdown;
-                deadlyCountdown --;
-            } else {
-                deadlyCountdown = -1;
-                msg = ctx.getString(R.string.msg_death_passed);
+                deadlyCountdown--;
             }
-        } else if(deadlyCountdown == 0){
-            deadlyCountdown = -2;
-            restart();
-            msg = ctx.getString(R.string.msg_game_over);
+        }else if (deadlyCountdown >= 0){
+            deadlyCountdown = -1;
+            msg = ctx.getString(R.string.msg_death_passed);
         }
-        else if(deadlyCountdown == -1){
-            if (!atDeathIsDoor()) deadlyCountdown = 3;
-        }
+
         if (!msg.equals(""))
-            bus.send(new BusMessage(msg));
+            MyApp.getBus().send(new BusMessage(msg));
 
     }
     private boolean atDeathIsDoor(){
-        return my.arePositive(KEY.getRes());
+        return !my.arePositive(KEY.getRes());
     }
     public int getMaxExp(){
         return (50 + level.get()*10);
