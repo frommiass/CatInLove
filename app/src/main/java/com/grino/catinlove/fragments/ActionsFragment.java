@@ -3,7 +3,6 @@ package com.grino.catinlove.fragments;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,7 @@ import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.SequenceActions;
+import com.grino.catinlove.rx.BusUpdatePlayer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +38,13 @@ public class ActionsFragment
         recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, list));
 
         return view;
+    }
+
+    @Override
+    public void processEvent(Object event) {
+        if (event instanceof BusUpdatePlayer) {
+            recycler.getAdapter().notifyDataSetChanged();
+        }
     }
 
 }

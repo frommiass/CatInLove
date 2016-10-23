@@ -1,6 +1,8 @@
 package com.grino.catinlove.models;
 
+import com.grino.catinlove.MyApp;
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.rx.BusUpdatePlayer;
 import com.grino.catinlove.tools.Utils;
 
 import lombok.Getter;
@@ -35,6 +37,7 @@ public class Player implements Nameable{
             my.putInd(KEY.ENERGY, 1000);
             my.putInd(KEY.SATIETY, 1000);
             my.putInd(KEY.MOOD, 1000);
+            MyApp.getBus().sendObservers(new BusUpdatePlayer());
         }
     }
     public int getMaxExp(){
