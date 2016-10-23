@@ -60,7 +60,6 @@ public class MainFragment
             builder.setTitle("Важное сообщение!")
                     .setMessage(((BusMessage) event).getMsg())
                     .setIcon(R.drawable.eat)
-                    .setCancelable(false)
                     .setNegativeButton("ИГРАТЬ!", null);
             AlertDialog alert = builder.create();
             alert.show();

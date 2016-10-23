@@ -46,6 +46,7 @@ public class ActionsFragment
     public void processEvent(Object event) {
         Log.d("Grino", "update Actions");
         if (event instanceof BusUpdatePlayer) {
+            Log.d("Grino", "update Actions -notifyDataSetChanged");
             recycler.getAdapter().notifyDataSetChanged();
         }
     }

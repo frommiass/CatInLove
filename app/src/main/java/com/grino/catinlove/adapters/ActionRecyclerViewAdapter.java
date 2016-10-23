@@ -3,6 +3,7 @@ package com.grino.catinlove.adapters;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,8 @@ public class ActionRecyclerViewAdapter
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         Action action = list.get(position);
         if (MyApp.getCat().satisfies(action.getRequirement().getLevel())){
+
+            Log.d("Grino", "onBindViewHolder");
             holder.name.setText(action.getName());
             holder.description.setText(action.toString());
             Picasso.with(ctx)
@@ -51,6 +54,12 @@ public class ActionRecyclerViewAdapter
         }
         else{
             holder.name.setText(action.getRequirement().toString());
+            Picasso.with(ctx)
+                    .load(R.drawable.placeholder)
+                    .placeholder(R.drawable.placeholder)
+                    .into(holder.icon);
+            holder.description.setText("");
+            holder.unbind();
         }
     }
 
@@ -79,6 +88,9 @@ public class ActionRecyclerViewAdapter
         public void bind(Action action){
             this.action = action;
             this.enabled = true;
+        }
+        public void unbind(){
+            enabled = false;
         }
 
         @OnClick
