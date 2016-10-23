@@ -12,9 +12,6 @@ import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.fragments.ActionsFragment;
 import com.grino.catinlove.fragments.IndicatorsFragment;
 import com.grino.catinlove.models.Actions;
-import com.grino.catinlove.models.Player;
-import com.grino.catinlove.models.Resource;
-import com.grino.catinlove.rx.RxBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
