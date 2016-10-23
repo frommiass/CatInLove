@@ -13,6 +13,7 @@
     <string name="msg_deadly_warning">Осталось жить ходов: </string>
     <string name="msg_death_passed">Ура! Смертельная угроза миновала!</string>
     <string name="msg_game_over">Твою жизнь прервала смерть. Игра окончена. Начни с начала!</string>
+    <string name="msg_level_up">Поздравляем! Вы достигли нового уровня!</string>
 
     <string name="history">
         В одну позднею темную осеннюю ночь.//1
