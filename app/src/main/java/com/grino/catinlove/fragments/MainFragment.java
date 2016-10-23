@@ -29,17 +29,15 @@ public class MainFragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
+
+        MyApp.getCat().setName("Влюбленный кот");
 
         getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_indicators, new IndicatorsFragment())
                 .commit();
-
-        //При первом запуске запросить имя у пользователя
-        MyApp.getCat().setName("Влюбленный кот");
 
         return view;
     }
