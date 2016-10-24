@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Action.Action;
-import com.grino.catinlove.models.Player.Player;
 import com.grino.catinlove.rx.BusActionClick;
 
 import butterknife.BindView;
@@ -33,20 +32,20 @@ public class IndicatorsFragment
         View layout = inflater.inflate(R.layout.fragment_indicators, container, false);
         unbinder = ButterKnife.bind(this, layout);
 
-        updateIndicators(cat);
+        updateIndicators();
 
         return layout;
     }
 
-    public void updateIndicators(Player player){
-        pbMoon.setProgress(player.getContent(KEY.MOOD));
-        pbSatiety.setProgress(player.getContent(KEY.SATIETY));
-        pbEnergy.setProgress(player.getContent(KEY.ENERGY));
-        pbExp.setProgress(player.getContent(KEY.EXP));
-        pbExp.setMax(player.getMaxExp());
-        tvLevel.setText("" + player.getLevel().get());
-        tvFood.setText("" + player.getContent(KEY.FOOD));
-        tvReal.setText("" + player.getContent(KEY.REAL));
+    public void updateIndicators(){
+        pbMoon.setProgress(cat.getContent(KEY.MOOD));
+        pbSatiety.setProgress(cat.getContent(KEY.SATIETY));
+        pbEnergy.setProgress(cat.getContent(KEY.ENERGY));
+        pbExp.setProgress(cat.getContent(KEY.EXP));
+        pbExp.setMax(cat.getMaxExp());
+        tvLevel.setText("" + cat.getLevel().get());
+        tvFood.setText("" + cat.getContent(KEY.FOOD));
+        tvReal.setText("" + cat.getContent(KEY.REAL));
     }
 
     @Override
@@ -54,7 +53,7 @@ public class IndicatorsFragment
         if (event instanceof BusActionClick) {
             Action action = ((BusActionClick) event).getAction();
             cat.doTick(action);
-            updateIndicators(cat);
+            updateIndicators();
         }
     }
 }

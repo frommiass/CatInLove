@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.MyApp;
+import com.grino.catinlove.models.Action.Actions;
 import com.grino.catinlove.models.Player.Player;
 import com.grino.catinlove.rx.RxBus;
 
@@ -20,6 +21,7 @@ public class BaseFragment
         extends Fragment {
 
     protected Player cat;
+    protected Actions actions;
 
     protected RxBus bus;
     protected CompositeSubscription subscriptions;
@@ -33,6 +35,7 @@ public class BaseFragment
         ctx = getContext();
         bus = MyApp.getBus();
         cat = MyApp.getCat();
+        actions = MyApp.getActions();
         Log.d("Grino", "onCreate Base");
     }
 

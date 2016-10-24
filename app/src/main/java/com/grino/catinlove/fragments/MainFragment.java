@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ViewPagerAdapter;
 import com.grino.catinlove.enums.DO;
@@ -32,7 +31,7 @@ public class MainFragment
         setupViewPager(pager);
         tabs.setupWithViewPager(pager);
 
-        MyApp.getCat().setName("Влюбленный кот");
+        cat.setName("Влюбленный кот");
 
         getFragmentManager()
                 .beginTransaction()
