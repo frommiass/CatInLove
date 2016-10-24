@@ -1,9 +1,8 @@
-package com.grino.catinlove.tools;
+package com.grino.catinlove.models.Action;
 
 
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
-import com.grino.catinlove.models.Action;
 
 import java.util.EnumMap;
 

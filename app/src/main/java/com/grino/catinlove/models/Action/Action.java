@@ -1,6 +1,8 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Action;
 
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.models.Keyable;
+import com.grino.catinlove.models.Nameable;
 
 import java.util.EnumMap;
 
@@ -9,7 +11,7 @@ import lombok.Setter;
 
 public class Action
         extends EnumMap<KEY, Integer>
-        implements Nameable, Keyable{
+        implements Nameable, Keyable {
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;

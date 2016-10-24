@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
-import com.grino.catinlove.models.Action;
-import com.grino.catinlove.models.Player;
+import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Player.Player;
 import com.grino.catinlove.rx.BusActionClick;
 
 import butterknife.BindView;

@@ -1,4 +1,4 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Player;
 
 public class Container {
 

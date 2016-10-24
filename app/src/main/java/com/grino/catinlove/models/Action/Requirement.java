@@ -1,4 +1,4 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Action;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Action;
 
 import android.content.res.Resources;
 
@@ -6,7 +6,6 @@ import com.grino.catinlove.MyApp;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
-import com.grino.catinlove.tools.Sequence;
 
 import java.util.EnumMap;
 

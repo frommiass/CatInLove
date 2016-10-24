@@ -12,7 +12,7 @@ import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.models.SequenceActions;
+import com.grino.catinlove.models.Action.SequenceActions;
 import com.grino.catinlove.rx.BusUpdatePlayer;
 
 import butterknife.BindView;

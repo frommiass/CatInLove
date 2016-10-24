@@ -1,4 +1,4 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Player;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,16 +6,17 @@ import android.util.Log;
 import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Nameable;
 import com.grino.catinlove.rx.BusEvent;
 import com.grino.catinlove.rx.BusMessage;
 import com.grino.catinlove.rx.BusUpdatePlayer;
-import com.grino.catinlove.rx.RxBus;
 import com.grino.catinlove.tools.Utils;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class Player implements Nameable{
+public class Player implements Nameable {
 
     Context ctx;
 

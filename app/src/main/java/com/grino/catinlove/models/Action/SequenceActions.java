@@ -1,11 +1,9 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Action;
 
 import android.content.res.Resources;
 
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
-import com.grino.catinlove.tools.MapSequences;
-import com.grino.catinlove.tools.Sequence;
 
 import java.util.ArrayList;
 

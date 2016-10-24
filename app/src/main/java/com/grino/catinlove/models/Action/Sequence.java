@@ -1,4 +1,4 @@
-package com.grino.catinlove.tools;
+package com.grino.catinlove.models.Action;
 
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
 

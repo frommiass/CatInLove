@@ -1,4 +1,6 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Player;
+
+import com.grino.catinlove.models.Player.Container;
 
 public class Resource
         extends Container {

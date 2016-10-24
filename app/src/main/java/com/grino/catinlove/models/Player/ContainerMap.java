@@ -1,6 +1,7 @@
-package com.grino.catinlove.models;
+package com.grino.catinlove.models.Player;
 
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.models.Keyable;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 public class ContainerMap
         extends EnumMap<KEY, Container>
-        implements Keyable{
+        implements Keyable {
 
     private final static int MAX_IND = 1000;
     private final static int MAX_RES = 2000000000;
