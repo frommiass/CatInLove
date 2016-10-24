@@ -1,4 +1,4 @@
-package com.grino.catinlove.models.Action;
+package com.grino.catinlove.controlers;
 
 import android.content.res.Resources;
 
@@ -6,20 +6,24 @@ import com.grino.catinlove.MyApp;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
+import com.grino.catinlove.models.Action.Sequence;
+import com.grino.catinlove.models.Action.SequenceActions;
 
 import java.util.EnumMap;
 
 public class Actions
         extends EnumMap<DO, SequenceActions> {
 
-    Resources res;
+    private Resources res;
 
-    public Actions(Class<DO> keyType) {
+    public Actions(Class<DO> keyType, Resources res) {
         super(keyType);
+
+        this.res = res;
+
+        fillActions();
     }
     public Actions fillActions(){
-
-        res = MyApp.getContextForResources().getResources();
 
         Sequence seq0 = new Sequence(SEQUENCE_TYPE.CONSTANT, 1);
         Sequence seq02 = new Sequence(SEQUENCE_TYPE.CONSTANT, 2);

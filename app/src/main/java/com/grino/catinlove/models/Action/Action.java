@@ -2,7 +2,7 @@ package com.grino.catinlove.models.Action;
 
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Keyable;
-import com.grino.catinlove.models.Nameable;
+import com.grino.catinlove.controlers.Nameable;
 
 import java.util.EnumMap;
 

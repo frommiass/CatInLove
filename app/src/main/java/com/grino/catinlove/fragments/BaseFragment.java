@@ -7,8 +7,8 @@ import android.util.Log;
 
 import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.MyApp;
-import com.grino.catinlove.models.Action.Actions;
-import com.grino.catinlove.models.Player.Player;
+import com.grino.catinlove.controlers.Actions;
+import com.grino.catinlove.controlers.Player;
 import com.grino.catinlove.rx.RxBus;
 
 import butterknife.Unbinder;
