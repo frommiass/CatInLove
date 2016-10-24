@@ -36,7 +36,7 @@ public class ActionsFragment
         list = actions.get(key);
 
         recycler.setLayoutManager(new LinearLayoutManager(ctx));
-        recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, list));
+        recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, cat, list, bus));
 
         return view;
     }

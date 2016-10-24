@@ -2,7 +2,6 @@ package com.grino.catinlove.controlers;
 
 import android.content.res.Resources;
 
-import com.grino.catinlove.MyApp;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;

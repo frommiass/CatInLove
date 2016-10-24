@@ -10,11 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.grino.catinlove.MyApp;
 import com.grino.catinlove.R;
+import com.grino.catinlove.controlers.Player;
 import com.grino.catinlove.models.Action.Action;
 import com.grino.catinlove.models.Action.SequenceActions;
 import com.grino.catinlove.rx.BusActionClick;
+import com.grino.catinlove.rx.RxBus;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -25,23 +26,27 @@ public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
 
     private SequenceActions list;
+    private Player cat;
     private Context ctx;
+    private RxBus bus;
 
-    public ActionRecyclerViewAdapter(Context ctx, SequenceActions list) {
+    public ActionRecyclerViewAdapter(Context ctx, Player cat, SequenceActions list, RxBus bus) {
         this.ctx = ctx;
+        this.cat = cat;
         this.list = list;
+        this.bus = bus;
     }
 
     @Override
     public ActionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.action_card, parent, false);
-        return new ActionViewHolder(v);
+        return new ActionViewHolder(v, bus);
     }
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
         Action action = list.get(position);
-        if (MyApp.getCat().satisfies(action.getRequirement().getLevel())){
+        if (cat.satisfies(action.getRequirement().getLevel())){
 
             Log.d("Grino", "onBindViewHolder");
             holder.name.setText(action.getName());
@@ -74,15 +79,16 @@ public class ActionRecyclerViewAdapter
         @BindView(R.id.action_name)         TextView name;
         @BindView(R.id.action_description)  TextView description;
 
-        Action action;
-        boolean enabled;
+        private Action action;
+        private boolean enabled;
+        RxBus bus;
 
-        ActionViewHolder(View view) {
+        ActionViewHolder(View view, RxBus bus) {
             super(view);
             ButterKnife.bind(this, view);
 
+            this.bus = bus;
             enabled = false;
-
         }
 
         public void bind(Action action){
@@ -96,7 +102,7 @@ public class ActionRecyclerViewAdapter
         @OnClick
         public void onClickCard(){
             if (enabled)
-                MyApp.getBus().sendObservers(new BusActionClick(action));
+                bus.sendObservers(new BusActionClick(action));
         }
 
     }
