@@ -10,11 +10,9 @@ import com.grino.catinlove.rx.RxBus;
 public class MyApp extends android.app.Application {
 
     private static MyApp instance;
-
     public MyApp() {
         instance = this;
     }
-
     public static Context getContextForResources() {
         return instance;
     }
@@ -35,7 +33,6 @@ public class MyApp extends android.app.Application {
     public static Actions getActions() {
         if (actions == null) {
             actions = new Actions(DO.class, getContextForResources().getResources());
-            actions.fillActions();
         }
         return actions;
     }

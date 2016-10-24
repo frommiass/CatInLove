@@ -16,7 +16,7 @@ import com.grino.catinlove.tools.Utils;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Player implements Nameable {
+public class Player {
 
     private Context ctx;
     private RxBus bus;
