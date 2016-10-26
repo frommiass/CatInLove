@@ -6,12 +6,13 @@ import android.util.Log;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Action.Incoming;
 import com.grino.catinlove.models.Player.Container;
 import com.grino.catinlove.models.Player.ContainerMap;
 import com.grino.catinlove.rx.BusMessage;
 import com.grino.catinlove.rx.BusUpdatePlayer;
 import com.grino.catinlove.rx.RxBus;
-import com.grino.catinlove.tools.Utils;
+import com.grino.catinlove.tools.Random;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,8 @@ public class Player {
     @Getter
     private Container level, day;
     private ContainerMap my;
+
+    private Incoming incoming;
 
     private int deadlyCountdown;
 
@@ -48,27 +51,26 @@ public class Player {
                 .putRes(KEY.FOOD, 50)
                 .putRes(KEY.REAL, 10);
         deadlyCountdown = -1;
-        Log.d("Grino", "restart Player");
+        incoming = new Incoming();
         bus.send(new BusUpdatePlayer());
     }
     private void levelUp(){
-        if (my.get(KEY.EXP) > getMaxExp()) {
+        if (my.getInt(KEY.EXP) > getMaxExp()) {
             level.increase();
             my.putRes(KEY.EXP, 0);
-            my.putInd(KEY.ENERGY, 1000);
-            my.putInd(KEY.SATIETY, 1000);
-            my.putInd(KEY.MOOD, 1000);
+            my.fillMax(KEY.getRes());
             deadlyCountdown = -1;
             say(R.string.msg_level_up);
             bus.send(new BusUpdatePlayer());
         }
     }
-    private void deadlyControl(){
+    private boolean deadlyControl(){
         if (atDeathIsDoor()){
             if (deadlyCountdown == 0) {
                 deadlyCountdown = -2;
                 restart();
                 say(R.string.msg_game_over);
+                return false;
             }else{
                 if (deadlyCountdown == -1)  deadlyCountdown = 3;
                 say(ctx.getString(R.string.msg_deadly_warning) + deadlyCountdown);
@@ -78,6 +80,7 @@ public class Player {
             deadlyCountdown = -1;
             say(R.string.msg_death_passed);
         }
+        return true;
     }
     private void say(int msgID){
         bus.send(new BusMessage(ctx.getString(msgID)));
@@ -95,6 +98,7 @@ public class Player {
     public void doTick(Action action){
         doAction(action);
         doAction(getNextDayAction());
+        doAction(incoming.getAction());
         levelUp();
         deadlyControl();
     }
@@ -102,9 +106,9 @@ public class Player {
     private Action getNextDayAction(){
         Action action = new Action(KEY.class);
         action.put(KEY.EXP, 1);
-        action.put(KEY.ENERGY, Utils.rand(-70));
-        action.put(KEY.MOOD, Utils.rand(-70));
-        action.put(KEY.SATIETY, Utils.rand(-70));
+        action.put(KEY.ENERGY, Random.rand(-70));
+        action.put(KEY.MOOD, Random.rand(-70));
+        action.put(KEY.SATIETY, Random.rand(-70));
         return action;
     }
 
@@ -114,7 +118,7 @@ public class Player {
 
 
     public int getContent(KEY key) {
-        return my.get(key);
+        return my.getInt(key);
     }
 
     public boolean satisfies(int requirements){
