@@ -1,6 +1,7 @@
 package com.grino.catinlove.models.Player;
 
-public class Container {
+public class Container
+        extends Number{
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
@@ -44,7 +45,23 @@ public class Container {
         value++;
     }
 
-    public boolean isPositive(){
-        return (value > 0);
+    @Override
+    public int intValue() {
+        return value;
+    }
+
+    @Override
+    public long longValue() {
+        return (long)value;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float)value;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double)value;
     }
 }
