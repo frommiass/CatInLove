@@ -1,7 +1,7 @@
 package com.grino.catinlove.models.Action;
 
 import com.grino.catinlove.enums.KEY;
-import com.grino.catinlove.models.Keyable;
+import com.grino.catinlove.models.KeyMap;
 
 import java.util.EnumMap;
 
@@ -9,15 +9,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Action
-        extends EnumMap<KEY, Integer>
-        implements Keyable {
+        extends KeyMap {
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;
     @Getter @Setter     private Requirement requirement;
     @Getter @Setter     private double probability;
 
-    public Action(EnumMap<KEY, ? extends Integer> m,
+    public Action(EnumMap<KEY, ? extends Number> m,
                   String name,
                   int iconID,
                   Requirement requirement,
@@ -35,26 +34,9 @@ public class Action
 
     @Override
     public String toString() {
-        String s = "";
-        for (EnumMap.Entry<KEY, Integer> e : entrySet()) {
-            int i = e.getValue();
-            if ((i != 0)&(i != 1)) {
-                if (i > 0) s = s + "+";
-                s = s + i + " " + e.getKey().getName() + ",  ";
-            }
-        }
-        s = s + "Вероятность = " + probability + ",  " + requirement;
-       // if (s.length() > 1)
-        //    s = s.substring(0, s.length()-3);
-        //else s = "";
+        String s = super.toString();
+        s = s + ", Вероятность = " + probability + ",  " + requirement;
         return s;
     }
 
-    @Override
-    public int get(KEY key) {
-        Integer i = super.get(key);
-            if (i == null)
-                i = 0;
-        return i;
-    }
 }
