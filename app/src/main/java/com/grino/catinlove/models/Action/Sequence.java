@@ -5,7 +5,7 @@ import com.grino.catinlove.enums.SEQUENCE_TYPE;
 public class Sequence{
 
     private SEQUENCE_TYPE type;
-    private int a, b;
+    private double a, b;
 
     public Sequence(SEQUENCE_TYPE type) {
         this.type = type;
@@ -13,13 +13,13 @@ public class Sequence{
         this.b = 1;
     }
 
-    public Sequence(SEQUENCE_TYPE type, int constant) {
+    public Sequence(SEQUENCE_TYPE type, double constant) {
         this.type = type;
         this.a = constant;
         this.b = 0;
     }
 
-    public Sequence(SEQUENCE_TYPE type, int a, int b) {
+    public Sequence(SEQUENCE_TYPE type, double a, double b) {
         this.type = type;
         this.a = a;
         this.b = b;
@@ -27,11 +27,11 @@ public class Sequence{
 
     public int get(int n) {
         if (SEQUENCE_TYPE.CONSTANT.equals(type))
-            return a;
+            return (int)a;
         else if (SEQUENCE_TYPE.NUMBERS.equals(type))
             return n + 1;
         else if (SEQUENCE_TYPE.LINEAR_DEPENDENCE.equals(type))
-            return (a*n + b);
+            return (int)(a*n + b);
         return 0;
     }
 
