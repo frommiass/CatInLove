@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.MyApp;
-import com.grino.catinlove.controlers.Actions;
+import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.controlers.Player;
 import com.grino.catinlove.rx.RxBus;
 
@@ -20,10 +20,10 @@ import rx.subscriptions.CompositeSubscription;
 public class BaseFragment
         extends Fragment {
 
-    protected Player cat;
-    protected Actions actions;
-
     protected RxBus bus;
+    protected Game game;
+    protected Player cat;
+
     protected CompositeSubscription subscriptions;
     protected Unbinder unbinder;
 
@@ -33,9 +33,9 @@ public class BaseFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx = getContext();
-        bus = MyApp.getBus();
-        cat = MyApp.getCat();
-        actions = MyApp.getActions();
+        game = MyApp.getGame();
+        bus = game.getBus();
+        cat = game.getCat();
         Log.d("Grino", "onCreate Base");
     }
 
