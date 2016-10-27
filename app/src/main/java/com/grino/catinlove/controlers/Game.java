@@ -2,7 +2,6 @@ package com.grino.catinlove.controlers;
 
 import android.content.Context;
 
-import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.rxBus.RxBus;
 
 public class Game {
@@ -22,7 +21,7 @@ public class Game {
     private ProjectsTable projectsTable = null;
     public ProjectsTable getProjectsTable() {
         if (projectsTable == null) {
-            projectsTable = new ProjectsTable(DO.class, ctx.getResources());
+            projectsTable = new ProjectsTable(ctx.getResources());
         }
         return projectsTable;
     }
