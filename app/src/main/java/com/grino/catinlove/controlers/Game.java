@@ -19,12 +19,12 @@ public class Game {
         return cat;
     }
 
-    private Actions actions = null;
-    public Actions getActions() {
-        if (actions == null) {
-            actions = new Actions(DO.class, ctx.getResources());
+    private ProjectsTable projectsTable = null;
+    public ProjectsTable getProjectsTable() {
+        if (projectsTable == null) {
+            projectsTable = new ProjectsTable(DO.class, ctx.getResources());
         }
-        return actions;
+        return projectsTable;
     }
 
     private RxBus bus = null;

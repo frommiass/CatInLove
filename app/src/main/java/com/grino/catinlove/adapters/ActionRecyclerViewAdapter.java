@@ -32,7 +32,7 @@ public class ActionRecyclerViewAdapter
 
     public ActionRecyclerViewAdapter(Game game, DO d) {
         this.game = game;
-        list = game.getActions().getProjectsList();
+        list = game.getProjectsTable().getProjectsList();
     }
 
     @Override
