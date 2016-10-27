@@ -40,7 +40,9 @@ public class Actions
             else if (d == DO.HUNT)   actions.set(KEY.FOOD,    seq1, seq1, seq0);
             else if (d == DO.CREATE) actions.set(KEY.FOOD,    seq1, seq1, seq0);
 
-            actions.fill();
+            if (d == DO.CREATE) actions.createTrapList();
+            else    actions.createActionList();
+
             put(d, actions);
         }
 

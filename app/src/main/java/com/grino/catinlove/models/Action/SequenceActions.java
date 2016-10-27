@@ -21,7 +21,18 @@ public class SequenceActions
     private final String[] names;
     private final int count;
 
-    public void fill() {
+    public void createActionList() {
+        addAll(getActionList());
+    }
+
+    public void createTrapList() {
+        ArrayList<Action> list = getActionList();
+        for (Action a: list)
+            add(new TrapIncome(a));
+    }
+
+    public ArrayList<Action> getActionList(){
+        ArrayList<Action> list = new ArrayList<>();
         Action action;
         for (int i=0; i<count; i++) {
             action = new Action(
@@ -31,8 +42,9 @@ public class SequenceActions
                     new Requirement(requirement.get(i)),
                     (double)probability.get(i)
             );
-            add(action);
+            list.add(action);
         }
+        return list;
     }
 
     public SequenceActions(String[] names) {
