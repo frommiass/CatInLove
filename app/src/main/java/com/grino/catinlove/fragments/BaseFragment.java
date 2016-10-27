@@ -3,7 +3,6 @@ package com.grino.catinlove.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.MyApp;
@@ -36,14 +35,12 @@ public class BaseFragment
         game = MyApp.getGame();
         bus = game.getBus();
         cat = game.getCat();
-        Log.d("Grino", "onCreate Base");
     }
 
     @Override
     public void onStart() {
         subscriptions = new CompositeSubscription();
         super.onStart();
-        Log.d("Grino", "onStart Base");
         subscribeBus();
     }
 
@@ -51,7 +48,6 @@ public class BaseFragment
     public void onStop() {
         super.onStop();
         subscriptions.clear();
-        Log.d("grino", "отписка onStop");
     }
 
     @Override
