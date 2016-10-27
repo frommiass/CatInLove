@@ -12,10 +12,15 @@ public class Incoming
 
         for(Income i: this){
             if (i.isReady())
-                action.combineByKey((Action)i);
+                action.combineByKey(i);
         }
 
         return action;
+    }
+
+    public void put(Action action){
+        if (action instanceof TrapIncome)
+            add(new TrapIncome(action));
     }
 
 }

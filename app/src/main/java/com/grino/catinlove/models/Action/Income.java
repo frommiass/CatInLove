@@ -1,7 +1,12 @@
 package com.grino.catinlove.models.Action;
 
-public interface Income {
+public abstract class Income
+        extends Action{
 
-    boolean isReady();
+    public Income(Action action) {
+        super(action);
+    }
+
+    abstract boolean isReady();
 }
 

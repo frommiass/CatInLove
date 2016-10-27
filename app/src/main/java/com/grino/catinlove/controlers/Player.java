@@ -6,6 +6,7 @@ import android.util.Log;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Action.Income;
 import com.grino.catinlove.models.Action.Incoming;
 import com.grino.catinlove.models.Player.Container;
 import com.grino.catinlove.models.Player.ContainerMap;
@@ -113,6 +114,9 @@ public class Player {
     }
 
     public void doAction(Action action){
+        if (action instanceof Income)
+            incoming.put(action);
+        else
         my.combineByKey(action);
     }
 

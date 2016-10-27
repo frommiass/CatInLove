@@ -32,6 +32,14 @@ public class Action
         super(keyType);
     }
 
+    public Action(Action action) {
+        super(action);
+        this.name = action.name;
+        this.iconID = action.iconID;
+        this.requirement = action.requirement;
+        this.probability = action.probability;
+    }
+
     @Override
     public void set(KEY key, int values) {
         put(key, values);
