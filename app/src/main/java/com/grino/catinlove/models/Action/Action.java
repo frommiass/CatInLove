@@ -9,14 +9,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Action
-        extends KeyMap {
+        extends KeyMap<KEY, Integer> {
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;
     @Getter @Setter     private Requirement requirement;
     @Getter @Setter     private double probability;
 
-    public Action(EnumMap<KEY, ? extends Number> m,
+    public Action(EnumMap<KEY, ? extends Integer> m,
                   String name,
                   int iconID,
                   Requirement requirement,
@@ -30,6 +30,11 @@ public class Action
 
     public Action(Class<KEY> keyType) {
         super(keyType);
+    }
+
+    @Override
+    public void set(KEY key, int values) {
+        put(key, values);
     }
 
     @Override

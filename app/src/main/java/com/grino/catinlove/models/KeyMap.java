@@ -4,21 +4,20 @@ import com.grino.catinlove.enums.KEY;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.Map;
 
-public class KeyMap
-        extends EnumMap<KEY, Number> {
+public abstract class KeyMap<K extends KEY, N extends Number>
+        extends EnumMap<KEY, N> {
 
     public KeyMap(Class<KEY> keyType) {
         super(keyType);
     }
 
-    public KeyMap(EnumMap<KEY, ? extends Number> m) {
+    public KeyMap(EnumMap<KEY, ? extends N> m) {
         super(m);
     }
 
-    public KeyMap combineByKey(KeyMap map) {
-        for (Map.Entry<KEY, Number> e : map.entrySet()) {
+    public KeyMap<K, N> combineByKey(KeyMap<K, ? extends Number> map) {
+        for (Entry<KEY, ? extends Number> e : map.entrySet()) {
             KEY key = e.getKey();
             int b = map.get(key).intValue();
             add(key, b);
@@ -27,13 +26,16 @@ public class KeyMap
     }
 
     public void add(KEY key, int value){
-        put(key, get(key).intValue() + value);
+        int v = get(key).intValue();
+        set(key, (v + value));
     }
+
+    public abstract void set(KEY key, int values);
 
     @Override
     public String toString() {
         String s = "";
-        for (EnumMap.Entry<KEY, Number> e : entrySet()) {
+        for (KeyMap.Entry<KEY, N> e : entrySet()) {
             int i = e.getValue().intValue();
             if (i != 0) {
                 if (i > 0) s = s + "+";
@@ -47,7 +49,7 @@ public class KeyMap
 
     public boolean arePositive(ArrayList<KEY> keys){
         boolean result = true;
-        for (EnumMap.Entry<KEY, Number> e : entrySet()) {
+        for (KeyMap.Entry<KEY, N> e : entrySet()) {
             if ( keys.contains(e.getKey()) & (e.getValue().intValue() <= 0))
                 result = false;
         }
