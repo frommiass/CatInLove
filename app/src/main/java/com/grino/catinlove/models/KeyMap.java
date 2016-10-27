@@ -31,7 +31,7 @@ public abstract class KeyMap<K extends KEY, N extends Number>
         else set(key, value);
     }
 
-    public abstract void set(KEY key, int values);
+    public abstract void set(KEY key, int value);
 
     @Override
     public String toString() {

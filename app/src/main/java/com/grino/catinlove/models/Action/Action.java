@@ -41,8 +41,8 @@ public class Action
     }
 
     @Override
-    public void set(KEY key, int values) {
-        put(key, values);
+    public void set(KEY key, int value) {
+        put(key, value);
     }
 
     @Override
@@ -51,5 +51,4 @@ public class Action
         s = s + ", Вероятность = " + probability + ",  " + requirement;
         return s;
     }
-
 }
