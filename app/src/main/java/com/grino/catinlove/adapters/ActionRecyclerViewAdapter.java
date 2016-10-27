@@ -13,7 +13,7 @@ import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action.Action;
-import com.grino.catinlove.models.Action.ProjectAction;
+import com.grino.catinlove.models.Action.Project;
 import com.grino.catinlove.rx.BusActionClick;
 import com.grino.catinlove.rx.RxBus;
 import com.squareup.picasso.Picasso;
@@ -28,7 +28,7 @@ public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
 
     Game game;
-    ArrayList<ProjectAction> list;
+    ArrayList<Project> list;
 
     public ActionRecyclerViewAdapter(Game game, DO d) {
         this.game = game;
