@@ -1,6 +1,5 @@
 package com.grino.catinlove.adapters;
 
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,12 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.grino.catinlove.R;
-import com.grino.catinlove.controlers.Player;
+import com.grino.catinlove.controlers.Game;
+import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action.Action;
-import com.grino.catinlove.models.Action.SequenceActions;
+import com.grino.catinlove.models.Action.ProjectAction;
 import com.grino.catinlove.rx.BusActionClick;
 import com.grino.catinlove.rx.RxBus;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,33 +27,29 @@ import butterknife.OnClick;
 public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
 
-    private SequenceActions list;
-    private Player cat;
-    private Context ctx;
-    private RxBus bus;
+    Game game;
+    ArrayList<ProjectAction> list;
 
-    public ActionRecyclerViewAdapter(Context ctx, Player cat, SequenceActions list, RxBus bus) {
-        this.ctx = ctx;
-        this.cat = cat;
-        this.list = list;
-        this.bus = bus;
+    public ActionRecyclerViewAdapter(Game game, DO d) {
+        this.game = game;
+        list = game.getActions().getProjectsList();
     }
 
     @Override
     public ActionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.action_card, parent, false);
-        return new ActionViewHolder(v, bus);
+        return new ActionViewHolder(v, game.getBus());
     }
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
-        Action action = list.get(position);
-        if (cat.satisfies(action.getRequirement().getLevel())){
+        Action action = list.get(position).getAction();
+        if (game.getCat().satisfies(action.getRequirement().getLevel())){
 
             Log.d("Grino", "onBindViewHolder");
             holder.name.setText(action.getName());
             holder.description.setText(action.toString());
-            Picasso.with(ctx)
+            Picasso.with(game.ctx)
                     .load(action.getIconID())
                     .placeholder(R.drawable.placeholder)
                     .into(holder.icon);
@@ -59,13 +57,14 @@ public class ActionRecyclerViewAdapter
         }
         else{
             holder.name.setText(action.getRequirement().toString());
-            Picasso.with(ctx)
+            Picasso.with(game.ctx)
                     .load(R.drawable.placeholder)
                     .placeholder(R.drawable.placeholder)
                     .into(holder.icon);
             holder.description.setText("");
             holder.unbind();
         }
+
     }
 
     @Override

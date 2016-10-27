@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.models.Action.SequenceActions;
 import com.grino.catinlove.rx.BusUpdatePlayer;
 
 import butterknife.BindView;
@@ -22,8 +21,7 @@ public class ActionsFragment
 
     @BindView(R.id.recycler_view) RecyclerView recycler;
 
-    private SequenceActions list;
-    private DO key;
+    private DO d;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,12 +29,10 @@ public class ActionsFragment
         unbinder = ButterKnife.bind(this, view);
 
         if(getArguments() != null)
-            key = DO.getDO(getArguments().getInt("do_key"));
-
-        list = actions.get(key);
+            d = DO.getDO(getArguments().getInt("do_key"));
 
         recycler.setLayoutManager(new LinearLayoutManager(ctx));
-        recycler.setAdapter(new ActionRecyclerViewAdapter(ctx, cat, list, bus));
+        recycler.setAdapter(new ActionRecyclerViewAdapter(game, d));
 
         return view;
     }
