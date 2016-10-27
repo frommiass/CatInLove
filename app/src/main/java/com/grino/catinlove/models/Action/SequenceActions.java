@@ -7,6 +7,7 @@ import com.grino.catinlove.enums.KEY;
 
 import java.util.ArrayList;
 
+import lombok.Getter;
 import lombok.Setter;
 
 public class SequenceActions
@@ -18,6 +19,8 @@ public class SequenceActions
     private ArrayList<Integer> icons = new ArrayList<>();
     private int placeholder;
     private final String[] names;
+
+    @Getter
     private final int count;
 
     public void createActionList() {
@@ -38,7 +41,7 @@ public class SequenceActions
                     values.getAction(i),
                     names[i],
                     getIcon(i),
-                    (double)probability.get(i)
+                    probability.getDouble(i)
             );
             list.add(action);
         }
@@ -61,6 +64,12 @@ public class SequenceActions
             int id = res.getIdentifier(name, "drawable", res.getResourcePackageName(placeholder));
             if (id == 0)
                 id = placeholder;
+            icons.add(id);
+        }
+    }
+
+    public void setIcons(int id){
+        for (int i=1; i<=count; i++) {
             icons.add(id);
         }
     }
