@@ -1,7 +1,6 @@
 package com.grino.catinlove.controlers;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
@@ -62,7 +61,6 @@ public class Player {
             my.fillMax(KEY.getRes());
             deadlyCountdown = -1;
             say(R.string.msg_level_up);
-            bus.send(new BusUpdatePlayer());
         }
     }
     private boolean deadlyControl(){
@@ -102,6 +100,7 @@ public class Player {
         doAction(incoming.getAction());
         levelUp();
         deadlyControl();
+        bus.send(new BusUpdatePlayer());
     }
 
     private Action getNextDayAction(){
@@ -116,8 +115,8 @@ public class Player {
     public void doAction(Action action){
         if (action instanceof Income)
             incoming.put(action);
-        else
-        my.combineByKey(action);
+        else if (action.isMade())
+            my.combineByKey(action);
     }
 
 

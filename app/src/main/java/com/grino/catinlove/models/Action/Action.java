@@ -2,6 +2,7 @@ package com.grino.catinlove.models.Action;
 
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.KeyMap;
+import com.grino.catinlove.tools.Random;
 
 import java.util.EnumMap;
 
@@ -50,5 +51,15 @@ public class Action
         String s = super.toString();
         s = s + ", Вероятность = " + probability + ",  " + requirement;
         return s;
+    }
+
+    public boolean isMade() {
+        boolean isMade = Random.isMade(getProbability());
+        if (isMade) Made();
+        return isMade;
+    }
+
+    public void Made(){
+
     }
 }
