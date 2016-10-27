@@ -2,6 +2,8 @@ package com.grino.catinlove.enums;
 
 import com.grino.catinlove.R;
 
+import java.util.ArrayList;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -30,6 +32,16 @@ public enum DO {
             }
         }
         return result;
+    }
+
+    public static ArrayList<DO> getAll(){
+        ArrayList<DO> res = new ArrayList<>();
+        res.add(DO.PLAY);
+        res.add(DO.EAT);
+        res.add(DO.RELAX);
+        res.add(DO.HUNT);
+        res.add(DO.CREATE);
+        return res;
     }
 
 }
