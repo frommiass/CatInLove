@@ -26,8 +26,9 @@ public abstract class KeyMap<K extends KEY, N extends Number>
     }
 
     public void add(KEY key, int value){
-        int v = get(key).intValue();
-        set(key, (v + value));
+        if (get(key) != null)
+            set(key, get(key).intValue() + value);
+        else set(key, value);
     }
 
     public abstract void set(KEY key, int values);
