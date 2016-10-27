@@ -45,7 +45,8 @@ public class Action
     @Override
     public String toString() {
         String s = super.toString();
-        s = s + ", Вероятность = " + probability;
+        if (probability != 1.0)
+            s = s + ", Вероятность успеха " + probability*100 + "%";
         return s;
     }
 
