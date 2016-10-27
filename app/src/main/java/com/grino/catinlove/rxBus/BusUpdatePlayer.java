@@ -1,4 +1,4 @@
-package com.grino.catinlove.rx;
+package com.grino.catinlove.rxBus;
 
 public class BusUpdatePlayer
         extends BusEvent{

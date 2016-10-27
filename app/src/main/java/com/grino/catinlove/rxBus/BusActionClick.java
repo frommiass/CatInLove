@@ -1,4 +1,4 @@
-package com.grino.catinlove.rx;
+package com.grino.catinlove.rxBus;
 
 import com.grino.catinlove.models.Action.Action;
 

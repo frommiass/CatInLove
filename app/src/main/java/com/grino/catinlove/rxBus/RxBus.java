@@ -1,4 +1,4 @@
-package com.grino.catinlove.rx;
+package com.grino.catinlove.rxBus;
 
 import com.jakewharton.rxrelay.PublishRelay;
 import com.jakewharton.rxrelay.Relay;

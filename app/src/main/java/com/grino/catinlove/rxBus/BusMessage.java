@@ -1,4 +1,4 @@
-package com.grino.catinlove.rx;
+package com.grino.catinlove.rxBus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

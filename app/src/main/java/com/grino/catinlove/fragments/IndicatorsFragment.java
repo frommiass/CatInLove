@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Action.Action;
-import com.grino.catinlove.rx.BusActionClick;
+import com.grino.catinlove.rxBus.BusActionClick;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

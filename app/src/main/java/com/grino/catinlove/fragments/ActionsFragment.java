@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ActionRecyclerViewAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.rx.BusUpdatePlayer;
+import com.grino.catinlove.rxBus.BusUpdatePlayer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

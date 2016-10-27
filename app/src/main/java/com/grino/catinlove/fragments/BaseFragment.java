@@ -9,7 +9,7 @@ import com.grino.catinlove.MainActivity;
 import com.grino.catinlove.MyApp;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.controlers.Player;
-import com.grino.catinlove.rx.RxBus;
+import com.grino.catinlove.rxBus.RxBus;
 
 import butterknife.Unbinder;
 import rx.Observable;

@@ -9,9 +9,9 @@ import com.grino.catinlove.models.Action.Income;
 import com.grino.catinlove.models.Action.Incoming;
 import com.grino.catinlove.models.Player.Container;
 import com.grino.catinlove.models.Player.ContainerMap;
-import com.grino.catinlove.rx.BusMessage;
-import com.grino.catinlove.rx.BusUpdatePlayer;
-import com.grino.catinlove.rx.RxBus;
+import com.grino.catinlove.rxBus.BusMessage;
+import com.grino.catinlove.rxBus.BusUpdatePlayer;
+import com.grino.catinlove.rxBus.RxBus;
 import com.grino.catinlove.tools.Random;
 
 import lombok.Getter;

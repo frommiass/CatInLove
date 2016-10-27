@@ -14,8 +14,8 @@ import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action.Action;
 import com.grino.catinlove.models.Action.Project;
-import com.grino.catinlove.rx.BusActionClick;
-import com.grino.catinlove.rx.RxBus;
+import com.grino.catinlove.rxBus.BusActionClick;
+import com.grino.catinlove.rxBus.RxBus;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

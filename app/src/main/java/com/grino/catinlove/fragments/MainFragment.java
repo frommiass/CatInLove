@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.grino.catinlove.R;
 import com.grino.catinlove.adapters.ViewPagerAdapter;
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.rx.BusMessage;
+import com.grino.catinlove.rxBus.BusMessage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -3,7 +3,7 @@ package com.grino.catinlove.controlers;
 import android.content.Context;
 
 import com.grino.catinlove.enums.DO;
-import com.grino.catinlove.rx.RxBus;
+import com.grino.catinlove.rxBus.RxBus;
 
 public class Game {
 
