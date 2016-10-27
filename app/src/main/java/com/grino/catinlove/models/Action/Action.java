@@ -14,18 +14,15 @@ public class Action
 
     @Getter @Setter     private String name;
     @Getter @Setter     private int iconID;
-    @Getter @Setter     private Requirement requirement;
     @Getter @Setter     private double probability;
 
     public Action(EnumMap<KEY, ? extends Integer> m,
                   String name,
                   int iconID,
-                  Requirement requirement,
                   double probability) {
         super(m);
         this.name = name;
         this.iconID = iconID;
-        this.requirement = requirement;
         this.probability = probability;
     }
 
@@ -37,7 +34,6 @@ public class Action
         super(action);
         this.name = action.name;
         this.iconID = action.iconID;
-        this.requirement = action.requirement;
         this.probability = action.probability;
     }
 
@@ -49,7 +45,7 @@ public class Action
     @Override
     public String toString() {
         String s = super.toString();
-        s = s + ", Вероятность = " + probability + ",  " + requirement;
+        s = s + ", Вероятность = " + probability;
         return s;
     }
 

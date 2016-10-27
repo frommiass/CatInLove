@@ -13,7 +13,6 @@ public class SequenceActions
         extends ArrayList<Action>{
 
     @Setter     private MapSequences values = new MapSequences(KEY.class);
-    @Setter     Sequence requirement;
     @Setter     Sequence probability;
 
     private ArrayList<Integer> icons = new ArrayList<>();
@@ -39,7 +38,6 @@ public class SequenceActions
                     values.getAction(i),
                     names[i],
                     getIcon(i),
-                    new Requirement(requirement.get(i)),
                     (double)probability.get(i)
             );
             list.add(action);
@@ -50,12 +48,6 @@ public class SequenceActions
     public SequenceActions(String[] names) {
         this.names = names;
         count = names.length;
-    }
-
-    public void set(KEY key, Sequence v, Sequence r, Sequence p){
-        setSequence(key, v);
-        setRequirement(r);
-        setProbability(p);
     }
 
     public void setSequence(KEY k, Sequence s){
