@@ -31,8 +31,17 @@ public class Sequence{
         else if (SEQUENCE_TYPE.NUMBERS.equals(type))
             return n + 1;
         else if (SEQUENCE_TYPE.LINEAR_DEPENDENCE.equals(type))
-            return (a + b*n);
+            return (a*n + b);
         return 0;
     }
 
+    public double getDouble(int n) {
+        if (SEQUENCE_TYPE.CONSTANT.equals(type))
+            return a;
+        else if (SEQUENCE_TYPE.NUMBERS.equals(type))
+            return n + 1;
+        else if (SEQUENCE_TYPE.LINEAR_DEPENDENCE.equals(type))
+            return (a*n + b)/10000;
+        return 0;
+    }
 }
