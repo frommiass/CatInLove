@@ -5,12 +5,10 @@ import android.content.res.Resources;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.enums.SEQUENCE_TYPE;
-import com.grino.catinlove.models.Action.KeySeq;
-import com.grino.catinlove.models.Action.Project;
+import com.grino.catinlove.models.Action.Projects;
 import com.grino.catinlove.models.Action.Sequence;
 import com.grino.catinlove.models.Action.SequenceActions;
 
-import java.util.ArrayList;
 import java.util.EnumMap;
 
 public class ProjectsTable {
@@ -21,17 +19,26 @@ public class ProjectsTable {
     EnumMap<DO, SequenceActions> run = new EnumMap<>(DO.class);
     EnumMap<DO, SequenceActions> effect = new EnumMap<>(DO.class);
 
+    EnumMap<DO, Projects> projects = new EnumMap<>(DO.class);
+
     public ProjectsTable(Resources res) {
         this.res = res;
 
         fillTable();
+        for (DO d: DO.getAll())
+            projects.put(d, new Projects(
+                    activate.get(d),
+                    run.get(d),
+                    effect.get(d)
+            ));
     }
 
     public void fillTable(){
         Sequence sProb1 = new Sequence(SEQUENCE_TYPE.CONSTANT, 1);
         Sequence sProb2 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -100, 3500);
+        Sequence sProb3 = new Sequence(SEQUENCE_TYPE.CONSTANT, (int) 0.5);
 
-        Sequence seqExp1 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -1, 1);
+        Sequence seqExp1 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -5, 0);
         Sequence seqExp2 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, 1, 0);
 
         Sequence seqFood1 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -5, 0);
@@ -59,28 +66,44 @@ public class ProjectsTable {
     }
 
     public void setActivate(DO d, Sequence sProb, KEY k1, Sequence s1){
-        activate.put(d, getSequenceActions(d, sProb, new KeySeq(k1, s1)));
-    }
-    public void setRun(DO d, Sequence sProb, KEY k1, Sequence s1){
-        run.put(d, getSequenceActions(d, sProb, new KeySeq(k1, s1)));
-    }
-    public void setEffect(DO d, Sequence sProb, KEY k1, Sequence s1){
-        effect.put(d, getSequenceActions(d, sProb, new KeySeq(k1, s1)));
-    }
-
-    public SequenceActions getSequenceActions(DO d, Sequence sProb, KeySeq s1){
-        SequenceActions actions = new SequenceActions(res.getStringArray(d.getStringsID()));
-        actions.setIcons(res, d);
+        int count = res.getStringArray(d.getStringsID()).length;
+        SequenceActions actions = new SequenceActions(res.getString(d.getActivateID()), count);
+        actions.setIcons(d.getIconID());
         actions.setProbability(sProb);
-        actions.setSequence(s1.getKey(), s1.getValue());
+        actions.setSequence(k1, s1);
 
         if (d == DO.CREATE) actions.createTrapList();
         else    actions.createActionList();
 
-        return actions;
+        activate.put(d, actions);
+    }
+    public void setRun(DO d, Sequence sProb, KEY k1, Sequence s1){
+        String[] names = res.getStringArray(d.getStartID());
+        SequenceActions actions = new SequenceActions(names);
+        actions.setIcons(d.getIconID());
+        actions.setProbability(sProb);
+        actions.setSequence(k1, s1);
+
+        if (d == DO.CREATE) actions.createTrapList();
+        else    actions.createActionList();
+
+        run.put(d, actions);
+    }
+    public void setEffect(DO d, Sequence sProb, KEY k1, Sequence s1){
+        String[] names = res.getStringArray(d.getStringsID());
+        SequenceActions actions = new SequenceActions(names);
+        actions.setIcons(res, d);
+        actions.setProbability(sProb);
+        actions.setSequence(k1, s1);
+
+        if (d == DO.CREATE) actions.createTrapList();
+        else    actions.createActionList();
+
+        effect.put(d, actions);
     }
 
-    public ArrayList<Project> getProjectsList(){
-        return null;
+
+    public Projects getProjectsList(DO d){
+        return projects.get(d);
     }
 }
