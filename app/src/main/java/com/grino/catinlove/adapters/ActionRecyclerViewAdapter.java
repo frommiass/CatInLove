@@ -86,7 +86,6 @@ public class ActionRecyclerViewAdapter
 
         Picasso.with(game.ctx)
                 .load(action.getIconID())
-                .placeholder(R.drawable.placeholder)
                 .into(holder.icon);
 
         holder.bind(action);
