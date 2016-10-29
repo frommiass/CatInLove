@@ -60,18 +60,13 @@ public class Action
 
     }
 
-    public String getOne(){
-        String s = "";
-
-        if (size() == 1){
-            int one = 0;
+    public KeyInt getOne(){
+        KeyInt one = null;
+        if (size() == 1)
             for (Entry<KEY, Integer> e: entrySet())
-                one = e.getValue();
-            if (one > 0) s = s + "+";
-            s = s + one;
-        }
-
-        return s;
+                one = new KeyInt(e.getKey(), e.getValue());
+        return one;
     }
+
 
 }
