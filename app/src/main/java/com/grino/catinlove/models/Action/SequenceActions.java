@@ -53,6 +53,13 @@ public class SequenceActions
         count = names.length;
     }
 
+    public SequenceActions(String name, int count) {
+        this.count = count;
+        names = new String[count];
+        for(int i=0; i<count; i++)
+            names[i] = name;
+    }
+
     public void setSequence(KEY k, Sequence s){
         values.put(k, s);
     }
