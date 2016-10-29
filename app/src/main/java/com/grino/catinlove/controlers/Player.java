@@ -45,6 +45,9 @@ public class Player {
         day = new Container(1, 20000000, 1);
         my = new ContainerMap(KEY.class)
                 .putRes(KEY.EXP, 0)
+                .putRes(KEY.CLAWS, 1)
+                .putRes(KEY.MUSTACHE, 1)
+                .putRes(KEY.PAWS, 1)
                 .putInd(KEY.ENERGY, 1000)
                 .putInd(KEY.SATIETY, 1000)
                 .putInd(KEY.MOOD, 1000)
