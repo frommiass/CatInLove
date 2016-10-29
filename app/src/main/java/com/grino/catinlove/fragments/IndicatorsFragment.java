@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
+import com.grino.catinlove.layouts.AttributeLayout;
 import com.grino.catinlove.models.Action.Action;
 import com.grino.catinlove.rxBus.BusActionClick;
 
@@ -27,6 +28,10 @@ public class IndicatorsFragment
     @BindView(R.id.food) TextView tvFood;
     @BindView(R.id.real) TextView tvReal;
 
+    @BindView(R.id.attribute_1) AttributeLayout att1;
+    @BindView(R.id.attribute_2) AttributeLayout att2;
+    @BindView(R.id.attribute_3) AttributeLayout att3;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_indicators, container, false);
@@ -41,11 +46,17 @@ public class IndicatorsFragment
         pbMoon.setProgress(cat.getContent(KEY.MOOD));
         pbSatiety.setProgress(cat.getContent(KEY.SATIETY));
         pbEnergy.setProgress(cat.getContent(KEY.ENERGY));
+
         pbExp.setProgress(cat.getContent(KEY.EXP));
         pbExp.setMax(cat.getMaxExp());
         tvLevel.setText("" + cat.getLevel().get());
+
         tvFood.setText("" + cat.getContent(KEY.FOOD));
         tvReal.setText("" + cat.getContent(KEY.REAL));
+
+        att1.setValue(cat.getContent(KEY.CLAWS));
+        att2.setValue(cat.getContent(KEY.MUSTACHE));
+        att3.setValue(cat.getContent(KEY.PAWS));
     }
 
     @Override
@@ -56,4 +67,5 @@ public class IndicatorsFragment
             updateIndicators();
         }
     }
+
 }

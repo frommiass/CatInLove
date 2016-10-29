@@ -3,12 +3,19 @@ package com.grino.catinlove.layouts;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.grino.catinlove.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class AttributeLayout
         extends LinearLayout{
+
+    @BindView(R.id.attribute_value)     TextView tvValue;
 
     public AttributeLayout(Context context) {
         super(context);
@@ -28,7 +35,11 @@ public class AttributeLayout
 
     private void initializeViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.layout_attribute, this);
+        View layout = inflater.inflate(R.layout.layout_attribute, this);
+        ButterKnife.bind(this, layout);
     }
 
+    public void setValue(int value){
+        tvValue.setText(String.valueOf(value));
+    }
 }
