@@ -58,7 +58,7 @@ public class MainFragment
             AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
             builder.setTitle("Важное сообщение!")
                     .setMessage(((BusMessage) event).getMsg())
-                    .setIcon(R.drawable.eat)
+                    .setIcon(R.drawable.ic_launcher)
                     .setNegativeButton("ИГРАТЬ!", null);
             AlertDialog alert = builder.create();
             alert.show();
