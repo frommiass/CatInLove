@@ -11,7 +11,7 @@
     <string name="resource_real">Реал</string>
 
     <string name="attribute_mustache">Длина усов</string>
-    <string name="attribute_paws">Пушистость лапок</string>
+    <string name="attribute_paws">Мягкость лапок</string>
     <string name="attribute_claws">Острота когтей</string>
 
     <string name="msg_deadly_warning">Осталось жить ходов: </string>

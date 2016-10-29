@@ -45,8 +45,8 @@ public class MainFragment
         Resources res = getResources();
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFragment(new ActionsFragment(), res, DO.RELAX);
-        adapter.addFragment(new ActionsFragment(), res, DO.PLAY);
         adapter.addFragment(new ActionsFragment(), res, DO.EAT);
+        adapter.addFragment(new ActionsFragment(), res, DO.PLAY);
         adapter.addFragment(new ActionsFragment(), res, DO.HUNT);
         adapter.addFragment(new ActionsFragment(), res, DO.CREATE);
         viewPager.setAdapter(adapter);
