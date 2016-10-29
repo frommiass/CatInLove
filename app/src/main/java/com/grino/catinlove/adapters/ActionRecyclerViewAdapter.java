@@ -69,7 +69,7 @@ public class ActionRecyclerViewAdapter
             else description = action.toString();
         }else{
             count = action.getOne().getValWithSign();
-            params.setMargins(Px.getPx(ctx, 8), Px.getPx(ctx, 8), 0, Px.getPx(ctx, 24));
+            params.setMargins(Px.getPx(ctx, 8), Px.getPx(ctx, 8), Px.getPx(ctx, 8), Px.getPx(ctx, 24));
             if(action.getProbability() != 1.0)
                 description = "Вероятность успеха " + action.getProbability()*100 + "%";
 
