@@ -62,9 +62,9 @@ public class IndicatorsFragment
         tvFood.setText("" + cat.getContent(KEY.FOOD));
         tvReal.setText("" + cat.getContent(KEY.REAL));
 
-        att1.setValue(cat.getContent(KEY.CLAWS));
+        att1.setValue(cat.getContent(KEY.PAWS));
         att2.setValue(cat.getContent(KEY.MUSTACHE));
-        att3.setValue(cat.getContent(KEY.PAWS));
+        att3.setValue(cat.getContent(KEY.CLAWS));
     }
 
     @Override
