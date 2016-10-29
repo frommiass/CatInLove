@@ -46,15 +46,15 @@ public class ProjectsTable {
 
         Sequence seqInd = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, 4, 88);
 
-        setActivate(DO.PLAY,   sProb1, KEY.EXP, seqExp1);
-        setActivate(DO.EAT,    sProb1, KEY.EXP, seqExp1);
-        setActivate(DO.RELAX,  sProb1, KEY.EXP, seqExp1);
-        setActivate(DO.HUNT,   sProb1, KEY.FOOD, seqExp1);
-        setActivate(DO.CREATE, sProb1, KEY.FOOD, seqExp1);
+        setActivate(DO.PLAY,   sProb1, KEY.CLAWS,     seqExp1);
+        setActivate(DO.EAT,    sProb1, KEY.MUSTACHE,  seqExp1);
+        setActivate(DO.RELAX,  sProb1, KEY.PAWS,      seqExp1);
+        setActivate(DO.HUNT,   sProb1, KEY.FOOD,      seqExp1);
+        setActivate(DO.CREATE, sProb1, KEY.FOOD,      seqExp1);
 
-        setRun(DO.PLAY,   sProb2, KEY.EXP,    seqExp2);
-        setRun(DO.EAT,    sProb2, KEY.EXP,    seqExp2);
-        setRun(DO.RELAX,  sProb2, KEY.EXP,    seqExp2);
+        setRun(DO.PLAY,   sProb2, KEY.CLAWS,    seqExp2);
+        setRun(DO.EAT,    sProb2, KEY.MUSTACHE,    seqExp2);
+        setRun(DO.RELAX,  sProb2, KEY.PAWS,    seqExp2);
         setRun(DO.HUNT,   sProb1, KEY.FOOD,   seqFood1);
         setRun(DO.CREATE, sProb1, KEY.FOOD,   seqFood1);
 
