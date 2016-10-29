@@ -9,9 +9,9 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#c8c8c8</color>
 
-    <color name="colorNotActivate">#E53935</color>
+    <color name="colorNotActivate">#FFCDD2</color>
     <color name="colorCanActivate">#43A047</color>
-    <color name="colorNeedRun">#FDD835</color>
+    <color name="colorNeedRun">#FFF9C4</color>
 
 
 </resources>
