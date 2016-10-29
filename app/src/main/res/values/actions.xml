@@ -15,6 +15,12 @@
     <string name="do_create_ru">СКОТ</string>
     <string name="do_error_ru">ОШИБКА</string>
 
+    <string name="do_play_activate">Обкусать новую игрушку</string>
+    <string name="do_eat_activate">Обнюхать новый запах</string>
+    <string name="do_relax_activate">Обследовать новое местечко</string>
+    <string name="do_hunt_activate">Обследовать новую территорию</string>
+    <string name="do_create_activate">Обсмотреть новую животинку</string>
+
     <integer-array name="do_error"/>
 
     <string-array name="do_eat">
@@ -34,7 +40,7 @@
         <item>Заточить бутерброд с икорочкой</item>
         <item>Обожраться колбасы</item>
         <item>Поесть рыбки</item>
-        <item>Заказать пиццу</item>
+        <item>Обожраться пиццы</item>
         <item>Поесть деликатестных сосисочек</item>
         <item>Попить из чистейшего озера</item>
     </string-array>
@@ -153,5 +159,144 @@
         <item>Завести породистого кабана</item>
         <item>Завести молочную корову</item>
     </string-array>
+
+    <string-array name="do_eat_activate">
+        <item>Искать капли на стекле</item>
+        <item>Искать кран с водой</item>
+        <item>Искать миску</item>
+        <item>Искать лужу</item>
+        <item>Искать миску с молоком</item>
+        <item>Искать бутерброд</item>
+        <item>Искать рыбаков</item>
+        <item>Искать полную миску в молоком</item>
+        <item>Искать сосиски</item>
+        <item>Искать сухой корм</item>
+        <item>Искать куриную ножку</item>
+        <item>Искать мороженое</item>
+        <item>Искать тортик</item>
+        <item>Искать бутерброд с икорочкой</item>
+        <item>Искать колбасу</item>
+        <item>Искать рыбку</item>
+        <item>Заказать пиццу</item>
+        <item>Искать деликатестные сосисочки</item>
+        <item>Искать чистейшее озеро</item>
+    </string-array>
+
+    <string-array name="do_play_activate">
+        <item>Искать спокойное местечко</item>
+        <item>Искать хороший вид</item>
+        <item>Искать уютное местечко</item>
+        <item>Искать комнату</item>
+        <item>Искать кровать</item>
+        <item>Искать хвостик</item>
+        <item>Искать обои</item>
+        <item>Искать резинку для волос</item>
+        <item>Искать комнату</item>
+        <item>Искать диван</item>
+        <item>Искать карниз</item>
+    </string-array>
+
+    <string-array name="do_relax_activate">
+        <item>Зевнуть</item>
+        <item>Искать свободное место</item>
+        <item>Искать мягкое местечко</item>
+        <item>Искать ботинок</item>
+        <item>Искать темноту под кроватью</item>
+        <item>Искать свободный угол</item>
+        <item>Искать ковер</item>
+        <item>Искать батарею</item>
+        <item>Искать стул</item>
+        <item>Искать шляпу</item>
+        <item>Искать джинсы</item>
+        <item>Искать спокойное место</item>
+        <item>Искать солнечное место</item>
+        <item>Искать ванную</item>
+        <item>Искать гитару</item>
+        <item>Искать машину</item>
+        <item>Искать книги</item>
+        <item>Искать кровать</item>
+        <item>Искать коробку</item>
+        <item>Искать Угги</item>
+        <item>Искать батарею</item>
+        <item>Искать диван</item>
+        <item>Искать подушку</item>
+        <item>Искать мишку</item>
+        <item>Искать зайчика</item>
+        <item>Искать батарею</item>
+        <item>Искать стиралку</item>
+        <item>Сосредоточиться</item>
+        <item>Искать подушку хозяина</item>
+        <item>Искать кошачью подушку</item>
+        <item>Искать гамак</item>
+        <item>Искать веревку</item>
+        <item>Искать банку</item>
+        <item>Искать пень</item>
+        <item>Искать мультиварку</item>
+    </string-array>
+
+    <string-array name="do_hunt_activate">
+        <item>Искать муху</item>
+        <item>Искать таракана</item>
+        <item>Искать муху на стеклу</item>
+        <item>Искать кузнечика</item>
+        <item>Заманить муху</item>
+        <item>Искать стрекозу</item>
+        <item>Искать мышку</item>
+        <item>Искать маленькую птичку</item>
+        <item>Искать голубей</item>
+        <item>Искать мышку</item>
+        <item>Искать ворону с рыбой</item>
+        <item>Искать попугая</item>
+        <item>Искать крысу</item>
+        <item>Искать стаю голубей</item>
+        <item>Искать ворону</item>
+        <item>Искать белку</item>
+        <item>Искать рыбу</item>
+        <item>Искать крысу</item>
+        <item>Искать пернатого из зоопарка</item>
+        <item>Искать за белку</item>
+        <item>Искать голубя</item>
+        <item>Искать белку</item>
+        <item>Искать голубу</item>
+    </string-array>
+
+    <string-array name="do_create_activate">
+        <item>Выменять липкую ленту у соседа</item>
+        <item>Выменять ловушка для тараканов</item>
+        <item>Сделать из стакана ловушку для мышек</item>
+        <item>Сделать ловушку для рыбок</item>
+        <item>Сделать кормушку для птичек</item>
+        <item>Сделать из бутылки ловушку для мышек</item>
+        <item>Выменять маленький аквариум</item>
+        <item>Найти заводчика желтых цыплят</item>
+        <item>Найти заводчика сеерых мышек</item>
+        <item>Сделать кормушку для белочек</item>
+        <item>Сделать ловушка для крысок</item>
+        <item>Выменять аквариум</item>
+        <item>Найти заводчика черных мышек</item>
+        <item>Найти заводчика белых цыплят</item>
+        <item>Сделать скворечник для птичек</item>
+        <item>Выменять мышеловку</item>
+        <item>Найти заводчика милых хомячков</item>
+        <item>Сделать большая кормушку для белочек</item>
+        <item>Найти заводчика утят</item>
+        <item>Сделать ловушку для рыбок</item>
+        <item>Найти заводчика плодовитых хомячков</item>
+        <item>Сделать узкую кормушку для белок</item>
+        <item>Сделать витаминную кормушку для птичек</item>
+        <item>Найти заводчика розовых поросят</item>
+        <item>Найти заводчика морских свиней</item>
+        <item>Найти заводчика курочек несушек</item>
+        <item>Найти заводчика плодовитых поросят</item>
+        <item>Сделать ловушку для белочек</item>
+        <item>Найти заводчика кроликов</item>
+        <item>Найти заводчика молочных коз</item>
+        <item>Найти заводчика мясных хряков</item>
+        <item>Найти заводчика худеньких коровушек</item>
+        <item>Найти заводчика породистых кабанов</item>
+        <item>Найти заводчика молочных коров</item>
+    </string-array>
+
+
 
 </resources>
