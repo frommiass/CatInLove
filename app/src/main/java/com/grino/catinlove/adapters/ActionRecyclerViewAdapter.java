@@ -1,7 +1,7 @@
 package com.grino.catinlove.adapters;
 
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.CoordinatorLayout.LayoutParams;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +14,7 @@ import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Action.KeyInt;
 import com.grino.catinlove.models.Action.Project;
 import com.grino.catinlove.models.Action.ProjectAction;
 import com.grino.catinlove.models.Action.Projects;
@@ -25,6 +26,8 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+;
 
 public class ActionRecyclerViewAdapter
         extends RecyclerView.Adapter<ActionRecyclerViewAdapter.ActionViewHolder>{
@@ -50,23 +53,32 @@ public class ActionRecyclerViewAdapter
         ProjectAction action = list.get(position).getAction();
         holder.name.setText(action.getName());
 
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams)holder.icon.getLayoutParams();
+        String description = "";
+        String count = "";
+        LayoutParams params = (LayoutParams) holder.icon.getLayoutParams();
+
         if (action.getProject().getStatus() == Project.STATUS_RUN){
-            holder.count.setText("");
             params.setMargins(0, 0, 0, 0);
-            holder.description.setText(action.toString());
+            KeyInt one = action.getOne();
+            if (one != null)
+                description = "Увеличивет " + one.getName() + " на " + one.getValInPercent();
+            else description = action.toString();
         }else{
-            holder.count.setText(action.getOne());
+            count = action.getOne().getValWithSign();
             params.setMargins(Px.getPx(ctx, 8), Px.getPx(ctx, 8), 0, Px.getPx(ctx, 24));
-            if(action.getProbability()!=1.0)
-                holder.description.setText("Вероятность успеха " + action.getProbability()*100 + "%");
+            if(action.getProbability() != 1.0)
+                description = "Вероятность успеха " + action.getProbability()*100 + "%";
         }
+
         holder.icon.setLayoutParams(params);
+        holder.description.setText(description);
+        holder.count.setText(count);
 
         Picasso.with(game.ctx)
                 .load(action.getIconID())
                 .placeholder(R.drawable.placeholder)
                 .into(holder.icon);
+
         holder.bind(action);
     }
 
