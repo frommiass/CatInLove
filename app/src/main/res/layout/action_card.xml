@@ -10,24 +10,44 @@
         android:layout_height="wrap_content"
         android:id="@+id/action_card"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:paddingRight="8dp"
         res:cardElevation="4dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
+
+            <android.support.design.widget.CoordinatorLayout
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:id="@+id/action_icon"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/placeholder"
-                android:adjustViewBounds="true" />
+                android:id="@+id/action_pic">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/action_icon"
+                    android:src="@drawable/claws"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/action_count"
+                    android:textSize="36sp"
+                    android:textColor="#000000"
+                    android:text="+57"
+                    android:layout_gravity="bottom|right"
+                    android:textStyle="bold"
+                    android:paddingBottom="0dp" />
+            </android.support.design.widget.CoordinatorLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/action_icon"
+                android:layout_toRightOf="@+id/action_pic"
                 android:id="@+id/action_name"
                 android:textSize="30sp"
                 android:textColor="#000000"
