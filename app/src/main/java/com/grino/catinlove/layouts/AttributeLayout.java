@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +16,9 @@ import butterknife.ButterKnife;
 public class AttributeLayout
         extends LinearLayout{
 
-    @BindView(R.id.attribute_value)     TextView tvValue;
+    @BindView(R.id.attribute_name)      TextView  vName;
+    @BindView(R.id.attribute_value)     TextView  vValue;
+    @BindView(R.id.attribute_icon)      ImageView vIcon;
 
     public AttributeLayout(Context context) {
         super(context);
@@ -40,6 +43,14 @@ public class AttributeLayout
     }
 
     public void setValue(int value){
-        tvValue.setText(String.valueOf(value));
+        vValue.setText(String.valueOf(value));
+    }
+
+    public void setName(String name){
+        vName.setText(name);
+    }
+
+    public void setIcon(int id){
+        vIcon.setImageResource(id);
     }
 }

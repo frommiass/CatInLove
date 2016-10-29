@@ -37,6 +37,14 @@ public class IndicatorsFragment
         View layout = inflater.inflate(R.layout.fragment_indicators, container, false);
         unbinder = ButterKnife.bind(this, layout);
 
+        att1.setName(KEY.PAWS.getName());
+        att2.setName(KEY.MUSTACHE.getName());
+        att3.setName(KEY.CLAWS.getName());
+
+        att1.setIcon(R.drawable.paws);
+        att2.setIcon(R.drawable.mustache);
+        att3.setIcon(R.drawable.claws);
+
         updateIndicators();
 
         return layout;
