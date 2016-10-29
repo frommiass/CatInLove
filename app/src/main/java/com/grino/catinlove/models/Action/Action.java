@@ -59,4 +59,19 @@ public class Action
     public void Made(){
 
     }
+
+    public String getOne(){
+        String s = "";
+
+        if (size() == 1){
+            int one = 0;
+            for (Entry<KEY, Integer> e: entrySet())
+                one = e.getValue();
+            if (one > 0) s = s + "+";
+            s = s + one;
+        }
+
+        return s;
+    }
+
 }

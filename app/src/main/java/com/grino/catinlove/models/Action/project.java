@@ -5,11 +5,12 @@ import lombok.Setter;
 
 public class Project {
 
-    final static int STATUS_NOT_ACTIVATE = 1;
-    final static int STATUS_ACTIVATE = 2;
-    final static int STATUS_RUN = 3;
+    public final static int STATUS_NOT_ACTIVATE = 1;
+    public final static int STATUS_ACTIVATE = 2;
+    public final static int STATUS_RUN = 3;
 
-    int status;
+    @Getter
+    private int status;
 
     @Setter
     ProjectAction a1, a2, a3;
@@ -42,7 +43,8 @@ public class Project {
     }
 
     public void Next(){
-        if (status == STATUS_NOT_ACTIVATE) Activate();
+        if (status == STATUS_NOT_ACTIVATE) Run();
         else if (status == STATUS_ACTIVATE) Run();
+        else if (status == STATUS_RUN) Stop();
     }
 }

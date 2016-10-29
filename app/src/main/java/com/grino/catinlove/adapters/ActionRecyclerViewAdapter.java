@@ -1,5 +1,7 @@
 package com.grino.catinlove.adapters;
 
+import android.content.Context;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +14,12 @@ import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
 import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Action.Project;
+import com.grino.catinlove.models.Action.ProjectAction;
 import com.grino.catinlove.models.Action.Projects;
 import com.grino.catinlove.rxBus.BusActionClick;
 import com.grino.catinlove.rxBus.RxBus;
+import com.grino.catinlove.tools.Px;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -26,10 +31,12 @@ public class ActionRecyclerViewAdapter
 
     Game game;
     Projects list;
+    Context ctx;
 
     public ActionRecyclerViewAdapter(Game game, DO d) {
         this.game = game;
         list = game.getProjectsTable().getProjectsList(d);
+        this.ctx = game.ctx;
     }
 
     @Override
@@ -40,9 +47,22 @@ public class ActionRecyclerViewAdapter
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
-        Action action = list.get(position).getAction();
+        ProjectAction action = list.get(position).getAction();
         holder.name.setText(action.getName());
-        holder.description.setText(action.toString());
+
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams)holder.icon.getLayoutParams();
+        if (action.getProject().getStatus() == Project.STATUS_RUN){
+            holder.count.setText("");
+            params.setMargins(0, 0, 0, 0);
+            holder.description.setText(action.toString());
+        }else{
+            holder.count.setText(action.getOne());
+            params.setMargins(Px.getPx(ctx, 8), Px.getPx(ctx, 8), 0, Px.getPx(ctx, 24));
+            if(action.getProbability()!=1.0)
+                holder.description.setText("Вероятность успеха " + action.getProbability()*100 + "%");
+        }
+        holder.icon.setLayoutParams(params);
+
         Picasso.with(game.ctx)
                 .load(action.getIconID())
                 .placeholder(R.drawable.placeholder)
@@ -58,6 +78,7 @@ public class ActionRecyclerViewAdapter
     public static class ActionViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.action_card)         CardView card;
         @BindView(R.id.action_icon)         ImageView icon;
+        @BindView(R.id.action_count)        TextView count;
         @BindView(R.id.action_name)         TextView name;
         @BindView(R.id.action_description)  TextView description;
 
