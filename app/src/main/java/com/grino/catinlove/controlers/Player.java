@@ -48,7 +48,7 @@ public class Player {
                 .putInd(KEY.ENERGY, 1000)
                 .putInd(KEY.SATIETY, 1000)
                 .putInd(KEY.MOOD, 1000)
-                .putRes(KEY.FOOD, 50)
+                .putRes(KEY.FOOD, 0)
                 .putRes(KEY.REAL, 10);
         deadlyCountdown = -1;
         incoming = new Incoming();
@@ -109,6 +109,7 @@ public class Player {
         action.put(KEY.ENERGY, Random.rand(-70));
         action.put(KEY.MOOD, Random.rand(-70));
         action.put(KEY.SATIETY, Random.rand(-70));
+        action.setProbability(1.0);
         return action;
     }
 
@@ -124,7 +125,4 @@ public class Player {
         return my.getInt(key);
     }
 
-    public boolean satisfies(int requirements){
-        return (level.get() >= requirements);
-    }
 }
