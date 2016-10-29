@@ -10,6 +10,10 @@
     <string name="resource_food">Еда</string>
     <string name="resource_real">Реал</string>
 
+    <string name="attribute_mustache">Длина усов</string>
+    <string name="attribute_paws">Пушистость лапок</string>
+    <string name="attribute_claws">Острота когтей</string>
+
     <string name="msg_deadly_warning">Осталось жить ходов: </string>
     <string name="msg_death_passed">Ура! Смертельная угроза миновала!</string>
     <string name="msg_game_over">Твою жизнь прервала смерть. Игра окончена. Начни с начала!</string>

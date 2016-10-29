@@ -18,7 +18,11 @@ public enum KEY {
         ENERGY  (1000 + 3, R.string.indicator_energy),
 
         FOOD   (2000 + 1, R.string.resource_food),
-        REAL   (2000 + 2, R.string.resource_real);
+        REAL   (2000 + 2, R.string.resource_real),
+
+        CLAWS  (3000 + 1, R.string.attribute_claws),
+        PAWS   (3000 + 1, R.string.attribute_paws),
+        MUSTACHE  (3000 + 1, R.string.attribute_mustache);
 
         @Getter
         private final int key;
@@ -30,11 +34,12 @@ public enum KEY {
                 return MyApp.getContextForResources().getString(getNameID());
         }
 
-        public static ArrayList<KEY> getRes(){
-                ArrayList<KEY> res = new ArrayList<KEY>();
-                res.add(KEY.MOOD);
-                res.add(KEY.SATIETY);
-                res.add(KEY.ENERGY);
-                return res;
+        public static ArrayList<KEY> getInd(){
+                ArrayList<KEY> ind = new ArrayList<KEY>();
+                ind.add(KEY.MOOD);
+                ind.add(KEY.SATIETY);
+                ind.add(KEY.ENERGY);
+
+                return ind;
         }
 }

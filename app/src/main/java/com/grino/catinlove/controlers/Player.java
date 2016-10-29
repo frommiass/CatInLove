@@ -58,7 +58,7 @@ public class Player {
         if (my.getInt(KEY.EXP) > getMaxExp()) {
             level.increase();
             my.putRes(KEY.EXP, 0);
-            my.fillMax(KEY.getRes());
+            my.fillMax(KEY.getInd());
             deadlyCountdown = -1;
             say(R.string.msg_level_up);
         }
@@ -88,7 +88,7 @@ public class Player {
         bus.send(new BusMessage(msg));
     }
     private boolean atDeathIsDoor(){
-        return !my.arePositive(KEY.getRes());
+        return !my.arePositive(KEY.getInd());
     }
     public int getMaxExp(){
         return (50 + level.get()*10);
