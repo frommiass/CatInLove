@@ -15,11 +15,11 @@
     <string name="do_create_ru">СКОТ</string>
     <string name="do_error_ru">ОШИБКА</string>
 
-    <string name="do_play_activate">Обкусать новую игрушку</string>
-    <string name="do_eat_activate">Обнюхать новый запах</string>
-    <string name="do_relax_activate">Обследовать новое местечко</string>
-    <string name="do_hunt_activate">Обследовать новую территорию</string>
-    <string name="do_create_activate">Обсмотреть новую животинку</string>
+    <string name="do_play_activate">Обцарапать игрушку</string>
+    <string name="do_eat_activate">Обнюхать вкусняшку</string>
+    <string name="do_relax_activate">Облапать местечко</string>
+    <string name="do_hunt_activate">Обследовать территорию</string>
+    <string name="do_create_activate">Обсмотреть животинку</string>
 
     <integer-array name="do_error"/>
 
