@@ -1,6 +1,7 @@
 package com.grino.catinlove.adapters;
 
 import android.content.Context;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.CoordinatorLayout.LayoutParams;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -56,8 +57,11 @@ public class ActionRecyclerViewAdapter
         String description = "";
         String count = "";
         LayoutParams params = (LayoutParams) holder.icon.getLayoutParams();
+        int color = R.color.colorWhite;
 
-        if (action.getProject().getStatus() == Project.STATUS_RUN){
+        int status = action.getProject().getStatus();
+
+        if (status == Project.STATUS_RUN){
             params.setMargins(0, 0, 0, 0);
             KeyInt one = action.getOne();
             if (one != null)
@@ -68,11 +72,17 @@ public class ActionRecyclerViewAdapter
             params.setMargins(Px.getPx(ctx, 8), Px.getPx(ctx, 8), 0, Px.getPx(ctx, 24));
             if(action.getProbability() != 1.0)
                 description = "Вероятность успеха " + action.getProbability()*100 + "%";
+
+            if (status == Project.STATUS_NOT_ACTIVATE)
+                color = R.color.colorNotActivate;
+            else if (status == Project.STATUS_ACTIVATE)
+                color = R.color.colorNeedRun;
         }
 
         holder.icon.setLayoutParams(params);
         holder.description.setText(description);
         holder.count.setText(count);
+        holder.pic.setBackgroundColor(ctx.getResources().getColor(color));
 
         Picasso.with(game.ctx)
                 .load(action.getIconID())
@@ -89,6 +99,7 @@ public class ActionRecyclerViewAdapter
 
     public static class ActionViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.action_card)         CardView card;
+        @BindView(R.id.action_pic)          CoordinatorLayout pic;
         @BindView(R.id.action_icon)         ImageView icon;
         @BindView(R.id.action_count)        TextView count;
         @BindView(R.id.action_name)         TextView name;
