@@ -109,9 +109,9 @@ public class Player {
     private Action getNextDayAction(){
         Action action = new Action(KEY.class);
         action.put(KEY.EXP, 1);
-        action.put(KEY.ENERGY, Random.rand(-70));
-        action.put(KEY.MOOD, Random.rand(-70));
-        action.put(KEY.SATIETY, Random.rand(-70));
+        action.put(KEY.ENERGY, Random.rand(-50));
+        action.put(KEY.MOOD, Random.rand(-50));
+        action.put(KEY.SATIETY, Random.rand(-50));
         action.setProbability(1.0);
         return action;
     }
