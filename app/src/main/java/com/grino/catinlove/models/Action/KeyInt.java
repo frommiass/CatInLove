@@ -1,6 +1,8 @@
 package com.grino.catinlove.models.Action;
 
 
+import android.content.Context;
+
 import com.grino.catinlove.enums.KEY;
 
 import lombok.AllArgsConstructor;
@@ -25,4 +27,9 @@ public class KeyInt {
     public String getName(){
         return key.getName();
     }
+
+    public String getFailString(Context ctx){
+        return ctx.getString(key.getFailStringID());
+    }
+
 }

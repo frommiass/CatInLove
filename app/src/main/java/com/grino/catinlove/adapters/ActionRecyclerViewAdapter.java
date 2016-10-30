@@ -20,7 +20,7 @@ import com.grino.catinlove.models.Action.Project;
 import com.grino.catinlove.models.Action.ProjectAction;
 import com.grino.catinlove.models.Action.Projects;
 import com.grino.catinlove.rxBus.BusActionClick;
-import com.grino.catinlove.rxBus.RxBus;
+import com.grino.catinlove.rxBus.BusMessage;
 import com.grino.catinlove.tools.Px;
 import com.squareup.picasso.Picasso;
 
@@ -46,7 +46,7 @@ public class ActionRecyclerViewAdapter
     @Override
     public ActionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.action_card, parent, false);
-        return new ActionViewHolder(v, game.getBus());
+        return new ActionViewHolder(v, game);
     }
 
     @Override
@@ -105,13 +105,13 @@ public class ActionRecyclerViewAdapter
         @BindView(R.id.action_description)  TextView description;
 
         private Action action;
-        RxBus bus;
+        Game game;
 
-        ActionViewHolder(View view, RxBus bus) {
+        ActionViewHolder(View view, Game game) {
             super(view);
             ButterKnife.bind(this, view);
 
-            this.bus = bus;
+            this.game = game;
         }
 
         public void bind(Action action){
@@ -120,7 +120,10 @@ public class ActionRecyclerViewAdapter
 
         @OnClick
         public void onClickCard(){
-            bus.sendObservers(new BusActionClick(action));
+            if (game.getCat().satisfies(action))
+                game.getBus().sendObservers(new BusActionClick(action));
+            else
+                game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(game.ctx)));
         }
 
     }

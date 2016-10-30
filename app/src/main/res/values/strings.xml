@@ -5,7 +5,7 @@
     <string name="indicator_mood">Настроение</string>
     <string name="indicator_energy">Бодрость</string>
 
-    <string name="indicator_exp">Длина усов</string>
+    <string name="indicator_exp">Опыт</string>
 
     <string name="resource_food">Еда</string>
     <string name="resource_real">Реал</string>
@@ -13,6 +13,13 @@
     <string name="attribute_mustache">Длина усов</string>
     <string name="attribute_paws">Мягкость лапок</string>
     <string name="attribute_claws">Острота когтей</string>
+
+    <string name="key_fail_exp">Не хватает опыта</string>
+    <string name="key_fail_food">Нужно больше мух!</string>
+    <string name="key_fail_real">Не хватает</string>
+    <string name="key_fail_mustache">Еще усы не отросли!</string>
+    <string name="key_fail_paws">Недостаточно мягкие лапки!</string>
+    <string name="key_fail_claws">Слишком тупые когти!</string>
 
     <string name="msg_deadly_warning">Осталось жить ходов: </string>
     <string name="msg_death_passed">Ура! Смертельная угроза миновала!</string>

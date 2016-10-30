@@ -14,6 +14,8 @@ import com.grino.catinlove.rxBus.BusUpdatePlayer;
 import com.grino.catinlove.rxBus.RxBus;
 import com.grino.catinlove.tools.Random;
 
+import java.util.Map;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,9 +47,9 @@ public class Player {
         day = new Container(1, 20000000, 1);
         my = new ContainerMap(KEY.class)
                 .putRes(KEY.EXP, 0)
-                .putRes(KEY.CLAWS, 1)
-                .putRes(KEY.MUSTACHE, 1)
-                .putRes(KEY.PAWS, 1)
+                .putRes(KEY.CLAWS, 5)
+                .putRes(KEY.MUSTACHE, 5)
+                .putRes(KEY.PAWS, 5)
                 .putInd(KEY.ENERGY, 1000)
                 .putInd(KEY.SATIETY, 1000)
                 .putInd(KEY.MOOD, 1000)
@@ -123,9 +125,19 @@ public class Player {
             my.combineByKey(action);
     }
 
-
     public int getContent(KEY key) {
         return my.getInt(key);
+    }
+
+    public boolean satisfies(Action action){
+        boolean result = true;
+        for (Map.Entry<KEY, Integer> e: action.entrySet()){
+            KEY key = e.getKey();
+            int val = e.getValue();
+            if ( (my.get(key) == null) || (my.get(key).get() + val < 0) )
+                result = false;
+        }
+        return result;
     }
 
 }
