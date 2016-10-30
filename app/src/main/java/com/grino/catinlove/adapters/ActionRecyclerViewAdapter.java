@@ -133,7 +133,7 @@ public class ActionRecyclerViewAdapter
             else {
                 YoYo.with(Techniques.Flash)
                         .duration(700)
-                        .playOn(name);
+                        .playOn(pic);
                 game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(game.ctx)));
             }
         }
