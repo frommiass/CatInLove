@@ -14,4 +14,11 @@
     <color name="colorNeedRun">#FFF9C4</color>
 
 
+    <color name="colorInt1">#e1200a</color>
+    <color name="colorInt2">#e0830a</color>
+    <color name="colorInt3">#e8d103</color>
+    <color name="colorInt4">#99dd4d</color>
+    <color name="colorInt5">#3a8d07</color>
+
+
 </resources>

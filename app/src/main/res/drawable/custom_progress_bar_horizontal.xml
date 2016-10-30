@@ -10,12 +10,11 @@
                 android:left="3dip"
                 android:right="3dip"/>
             <corners
-                android:radius="5dip" />
+                android:radius="8dip" />
             <gradient
-                android:startColor="#2a2b2f"
-                android:centerColor="#2a2b2f"
+                android:startColor="#757575"
                 android:centerY="0.50"
-                android:endColor="#2a2b2f"
+                android:endColor="#9E9E9E"
                 android:angle="270" />
         </shape>
     </item>
@@ -24,10 +23,10 @@
         <clip>
             <shape>
                 <corners
-                    android:radius="5dip" />
+                    android:radius="8dip" />
                 <gradient
-                    android:startColor="#C8E6C9"
-                    android:endColor="#DCEDC8"
+                    android:startColor="#000000"
+                    android:endColor="#424242"
                     android:angle="90" />
             </shape>
         </clip>

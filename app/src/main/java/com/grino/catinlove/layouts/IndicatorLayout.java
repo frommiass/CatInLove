@@ -2,6 +2,7 @@ package com.grino.catinlove.layouts;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,5 +50,16 @@ public class IndicatorLayout
 
     public void setProgress(int value){
         vProgress.setProgress(value);
+
+        int colorStart = R.color.colorWhite;
+
+             if ((value >= 0)  & (value <= 200))    colorStart = R.color.colorInt1;
+        else if ((value > 200) & (value <= 400))    colorStart = R.color.colorInt2;
+        else if ((value > 400) & (value <= 600))    colorStart = R.color.colorInt3;
+        else if ((value > 600) & (value <= 800))    colorStart = R.color.colorInt4;
+        else if ((value > 800) & (value <= 1000))   colorStart = R.color.colorInt5;
+
+        vProgress.getProgressDrawable().setColorFilter(getResources().getColor(colorStart), PorterDuff.Mode.SCREEN);
     }
+
 }
