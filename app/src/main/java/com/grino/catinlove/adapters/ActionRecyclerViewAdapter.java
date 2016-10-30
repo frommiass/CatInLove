@@ -5,6 +5,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.CoordinatorLayout.LayoutParams;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.github.johnpersano.supertoasts.library.Style;
+import com.github.johnpersano.supertoasts.library.SuperActivityToast;
 import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
@@ -23,13 +26,16 @@ import com.grino.catinlove.models.Action.Project;
 import com.grino.catinlove.models.Action.ProjectAction;
 import com.grino.catinlove.models.Action.Projects;
 import com.grino.catinlove.rxBus.BusActionClick;
-import com.grino.catinlove.rxBus.BusMessage;
 import com.grino.catinlove.tools.Px;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.grino.catinlove.R.drawable;
+import static com.grino.catinlove.R.id;
+import static com.grino.catinlove.R.layout;
 
 ;
 
@@ -38,22 +44,22 @@ public class ActionRecyclerViewAdapter
 
     Game game;
     Projects list;
-    Context ctx;
 
     public ActionRecyclerViewAdapter(Game game, DO d) {
         this.game = game;
         list = game.getProjectsTable().getProjectsList(d);
-        this.ctx = game.ctx;
     }
 
     @Override
     public ActionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.action_card, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(layout.action_card, parent, false);
         return new ActionViewHolder(v, game);
     }
 
     @Override
     public void onBindViewHolder(ActionViewHolder holder, int position) {
+        Context ctx = holder.card.getContext();
+
         ProjectAction action = list.get(position).getAction();
         holder.name.setText(action.getName());
 
@@ -89,7 +95,7 @@ public class ActionRecyclerViewAdapter
         holder.count.setText(count);
         holder.pic.setBackgroundColor(ctx.getResources().getColor(color));
 
-        Picasso.with(game.ctx)
+        Picasso.with(ctx)
                 .load(action.getIconID())
                 .into(holder.icon);
 
@@ -102,21 +108,23 @@ public class ActionRecyclerViewAdapter
     }
 
     public static class ActionViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.action_card)         CardView card;
-        @BindView(R.id.action_pic)          CoordinatorLayout pic;
-        @BindView(R.id.action_icon)         ImageView icon;
-        @BindView(R.id.action_count)        TextView count;
-        @BindView(R.id.action_name)         TextView name;
-        @BindView(R.id.action_description)  TextView description;
+        @BindView(id.action_card)         CardView card;
+        @BindView(id.action_pic)          CoordinatorLayout pic;
+        @BindView(id.action_icon)         ImageView icon;
+        @BindView(id.action_count)        TextView count;
+        @BindView(id.action_name)         TextView name;
+        @BindView(id.action_description)  TextView description;
 
         private ProjectAction action;
         Game game;
+        Context ctx;
 
         ActionViewHolder(View view, Game game) {
             super(view);
             ButterKnife.bind(this, view);
 
             this.game = game;
+            this.ctx = card.getContext();
         }
 
         public void bind(ProjectAction action){
@@ -137,14 +145,54 @@ public class ActionRecyclerViewAdapter
                         YoYo.with(Techniques.Shake).duration(700).playOn(name);
                     } else if (status == Project.STATUS_RUN) {
                         action.getProject().Stop();
-                        game.getBus().sendObservers(new BusMessage("Сломалось! Ищи замену!"));
+                        SuperActivityToast.create(ctx, new Style(), Style.TYPE_STANDARD)
+                                .setIconResource(drawable.ic_launcher)
+                                .setText("Сломалось! Ищи замену!")
+                                .setDuration(Style.DURATION_VERY_SHORT)
+                                .setFrame(Style.FRAME_STANDARD)
+                                .setColor(ctx.getResources().getColor(R.color.colorAccent))
+                                .setAnimations(Style.ANIMATIONS_POP)
+                                .show();
+                        //game.getBus().sendObservers(new BusMessage("Сломалось! Ищи замену!"));
                     }
                 }
                 game.getBus().sendObservers(new BusActionClick(send));
             }
             else {
                 YoYo.with(Techniques.Flash).duration(700).playOn(pic);
-                game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(game.ctx)));
+                //game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(ctx)));
+                SuperActivityToast.create(card.getContext(), new Style(), Style.TYPE_STANDARD)
+                        .setIconResource(drawable.ic_launcher)
+                        .setText(action.getOne().getFailString(game.ctx))
+                        .setDuration(Style.DURATION_SHORT)
+                        .setFrame(Style.FRAME_STANDARD)
+                        .setColor(ctx.getResources().getColor(R.color.colorAccent))
+                        .setAnimations(Style.ANIMATIONS_POP)
+                        .show();
+
+                Log.d("Grino", "000");
+/*
+                Observable.just("").subscribe(
+                        v -> {
+                            Log.d("Grino", "111");
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            Log.d("Grino", "222");
+
+
+                            SuperActivityToast.create(card.getContext(), new Style(), Style.TYPE_STANDARD)
+                                    .setIconResource(drawable.ic_launcher)
+                                    .setText("sdvsdvsdvsdv")
+                                    .setDuration(Style.DURATION_SHORT)
+                                    .setFrame(Style.FRAME_STANDARD)
+                                    .setColor(ctx.getResources().getColor(R.color.colorAccent))
+                                    .setAnimations(Style.ANIMATIONS_POP)
+                                    .show();
+
+                        });*/
             }
 
         }
