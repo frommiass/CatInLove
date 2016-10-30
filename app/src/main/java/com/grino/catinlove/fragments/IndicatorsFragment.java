@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.layouts.AttributeLayout;
+import com.grino.catinlove.layouts.IndicatorLayout;
 import com.grino.catinlove.models.Action.Action;
 import com.grino.catinlove.rxBus.BusActionClick;
 
@@ -19,10 +20,10 @@ import butterknife.ButterKnife;
 public class IndicatorsFragment
         extends BaseFragment {
 
-    @BindView(R.id.pb_satiety)  ProgressBar pbSatiety;
-    @BindView(R.id.pb_mood)     ProgressBar pbMoon;
-    @BindView(R.id.pb_energy)   ProgressBar pbEnergy;
-    @BindView(R.id.pb_exp)      ProgressBar pbExp;
+    @BindView(R.id.ind_satiety)     IndicatorLayout satiety;
+    @BindView(R.id.ind_mood)        IndicatorLayout mood;
+    @BindView(R.id.ind_energy)      IndicatorLayout energy;
+    @BindView(R.id.pb_exp)       ProgressBar pbExp;
 
     @BindView(R.id.level)   TextView tvLevel;
     @BindView(R.id.food)    TextView tvFood;
@@ -43,9 +44,9 @@ public class IndicatorsFragment
     }
 
     public void updateIndicators(){
-        pbMoon.setProgress(cat.getContent(KEY.MOOD));
-        pbSatiety.setProgress(cat.getContent(KEY.SATIETY));
-        pbEnergy.setProgress(cat.getContent(KEY.ENERGY));
+        mood.setProgress(cat.getContent(KEY.MOOD));
+        satiety.setProgress(cat.getContent(KEY.SATIETY));
+        energy.setProgress(cat.getContent(KEY.ENERGY));
 
         pbExp.setProgress(cat.getContent(KEY.EXP));
         pbExp.setMax(cat.getMaxExp());

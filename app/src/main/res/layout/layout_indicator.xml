@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="htp://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/indicator_name"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/indicator_satiety"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        app:layout_scrollFlags="scroll|snap"/>
+
+    <ProgressBar
+        android:id="@+id/indicator_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.4"
+        android:progress="33"
+        android:max="1000"
+        style="@style/CustomProgressBar"
+        android:layout_gravity="center" />
+
+</LinearLayout>

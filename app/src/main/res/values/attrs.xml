@@ -2,8 +2,13 @@
 <resources>
 
     <declare-styleable name="AttributeLayout">
-        <attr name="att_name" format="string" />
+        <attr name="att_name" format="integer" />
         <attr name="att_icon" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorLayout">
+        <attr name="ind_name" format="integer" />
+        <attr name="ind_progress" format="integer"/>
     </declare-styleable>
 
 </resources>

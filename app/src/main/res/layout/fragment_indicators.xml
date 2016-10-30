@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="right"
-        android:visibility="invisible">
+        android:visibility="visible">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,83 +50,28 @@
             app:layout_scrollFlags="scroll|enterAlways"/>
     </LinearLayout>
 
-    <LinearLayout
+
+    <com.grino.catinlove.layouts.IndicatorLayout
+        android:id="@+id/ind_energy"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:ind_name="@string/indicator_energy" />
 
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/indicator_energy"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            app:layout_scrollFlags="scroll|snap"/>
-
-        <ProgressBar
-            android:id="@+id/pb_energy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2.4"
-            android:progress="33"
-            android:max="1000"
-            style="@style/CustomProgressBar"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <com.grino.catinlove.layouts.IndicatorLayout
+        android:id="@+id/ind_satiety"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:ind_name="@string/indicator_satiety" />
 
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/indicator_satiety"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            app:layout_scrollFlags="scroll|snap"/>
-
-        <ProgressBar
-            android:id="@+id/pb_satiety"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2.4"
-            android:progress="33"
-            android:max="1000"
-            style="@style/CustomProgressBar"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <com.grino.catinlove.layouts.IndicatorLayout
+        android:id="@+id/ind_mood"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:ind_name="@string/indicator_mood" />
 
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/indicator_mood"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            app:layout_scrollFlags="scroll|snap"/>
-
-        <ProgressBar
-            android:id="@+id/pb_mood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2.4"
-            android:progress="33"
-            android:max="1000"
-            style="@style/CustomProgressBar"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
