@@ -53,7 +53,7 @@ public class Player {
                 .putInd(KEY.ENERGY, 1000)
                 .putInd(KEY.SATIETY, 1000)
                 .putInd(KEY.MOOD, 1000)
-                .putRes(KEY.FOOD, 0)
+                .putRes(KEY.FOOD, 5)
                 .putRes(KEY.REAL, 10);
         deadlyCountdown = -1;
         incoming = new Incoming();
@@ -111,9 +111,9 @@ public class Player {
     private Action getNextDayAction(){
         Action action = new Action(KEY.class);
         action.put(KEY.EXP, 1);
-        action.put(KEY.ENERGY, Random.rand(-50));
-        action.put(KEY.MOOD, Random.rand(-50));
-        action.put(KEY.SATIETY, Random.rand(-50));
+        action.put(KEY.ENERGY, Random.rand(-30));
+        action.put(KEY.MOOD, Random.rand(-30));
+        action.put(KEY.SATIETY, Random.rand(-30));
         action.setProbability(1.0);
         return action;
     }

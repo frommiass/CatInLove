@@ -37,6 +37,7 @@ public class ProjectsTable {
         Sequence sProb1 = new Sequence(SEQUENCE_TYPE.CONSTANT, 1);
         Sequence sProb2 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -100, 3500);
         Sequence sProb3 = new Sequence(SEQUENCE_TYPE.CONSTANT, 0.9);
+        Sequence sProb4 = new Sequence(SEQUENCE_TYPE.CONSTANT, 0.5);
 
         Sequence seqExp1 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, -5, 0);
         Sequence seqExp2 = new Sequence(SEQUENCE_TYPE.LINEAR_DEPENDENCE, 1, 0);
@@ -61,7 +62,7 @@ public class ProjectsTable {
         setEffect(DO.PLAY,   sProb3, KEY.MOOD,    seqInd);
         setEffect(DO.EAT,    sProb3, KEY.SATIETY, seqInd);
         setEffect(DO.RELAX,  sProb3, KEY.ENERGY,  seqInd);
-        setEffect(DO.HUNT,   sProb1, KEY.FOOD,    seqFood2);
+        setEffect(DO.HUNT,   sProb4, KEY.FOOD,    seqFood2);
         setEffect(DO.CREATE, sProb1, KEY.FOOD,    seqFood2);
     }
 
