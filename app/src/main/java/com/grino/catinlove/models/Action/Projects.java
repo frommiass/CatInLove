@@ -20,7 +20,7 @@ public class Projects
         if (s2.getCount()<count) count=s2.getCount();
         if (s3.getCount()<count) count=s3.getCount();
 
-        for (int i=1; i<count; i++){
+        for (int i=0; i<count; i++){
             add(new Project(s1.get(i), s2.get(i), s3.get(i)));
         }
     }
