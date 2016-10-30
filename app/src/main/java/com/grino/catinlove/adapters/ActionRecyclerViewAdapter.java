@@ -76,9 +76,11 @@ public class ActionRecyclerViewAdapter
             if(action.getProbability() != 1.0)
                 description = "Вероятность успеха " + action.getProbability()*100 + "%";
 
-            if (status == Project.STATUS_NOT_ACTIVATE)
-                color = R.color.colorNotActivate;
-            else if (status == Project.STATUS_ACTIVATE)
+            if (status == Project.STATUS_NOT_ACTIVATE) {
+                if (game.getCat().satisfies(action))
+                    color = R.color.colorCanActivate;
+                else color = R.color.colorNotActivate;
+            } else if (status == Project.STATUS_ACTIVATE)
                 color = R.color.colorNeedRun;
         }
 
