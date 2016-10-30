@@ -1,6 +1,7 @@
 package com.grino.catinlove.layouts;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +43,9 @@ public class AttributeLayout
         ButterKnife.bind(this, layout);
 
         if (attrs != null){
-            vName.setText(attrs.getAttributeValue(R.attr.att_name));
-            vIcon.setImageResource(attrs.getAttributeResourceValue(R.attr.att_icon, R.drawable.claws));
+            TypedArray att = context.obtainStyledAttributes(attrs, R.styleable.AttributeLayout);
+            vName.setText(att.getString(R.styleable.AttributeLayout_att_name));
+            vIcon.setImageResource(att.getResourceId(R.styleable.AttributeLayout_att_icon, R.drawable.claws));
         }
     }
 
