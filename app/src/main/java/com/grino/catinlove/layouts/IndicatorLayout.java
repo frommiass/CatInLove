@@ -14,10 +14,12 @@ import com.grino.catinlove.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lombok.Getter;
 
 public class IndicatorLayout
         extends LinearLayout {
 
+    @Getter
     @BindView(R.id.indicator_name)      TextView    vName;
     @BindView(R.id.indicator_progress)  ProgressBar vProgress;
 

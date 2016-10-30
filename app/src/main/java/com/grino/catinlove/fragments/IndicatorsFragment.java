@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.grino.catinlove.R;
 import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.layouts.AttributeLayout;
 import com.grino.catinlove.layouts.IndicatorLayout;
 import com.grino.catinlove.models.Action.Action;
+import com.grino.catinlove.models.Action.KeyInt;
 import com.grino.catinlove.rxBus.BusActionClick;
 
 import butterknife.BindView;
@@ -23,7 +26,7 @@ public class IndicatorsFragment
     @BindView(R.id.ind_satiety)     IndicatorLayout satiety;
     @BindView(R.id.ind_mood)        IndicatorLayout mood;
     @BindView(R.id.ind_energy)      IndicatorLayout energy;
-    @BindView(R.id.pb_exp)       ProgressBar pbExp;
+    @BindView(R.id.pb_exp)          ProgressBar pbExp;
 
     @BindView(R.id.level)   TextView tvLevel;
     @BindView(R.id.food)    TextView tvFood;
@@ -64,6 +67,21 @@ public class IndicatorsFragment
     public void processEvent(Object event) {
         if (event instanceof BusActionClick) {
             Action action = ((BusActionClick) event).getAction();
+
+            if (action != null) {
+                TextView ind = null;
+                KeyInt one = action.getOne();
+
+                if (one != null) {
+                    if (KEY.SATIETY.equals(one.getKey())) ind = satiety.getVName();
+                    else if (KEY.ENERGY.equals(one.getKey())) ind = energy.getVName();
+                    else if (KEY.MOOD.equals(one.getKey())) ind = mood.getVName();
+
+                    if (ind != null)
+                        YoYo.with(Techniques.Flash).duration(700).playOn(ind);
+                }
+            }
+
             cat.doTick(action);
             updateIndicators();
         }
