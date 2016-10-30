@@ -142,7 +142,7 @@ public class ActionRecyclerViewAdapter
                     send = action;
                 else {
                     if (status == Project.STATUS_ACTIVATE) {
-                        YoYo.with(Techniques.Shake).duration(700).playOn(name);
+                        YoYo.with(Techniques.Shake).duration(700).playOn(card);
                     } else if (status == Project.STATUS_RUN) {
                         action.getProject().Stop();
                         SuperActivityToast.create(ctx, new Style(), Style.TYPE_STANDARD)
@@ -159,7 +159,7 @@ public class ActionRecyclerViewAdapter
                 game.getBus().sendObservers(new BusActionClick(send));
             }
             else {
-                YoYo.with(Techniques.Flash).duration(700).playOn(pic);
+                YoYo.with(Techniques.Flash).duration(700).playOn(card);
                 //game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(ctx)));
                 SuperActivityToast.create(card.getContext(), new Style(), Style.TYPE_STANDARD)
                         .setIconResource(drawable.ic_launcher)
