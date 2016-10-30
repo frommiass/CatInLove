@@ -121,8 +121,7 @@ public class Player {
     public void doAction(Action action){
         if (action instanceof Income)
             incoming.put(action);
-        else if (action.isMade())
-            my.combineByKey(action);
+        else my.combineByKey(action);
     }
 
     public int getContent(KEY key) {

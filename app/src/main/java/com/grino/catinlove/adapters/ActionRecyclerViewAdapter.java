@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
@@ -119,11 +121,21 @@ public class ActionRecyclerViewAdapter
         }
 
         @OnClick
-        public void onClickCard(){
+        public void onClickCard() {
             if (game.getCat().satisfies(action))
-                game.getBus().sendObservers(new BusActionClick(action));
-            else
+                if (action.isMade())
+                    game.getBus().sendObservers(new BusActionClick(action));
+                else {
+                    YoYo.with(Techniques.Shake)
+                            .duration(700)
+                            .playOn(name);
+                }
+            else {
+                YoYo.with(Techniques.Flash)
+                        .duration(700)
+                        .playOn(name);
                 game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(game.ctx)));
+            }
         }
 
     }
