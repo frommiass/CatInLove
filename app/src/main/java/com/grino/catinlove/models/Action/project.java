@@ -45,6 +45,5 @@ public class Project {
     public void Next(){
         if (status == STATUS_NOT_ACTIVATE) Run();
         else if (status == STATUS_ACTIVATE) Run();
-        else if (status == STATUS_RUN) Stop();
     }
 }

@@ -107,7 +107,7 @@ public class ActionRecyclerViewAdapter
         @BindView(R.id.action_name)         TextView name;
         @BindView(R.id.action_description)  TextView description;
 
-        private Action action;
+        private ProjectAction action;
         Game game;
 
         ActionViewHolder(View view, Game game) {
@@ -117,27 +117,34 @@ public class ActionRecyclerViewAdapter
             this.game = game;
         }
 
-        public void bind(Action action){
+        public void bind(ProjectAction action){
             this.action = action;
         }
 
         @OnClick
         public void onClickCard() {
-            if (game.getCat().satisfies(action))
+            int status = action.getProject().getStatus();
+
+            Action send = new Action(KEY.class);
+
+            if (game.getCat().satisfies(action)) {
                 if (action.isMade())
-                    game.getBus().sendObservers(new BusActionClick(action));
+                    send = action;
                 else {
-                    YoYo.with(Techniques.Shake)
-                            .duration(700)
-                            .playOn(name);
-                    game.getBus().sendObservers(new BusActionClick(new Action(KEY.class)));
+                    if (status == Project.STATUS_ACTIVATE) {
+                        YoYo.with(Techniques.Shake).duration(700).playOn(name);
+                    } else if (status == Project.STATUS_RUN) {
+                        action.getProject().Stop();
+                        game.getBus().sendObservers(new BusMessage("Сломалось! Ищи замену!"));
+                    }
                 }
+                game.getBus().sendObservers(new BusActionClick(send));
+            }
             else {
-                YoYo.with(Techniques.Flash)
-                        .duration(700)
-                        .playOn(pic);
+                YoYo.with(Techniques.Flash).duration(700).playOn(pic);
                 game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(game.ctx)));
             }
+
         }
 
     }
