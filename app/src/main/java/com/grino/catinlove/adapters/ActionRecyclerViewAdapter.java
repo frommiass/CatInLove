@@ -16,6 +16,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.grino.catinlove.R;
 import com.grino.catinlove.controlers.Game;
 import com.grino.catinlove.enums.DO;
+import com.grino.catinlove.enums.KEY;
 import com.grino.catinlove.models.Action.Action;
 import com.grino.catinlove.models.Action.KeyInt;
 import com.grino.catinlove.models.Action.Project;
@@ -129,6 +130,7 @@ public class ActionRecyclerViewAdapter
                     YoYo.with(Techniques.Shake)
                             .duration(700)
                             .playOn(name);
+                    game.getBus().sendObservers(new BusActionClick(new Action(KEY.class)));
                 }
             else {
                 YoYo.with(Techniques.Flash)
