@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AttributeLayout">
+        <attr name="att_name" format="string" />
+        <attr name="att_icon" format="integer"/>
+    </declare-styleable>
+
+</resources>

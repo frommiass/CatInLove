@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,18 +9,24 @@
         android:id="@+id/attribute_1"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        app:att_name="@string/attribute_paws"
+        app:att_icon="@drawable/paws"/>
 
     <com.grino.catinlove.layouts.AttributeLayout
         android:id="@+id/attribute_2"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        app:att_name="@string/attribute_mustache"
+        app:att_icon="@drawable/mustache"/>
 
     <com.grino.catinlove.layouts.AttributeLayout
         android:id="@+id/attribute_3"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:layout_width="wrap_content"
+        app:att_name="@string/attribute_claws"
+        app:att_icon="@drawable/claws"/>
 
 </LinearLayout>

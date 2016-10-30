@@ -22,35 +22,32 @@ public class AttributeLayout
 
     public AttributeLayout(Context context) {
         super(context);
-        initializeViews(context);
+        initializeViews(context, null);
     }
 
     public AttributeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initializeViews(context);
+        initializeViews(context, attrs);
     }
 
     public AttributeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initializeViews(context);
+        initializeViews(context, attrs);
     }
 
 
-    private void initializeViews(Context context) {
+    private void initializeViews(Context context, AttributeSet attrs) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.layout_attribute, this);
         ButterKnife.bind(this, layout);
+
+        if (attrs != null){
+            vName.setText(attrs.getAttributeValue(R.attr.att_name));
+            vIcon.setImageResource(attrs.getAttributeResourceValue(R.attr.att_icon, R.drawable.claws));
+        }
     }
 
     public void setValue(int value){
         vValue.setText(String.valueOf(value));
-    }
-
-    public void setName(String name){
-        vName.setText(name);
-    }
-
-    public void setIcon(int id){
-        vIcon.setImageResource(id);
     }
 }

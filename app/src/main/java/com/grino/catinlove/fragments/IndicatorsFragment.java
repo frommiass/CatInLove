@@ -19,31 +19,23 @@ import butterknife.ButterKnife;
 public class IndicatorsFragment
         extends BaseFragment {
 
-    @BindView(R.id.pb_satiety) ProgressBar pbSatiety;
-    @BindView(R.id.pb_mood) ProgressBar pbMoon;
-    @BindView(R.id.pb_energy) ProgressBar pbEnergy;
-    @BindView(R.id.pb_exp) ProgressBar pbExp;
+    @BindView(R.id.pb_satiety)  ProgressBar pbSatiety;
+    @BindView(R.id.pb_mood)     ProgressBar pbMoon;
+    @BindView(R.id.pb_energy)   ProgressBar pbEnergy;
+    @BindView(R.id.pb_exp)      ProgressBar pbExp;
 
-    @BindView(R.id.level) TextView tvLevel;
-    @BindView(R.id.food) TextView tvFood;
-    @BindView(R.id.real) TextView tvReal;
+    @BindView(R.id.level)   TextView tvLevel;
+    @BindView(R.id.food)    TextView tvFood;
+    @BindView(R.id.real)    TextView tvReal;
 
-    @BindView(R.id.attribute_1) AttributeLayout att1;
-    @BindView(R.id.attribute_2) AttributeLayout att2;
-    @BindView(R.id.attribute_3) AttributeLayout att3;
+    @BindView(R.id.attribute_1) AttributeLayout paws;
+    @BindView(R.id.attribute_2) AttributeLayout mustache;
+    @BindView(R.id.attribute_3) AttributeLayout claws;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_indicators, container, false);
         unbinder = ButterKnife.bind(this, layout);
-
-        att1.setName(KEY.PAWS.getName());
-        att2.setName(KEY.MUSTACHE.getName());
-        att3.setName(KEY.CLAWS.getName());
-
-        att1.setIcon(R.drawable.paws);
-        att2.setIcon(R.drawable.mustache);
-        att3.setIcon(R.drawable.claws);
 
         updateIndicators();
 
@@ -62,9 +54,9 @@ public class IndicatorsFragment
         tvFood.setText("" + cat.getContent(KEY.FOOD));
         tvReal.setText("" + cat.getContent(KEY.REAL));
 
-        att1.setValue(cat.getContent(KEY.PAWS));
-        att2.setValue(cat.getContent(KEY.MUSTACHE));
-        att3.setValue(cat.getContent(KEY.CLAWS));
+        paws.setValue(cat.getContent(KEY.PAWS));
+        mustache.setValue(cat.getContent(KEY.MUSTACHE));
+        claws.setValue(cat.getContent(KEY.CLAWS));
     }
 
     @Override
