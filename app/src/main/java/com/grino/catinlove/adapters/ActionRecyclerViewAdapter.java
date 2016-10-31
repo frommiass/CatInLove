@@ -1,5 +1,6 @@
 package com.grino.catinlove.adapters;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.CoordinatorLayout.LayoutParams;
@@ -7,8 +8,10 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +35,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.codetail.animation.ViewAnimationUtils;
 
 import static com.grino.catinlove.R.drawable;
 import static com.grino.catinlove.R.id;
@@ -107,7 +111,9 @@ public class ActionRecyclerViewAdapter
         return list.size();
     }
 
-    public static class ActionViewHolder extends RecyclerView.ViewHolder {
+    public static class ActionViewHolder
+            extends RecyclerView.ViewHolder
+            implements View.OnTouchListener {
         @BindView(id.action_card)         CardView card;
         @BindView(id.action_pic)          CoordinatorLayout pic;
         @BindView(id.action_icon)         ImageView icon;
@@ -118,6 +124,7 @@ public class ActionRecyclerViewAdapter
         private ProjectAction action;
         Game game;
         Context ctx;
+        private int x, y;
 
         ActionViewHolder(View view, Game game) {
             super(view);
@@ -125,10 +132,25 @@ public class ActionRecyclerViewAdapter
 
             this.game = game;
             this.ctx = card.getContext();
+
+            card.setOnTouchListener(this);
         }
 
         public void bind(ProjectAction action){
             this.action = action;
+        }
+
+        public void CircularAnimation(){
+            // get the final radius for the clipping circle
+            int dx = Math.max(x, card.getWidth() - x);
+            int dy = Math.max(y, card.getHeight() - y);
+            float radius = (float) Math.hypot(dx, dy);
+
+            // Android native animator
+            Animator animator = ViewAnimationUtils.createCircularReveal(card, x, y, 0, radius);
+            animator.setInterpolator(new DecelerateInterpolator());
+            animator.setDuration(1000);
+            animator.start();
         }
 
         @OnClick
@@ -138,12 +160,16 @@ public class ActionRecyclerViewAdapter
             Action send = new Action(KEY.class);
 
             if (game.getCat().satisfies(action)) {
-                if (action.isMade())
+                if (action.isMade()) {
                     send = action;
+                    if (status == Project.STATUS_RUN) CircularAnimation();
+                    else YoYo.with(Techniques.FlipInX).duration(1000).playOn(card);
+                }
                 else {
                     if (status == Project.STATUS_ACTIVATE) {
-                        YoYo.with(Techniques.Shake).duration(700).playOn(card);
+                        YoYo.with(Techniques.Shake).duration(1000).playOn(card);
                     } else if (status == Project.STATUS_RUN) {
+                        YoYo.with(Techniques.FlipInX).duration(1000).playOn(card);
                         action.getProject().Stop();
                         SuperActivityToast.create(ctx, new Style(), Style.TYPE_STANDARD)
                                 .setIconResource(drawable.ic_launcher)
@@ -153,13 +179,12 @@ public class ActionRecyclerViewAdapter
                                 .setColor(ctx.getResources().getColor(R.color.colorAccent))
                                 .setAnimations(Style.ANIMATIONS_POP)
                                 .show();
-                        //game.getBus().sendObservers(new BusMessage("Сломалось! Ищи замену!"));
                     }
                 }
                 game.getBus().sendObservers(new BusActionClick(send));
             }
             else {
-                YoYo.with(Techniques.Flash).duration(700).playOn(card);
+                YoYo.with(Techniques.Flash).duration(1000).playOn(card);
                 //game.getBus().sendObservers(new BusMessage(action.getOne().getFailString(ctx)));
                 SuperActivityToast.create(card.getContext(), new Style(), Style.TYPE_STANDARD)
                         .setIconResource(drawable.ic_launcher)
@@ -197,6 +222,11 @@ public class ActionRecyclerViewAdapter
 
         }
 
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            x = (int)event.getX();
+            y = (int)event.getY();
+            return false;
+        }
     }
-
 }
